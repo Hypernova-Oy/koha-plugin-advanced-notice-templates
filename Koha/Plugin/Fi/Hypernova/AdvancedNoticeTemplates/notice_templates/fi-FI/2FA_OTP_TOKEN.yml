@@ -1,0 +1,19 @@
+---
+module: members
+name: Kaksivaiheisen tunnistautumisen koodi
+template:
+  email:
+    html:
+      anonymous:
+        content: |
+          <p>Olet pyytänyt kirjastolta kaksivaiheisen tunnistautumisen koodia.</p>
+          <p>Koodi on <strong>[% otp_token %]</strong>.</p>
+          <p>Koodi on voimassa yhden minuutin.</p>
+        title: Kaksivaiheisen tunnistautumisen koodi
+      default:
+        content: |
+          <p>Hyvä [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber %])</p>
+          <p>Olet pyytänyt kirjastolta kaksivaiheisen tunnistautumisen koodia.</p>
+          <p>Koodi on <strong>[% otp_token %]</strong>.</p>
+          <p>Koodi on voimassa yhden minuutin.</p>
+        title: Kaksivaiheisen tunnistautumisen koodi

@@ -1,0 +1,14 @@
+---
+module: circulation
+name: Asiakkaan tekemä huomautus niteelle
+template:
+  email:
+    plain:
+      anonymous:
+        content: <<borrowers.firstname>> <<borrowers.surname>> on lisännyt nidehuomautuksen
+          <<biblio.title>> - <<biblio.author>> (<<biblio.biblionumber>>).
+        title: Lainahuomautus
+      default:
+        content: <<borrowers.firstname>> <<borrowers.surname>> on lisännyt nidehuomautuksen
+          <<biblio.title>> - <<biblio.author>> (<<biblio.biblionumber>>).
+        title: Lainahuomautus

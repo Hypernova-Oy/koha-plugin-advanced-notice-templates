@@ -1,0 +1,46 @@
+---
+module: reserves
+name: Varaus noudettavissa
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSinulla
+          on varaus noudettavissa <<reserves.waitingdate>>:\r\n\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nKopion numero: <<items.copynumber>>\r\nHyllypaikka:
+          <<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>\r\n<<branches.branchaddress3>>\r\n<<branches.branchcity>>
+          <<branches.branchzip>>"
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSinulla
+          on varaus noudettavissa <<reserves.waitingdate>>:\r\n\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nKopion numero: <<items.copynumber>>\r\nHyllypaikka:
+          <<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>\r\n<<branches.branchaddress3>>\r\n<<branches.branchcity>>
+          <<branches.branchzip>>"
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>
+  print:
+    plain:
+      anonymous:
+        content: "<<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>\r\n\r\n\r\nPalvelupyyntö\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<<borrowers.firstname>>
+          <<borrowers.surname>>\r\n<<borrowers.address>>\r\n<<borrowers.city>> <<borrowers.zipcode>>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<<borrowers.firstname>>
+          <<borrowers.surname>> <<borrowers.cardnumber>>\r\n\r\nSinulla on varaus
+          noudettavissa <<reserves.waitingdate>>:\r\n\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nKopion numero: <<items.copynumber>>\r\n"
+        title: Varaus noudettavissa (tuloste)
+      default:
+        content: "<<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>\r\n\r\n\r\nPalvelupyyntö\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<<borrowers.firstname>>
+          <<borrowers.surname>>\r\n<<borrowers.address>>\r\n<<borrowers.city>> <<borrowers.zipcode>>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<<borrowers.firstname>>
+          <<borrowers.surname>> <<borrowers.cardnumber>>\r\n\r\nSinulla on varaus
+          noudettavissa <<reserves.waitingdate>>:\r\n\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nKopion numero: <<items.copynumber>>\r\n"
+        title: Varaus noudettavissa (tuloste)
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYour
+          hold for <<biblio.title>> is available for pickup."
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYour
+          hold for <<biblio.title>> is available for pickup."
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>

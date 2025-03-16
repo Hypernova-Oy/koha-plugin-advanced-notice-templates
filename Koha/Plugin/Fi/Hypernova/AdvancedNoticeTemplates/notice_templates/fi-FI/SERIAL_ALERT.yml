@@ -1,0 +1,16 @@
+---
+module: serial
+name: Uusi kausijulkaisun numero
+template:
+  email:
+    plain:
+      anonymous:
+        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava numero
+          on saatavana:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVoit
+          noutaa numeron, kun se sinulle sopii."
+        title: Uusi kausijulkaisun numero on saatavana
+      default:
+        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava numero
+          on saatavana:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVoit
+          noutaa numeron, kun se sinulle sopii."
+        title: Uusi kausijulkaisun numero on saatavana

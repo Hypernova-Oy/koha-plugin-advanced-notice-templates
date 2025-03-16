@@ -1,0 +1,28 @@
+---
+module: ill
+name: Kaukolainapyyntö muokattu
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on muokannut pyyntöä. Kaukolainapyynnön tiedot:\r\n\r\n[% ill_full_metadata
+          %]"
+        title: Kaukolainapyyntö muokattu
+      default:
+        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on muokannut pyyntöä. Kaukolainapyynnön tiedot:\r\n\r\n[% ill_full_metadata
+          %]"
+        title: Kaukolainapyyntö muokattu
+  sms:
+    plain:
+      anonymous:
+        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on muokannut pyyntöä. Kaukolainapyynnön tiedot:\r\n\r\n[% ill_full_metadata
+          %]"
+        title: Kaukolainapyyntö muokattu
+      default:
+        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on muokannut pyyntöä. Kaukolainapyynnön tiedot:\r\n\r\n[% ill_full_metadata
+          %]"
+        title: Kaukolainapyyntö muokattu

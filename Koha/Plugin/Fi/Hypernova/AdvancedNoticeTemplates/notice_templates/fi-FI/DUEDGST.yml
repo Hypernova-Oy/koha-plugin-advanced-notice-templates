@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Eräpäivämuistutus (yhteenveto)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavat
+          niteet erääntyvät:\r\n\r\n<<items.content>>\r\n\r\nKiitos."
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavat
+          niteet erääntyvät:\r\n\r\n<<items.content>>\r\n\r\nKiitos."
+        title: Eräpäivämuistutus
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYou have
+          <<count>> item(s) that are now due\r\n\r\nKiitos."
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYou have
+          <<count>> item(s) that are now due\r\n\r\nKiitos."
+        title: Eräpäivämuistutus

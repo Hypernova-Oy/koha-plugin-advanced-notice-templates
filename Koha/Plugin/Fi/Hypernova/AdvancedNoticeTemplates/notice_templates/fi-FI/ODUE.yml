@@ -1,0 +1,34 @@
+---
+module: circulation
+name: Myöhästymisilmoitus
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nTietojemme
+          mukaan sinulla on niteitä, jotka ovat myöhässä. Kirjastosi ei peri niistä
+          myöhästymismaksuja, mutta palauta ne alla näkyvään kirjastoon tai uusi ne
+          mahdollisimman pian.\r\n\r\n<<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>
+          <<branches.branchaddress3>>\r\nPuhelin: <<branches.branchphone>>\r\nFaksi:
+          <<branches.branchfax>>\r\nSähköposti: <<branches.branchemail>>\r\n\r\nJos
+          sinulla on kirjautumistunnukset ja uusiminen on mahdollista, voit uusia
+          lainat verkkossa. Jos nide on myöhässä yli 30 päivää, olet lainakiellossa,
+          kunnes nide palautetaan.\r\n\r\nSeuraavat niteet ovat tällä hetkellä myöhässä:\r\n\r\n<item>\"<<biblio.title>>\"
+          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
+          Fine: <<items.fine>></item>\r\n\r\nKiitos, että otitte asian huomioon.\r\n\r\n<<branches.branchname>>
+          Henkilökunta\r\n"
+        title: Lainat myöhässä
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nTietojemme
+          mukaan sinulla on niteitä, jotka ovat myöhässä. Kirjastosi ei peri niistä
+          myöhästymismaksuja, mutta palauta ne alla näkyvään kirjastoon tai uusi ne
+          mahdollisimman pian.\r\n\r\n<<branches.branchname>>\r\n<<branches.branchaddress1>>\r\n<<branches.branchaddress2>>
+          <<branches.branchaddress3>>\r\nPuhelin: <<branches.branchphone>>\r\nFaksi:
+          <<branches.branchfax>>\r\nSähköposti: <<branches.branchemail>>\r\n\r\nJos
+          sinulla on kirjautumistunnukset ja uusiminen on mahdollista, voit uusia
+          lainat verkkossa. Jos nide on myöhässä yli 30 päivää, olet lainakiellossa,
+          kunnes nide palautetaan.\r\n\r\nSeuraavat niteet ovat tällä hetkellä myöhässä:\r\n\r\n<item>\"<<biblio.title>>\"
+          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
+          Fine: <<items.fine>></item>\r\n\r\nKiitos, että otitte asian huomioon.\r\n\r\n<<branches.branchname>>
+          Henkilökunta\r\n"
+        title: Lainat myöhässä

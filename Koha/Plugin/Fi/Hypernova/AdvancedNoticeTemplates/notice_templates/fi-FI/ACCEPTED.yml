@@ -1,0 +1,19 @@
+---
+module: suggestions
+name: Ehdotus hyväksytty
+template:
+  email:
+    html:
+      anonymous:
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen. Hankintaehdotus on hyväksytty.</p>
+          <p>Saat sähköpostia, kun tilaus on tehty ja uudelleen, kun aineisto saapuu
+          kirjastolle.</p>
+        title: Hankintaehdotus hyväksytty
+      default:
+        content: |
+          <p>Hyvä <<borrowers.firstname>> <<borrowers.surname>>,</p>
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen kirjasta <<suggestions.title>> / <<suggestions.author>>.</p>
+          <p>Kirjasto on tarkistanyt ehdotuksesi tänään ja ehdottamasi aineisto tilataan pian.</p>
+          <p>Saat sähköpostia, kun tilaus on tehty ja uudelleen, kun aineisto saapuu kirjastolle.</p>
+        title: Hankintaehdotus hyväksytty

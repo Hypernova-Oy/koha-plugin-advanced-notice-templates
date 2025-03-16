@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Varauskuitti
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h5>Pvm: <<today>></h5>\r\n\r\n<h3> Transfer to/Hold in <<branches.branchname>></h3>\r\n\r\n<h3><<borrowers.surname>>,
+          <<borrowers.firstname>></h3>\r\n\r\n<ul>\r\n    <li><<borrowers.cardnumber>></li>\r\n
+          \   <li><<borrowers.phone>></li>\r\n    <li> <<borrowers.address>><br />\r\n
+          \        <<borrowers.address2>><br />\r\n         <<borrowers.city >>  <<borrowers.zipcode>>\r\n
+          \   </li>\r\n    <li><<borrowers.email>></li>\r\n</ul>\r\n<br />\r\n<h3>ITEM
+          ON HOLD</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
+          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n
+          \  <li><<reserves.waitingdate>></li>\r\n</ul>\r\n<p>Huomautukset:\r\n<pre><<reserves.reservenotes>></pre>\r\n</p>\r\n"
+        title: Varauskuitti
+      default:
+        content: "<h5>Pvm: <<today>></h5>\r\n\r\n<h3> Transfer to/Hold in <<branches.branchname>></h3>\r\n\r\n<h3><<borrowers.surname>>,
+          <<borrowers.firstname>></h3>\r\n\r\n<ul>\r\n    <li><<borrowers.cardnumber>></li>\r\n
+          \   <li><<borrowers.phone>></li>\r\n    <li> <<borrowers.address>><br />\r\n
+          \        <<borrowers.address2>><br />\r\n         <<borrowers.city >>  <<borrowers.zipcode>>\r\n
+          \   </li>\r\n    <li><<borrowers.email>></li>\r\n</ul>\r\n<br />\r\n<h3>ITEM
+          ON HOLD</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
+          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n
+          \  <li><<reserves.waitingdate>></li>\r\n</ul>\r\n<p>Huomautukset:\r\n<pre><<reserves.reservenotes>></pre>\r\n</p>\r\n"
+        title: Varauskuitti

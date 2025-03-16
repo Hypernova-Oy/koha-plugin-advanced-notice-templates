@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Ennakkoilmoitus erääntyvästä lainasta (yhteenveto)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavat
+          niteet erääntyvät pian:\r\n\r\n<<items.content>>\r\n\r\nKiitos."
+        title: Ennakkoilmoitus erääntyvästä lainasta
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavat
+          niteet erääntyvät pian:\r\n\r\n<<items.content>>\r\n\r\nKiitos."
+        title: Ennakkoilmoitus erääntyvästä lainasta
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYou have
+          <<count>> item(s) that will be due soon.\r\n\r\nKiitos."
+        title: Ennakkoilmoitus erääntyvästä lainasta
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYou have
+          <<count>> item(s) that will be due soon.\r\n\r\nKiitos."
+        title: Ennakkoilmoitus erääntyvästä lainasta

@@ -1,0 +1,18 @@
+---
+module: suggestions
+name: Hankintaehdotus saatavana
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta <<suggestions.title>> / <<suggestions.author>>.\r\n\r\nEhdottamasi
+          aineisto on nyt käsitelty ja lainattavissa.\r\n\r\nJos sinulla on kysyttävää,
+          ota yhteys kirjastoon: <<branches.branchemail>>.\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        title: Hankintaehdotus saatavana
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta <<suggestions.title>> / <<suggestions.author>>.\r\n\r\nEhdottamasi
+          aineisto on nyt käsitelty ja lainattavissa.\r\n\r\nJos sinulla on kysyttävää,
+          ota yhteys kirjastoon: <<branches.branchemail>>.\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        title: Hankintaehdotus saatavana

@@ -1,0 +1,14 @@
+---
+module: acquisition
+name: Tilaus vastaanotettu
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Tilaus
+          <<aqorders.ordernumber>> (<<biblio.title>>) on vastaanotettu.\r\n\r\nKirjastosi."
+        title: Tilaus vastaanotettu
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Tilaus
+          <<aqorders.ordernumber>> (<<biblio.title>>) on vastaanotettu.\r\n\r\nKirjastosi."
+        title: Tilaus vastaanotettu

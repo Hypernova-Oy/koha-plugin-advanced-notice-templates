@@ -1,0 +1,22 @@
+---
+module: catalogue
+name: Concern notification
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE Koha -%]\r\nDear cataloger,<br>\r\n[%-
+          INCLUDE 'patron-title.inc' patron => ticket.reporter -%] reported the following
+          concern with [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link =
+          1 -%]<br>\r\n<br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nYou can mark this
+          concern as resolved from the concern management <a href='[%- Koha.Preference('IntranetBaseURL')
+          -%]/cgi-bin/koha/cataloguing/concerns.pl'>page</a>."
+        title: Catalog concern reported
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE Koha -%]\r\nDear cataloger,<br>\r\n[%-
+          INCLUDE 'patron-title.inc' patron => ticket.reporter -%] reported the following
+          concern with [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link =
+          1 -%]<br>\r\n<br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nYou can mark this
+          concern as resolved from the concern management <a href='[%- Koha.Preference('IntranetBaseURL')
+          -%]/cgi-bin/koha/cataloguing/concerns.pl'>page</a>."
+        title: Catalog concern reported

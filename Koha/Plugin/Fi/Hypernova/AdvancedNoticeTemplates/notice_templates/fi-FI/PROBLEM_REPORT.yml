@@ -1,0 +1,16 @@
+---
+module: members
+name: Verkkokirjaston vikailmoitukset
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Käyttäjätunnus: <<problem_reports.username>>\r\n\r\nOngelmasivu:
+          <<problem_reports.problempage>>\r\n\r\nOtsikko: <<problem_reports.title>>\r\n\r\nViesti:
+          <<problem_reports.content>>"
+        title: Verkkokirjaston vikailmoitukset
+      default:
+        content: "Käyttäjätunnus: <<problem_reports.username>>\r\n\r\nOngelmasivu:
+          <<problem_reports.problempage>>\r\n\r\nOtsikko: <<problem_reports.title>>\r\n\r\nViesti:
+          <<problem_reports.content>>"
+        title: Verkkokirjaston vikailmoitukset

@@ -1,0 +1,38 @@
+---
+module: suggestions
+name: Uusi ehdotus
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Suggestion pending approval</h3>\r\n    <p><h4>Suggested by</h4>\r\n
+          \   <ul>\r\n    <li><<borrowers.firstname>> <<borrowers.surname>></li>\r\n
+          \   <li><<borrowers.cardnumber>></li>\r\n    <li><<borrowers.phone>></li>\r\n
+          \   <li><<borrowers.email>></li>\r\n    </ul>\r\n    </p>\r\n    <p><h4>Title
+          suggested</h4>\r\n    <ul>\r\n    <li><b>Library:</b> <<branches.branchname>></li>\r\n
+          \   <li><b>Title:</b> <<suggestions.title>></li>\r\n    <li><b>Tekijä:</b>
+          <<suggestions.author>></li>\r\n    <li><b>Copyright date:</b> <<suggestions.copyrightdate>></li>\r\n
+          \   <li><b>Standard number (ISBN, ISSN or other):</b> <<suggestions.isbn>></li>\r\n
+          \   <li><b>Publisher:</b> <<suggestions.publishercode>></li>\r\n    <li><b>Collection
+          title:</b> <<suggestions.collectiontitle>></li>\r\n    <li><b>Julkaisu-/kustannuspaikka:</b>
+          <<suggestions.place>></li>\r\n    <li><b>Quantity:</b> <<suggestions.quantity>></li>\r\n
+          \   <li><b>Item type:</b>  <<suggestions.itemtype>></li>\r\n    <li><b>Reason
+          for suggestion:</b> <<suggestions.patronreason>></li>\r\n    <li><b>Huomautukset:</b>
+          <<suggestions.note>></li>\r\n    </ul>\r\n    </p>"
+        title: Uusi ehdotus
+      default:
+        content: "<h3>Suggestion pending approval</h3>\r\n    <p><h4>Suggested by</h4>\r\n
+          \   <ul>\r\n    <li><<borrowers.firstname>> <<borrowers.surname>></li>\r\n
+          \   <li><<borrowers.cardnumber>></li>\r\n    <li><<borrowers.phone>></li>\r\n
+          \   <li><<borrowers.email>></li>\r\n    </ul>\r\n    </p>\r\n    <p><h4>Title
+          suggested</h4>\r\n    <ul>\r\n    <li><b>Library:</b> <<branches.branchname>></li>\r\n
+          \   <li><b>Title:</b> <<suggestions.title>></li>\r\n    <li><b>Tekijä:</b>
+          <<suggestions.author>></li>\r\n    <li><b>Copyright date:</b> <<suggestions.copyrightdate>></li>\r\n
+          \   <li><b>Standard number (ISBN, ISSN or other):</b> <<suggestions.isbn>></li>\r\n
+          \   <li><b>Publisher:</b> <<suggestions.publishercode>></li>\r\n    <li><b>Collection
+          title:</b> <<suggestions.collectiontitle>></li>\r\n    <li><b>Julkaisu-/kustannuspaikka:</b>
+          <<suggestions.place>></li>\r\n    <li><b>Quantity:</b> <<suggestions.quantity>></li>\r\n
+          \   <li><b>Item type:</b>  <<suggestions.itemtype>></li>\r\n    <li><b>Reason
+          for suggestion:</b> <<suggestions.patronreason>></li>\r\n    <li><b>Huomautukset:</b>
+          <<suggestions.note>></li>\r\n    </ul>\r\n    </p>"
+        title: Uusi ehdotus

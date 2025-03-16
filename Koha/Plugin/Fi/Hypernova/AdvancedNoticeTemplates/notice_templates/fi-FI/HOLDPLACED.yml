@@ -1,0 +1,14 @@
+---
+module: reserves
+name: Nide varattu
+template:
+  email:
+    plain:
+      anonymous:
+        content: 'Seuraavaan niteeseen on tehty varaus : <<biblio.title>> (<<biblio.biblionumber>>)
+          käyttäjän toimesta <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).'
+        title: Nide varattu
+      default:
+        content: 'Seuraavaan niteeseen on tehty varaus : <<biblio.title>> (<<biblio.biblionumber>>)
+          käyttäjän toimesta <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).'
+        title: Nide varattu

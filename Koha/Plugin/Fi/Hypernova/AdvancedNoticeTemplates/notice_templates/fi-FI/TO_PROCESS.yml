@@ -1,0 +1,14 @@
+---
+module: suggestions
+name: Uusi hankintaehdotus (tilin hallinnoija)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nUusi
+          hankintaehdotus on valmis käsiteltäväksi: <<suggestions.title>> by <<suggestions.author>>.\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        title: Hankintaehdotus on valmis käsiteltäväksi
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nUusi
+          hankintaehdotus on valmis käsiteltäväksi: <<suggestions.title>> by <<suggestions.author>>.\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        title: Hankintaehdotus on valmis käsiteltäväksi

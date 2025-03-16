@@ -1,0 +1,12 @@
+---
+module: circulation
+name: Overdue item fine description
+template:
+  print:
+    plain:
+      anonymous:
+        content: '[% item.biblio.title %] [% checkout.date_due | $KohaDates %]'
+        title: Overdue item fine description
+      default:
+        content: '[% item.biblio.title %] [% checkout.date_due | $KohaDates %]'
+        title: Overdue item fine description

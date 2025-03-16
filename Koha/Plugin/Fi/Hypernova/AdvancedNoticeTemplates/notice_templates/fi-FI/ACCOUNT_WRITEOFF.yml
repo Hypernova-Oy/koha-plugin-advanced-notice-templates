@@ -1,0 +1,20 @@
+---
+module: circulation
+name: Käyttäjätilin poistaminen
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nMaksuistasi on poistettu summa [% credit.amount
+          * -1 | $Price %].\r\n\r\nPoisto vaikuttaa seuraaviin maksuihin:\r\n[%- FOREACH
+          o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu määrä:
+          [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
+          | $Price %]\r\n[% END %]"
+        title: Käyttäjätilin poistaminen
+      default:
+        content: "[%- USE Price -%]\r\nMaksuistasi on poistettu summa [% credit.amount
+          * -1 | $Price %].\r\n\r\nPoisto vaikuttaa seuraaviin maksuihin:\r\n[%- FOREACH
+          o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu määrä:
+          [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
+          | $Price %]\r\n[% END %]"
+        title: Käyttäjätilin poistaminen

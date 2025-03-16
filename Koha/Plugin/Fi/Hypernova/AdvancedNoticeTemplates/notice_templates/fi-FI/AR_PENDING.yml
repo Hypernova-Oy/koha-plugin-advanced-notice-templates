@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Artikkelipyyntö - odottava
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nToimittajalta
+          <<biblio.title>> (<<items.barcode>>) tekemääsi artikkelipyyntöä käsitellään.\r\n\r\nArtikkelia
+          pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä: <<article_requests.author>>\r\nVuosikerta:
+          <<article_requests.volume>>\r\nNumero: <<article_requests.issue>>\r\nPvm:
+          <<article_requests.date>>\r\nSisällysluettelo: [% IF article_request.toc_request
+          %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua: <<article_requests.pages>>\r\nLuvut:
+          <<article_requests.chapters>>\r\nHuomautukset: <<article_requests.patron_notes>>\r\n\r\n\r\nKiitos!"
+        title: Artikkelipyyntö odottaa
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nToimittajalta
+          <<biblio.title>> (<<items.barcode>>) tekemääsi artikkelipyyntöä käsitellään.\r\n\r\nArtikkelia
+          pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä: <<article_requests.author>>\r\nVuosikerta:
+          <<article_requests.volume>>\r\nNumero: <<article_requests.issue>>\r\nPvm:
+          <<article_requests.date>>\r\nSisällysluettelo: [% IF article_request.toc_request
+          %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua: <<article_requests.pages>>\r\nLuvut:
+          <<article_requests.chapters>>\r\nHuomautukset: <<article_requests.patron_notes>>\r\n\r\n\r\nKiitos!"
+        title: Artikkelipyyntö odottaa

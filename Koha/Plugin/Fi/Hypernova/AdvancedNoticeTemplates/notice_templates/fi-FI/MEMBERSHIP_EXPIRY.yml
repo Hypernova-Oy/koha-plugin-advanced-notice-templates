@@ -1,0 +1,14 @@
+---
+module: members
+name: Käyttäjätilin vanhentuminen
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nKirjastokorttisi
+          vanhenee pian:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nKiitos,\r\n\r\nVirkailija\r\n\r\n<<branches.branchname>>"
+        title: Käyttäjätilin vanhentuminen
+      default:
+        content: "Hyvä <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nKirjastokorttisi
+          vanhenee pian:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nKiitos,\r\n\r\nVirkailija\r\n\r\n<<branches.branchname>>"
+        title: Käyttäjätilin vanhentuminen

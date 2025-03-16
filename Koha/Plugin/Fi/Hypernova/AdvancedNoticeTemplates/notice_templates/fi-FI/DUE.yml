@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Eräpäivämuistutus
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava
+          nide erääntyy:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)"
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava
+          nide erääntyy:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)"
+        title: Eräpäivämuistutus
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava
+          nide erääntyy:\r\n\r\n<<biblio.title>>"
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava
+          nide erääntyy:\r\n\r\n<<biblio.title>>"
+        title: Eräpäivämuistutus

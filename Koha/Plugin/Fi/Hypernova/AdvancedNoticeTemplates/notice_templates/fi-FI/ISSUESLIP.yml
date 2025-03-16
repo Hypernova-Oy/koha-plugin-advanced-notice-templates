@@ -1,0 +1,36 @@
+---
+module: circulation
+name: Lainauskuitti
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3><<branches.branchname>></h3>\r\nLainaukset asiakkaalle <<borrowers.title>>
+          <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br
+          />\r\n(<<borrowers.cardnumber>>) <br />\r\n\r\n<<today>><br />\r\n\r\n<h4>Lainassa</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
+          <br />\r\nViivakoodi: <<items.barcode>><br />\r\nEräpäivä: <<issues.date_due>><br
+          />\r\n</p>\r\n</checkedout>\r\n\r\n<h4>Myöhässä</h4>\r\n<overdue>\r\n<p>\r\n<<biblio.title>>
+          <br />\r\nViivakoodi: <<items.barcode>><br />\r\nEräpäivä: <<issues.date_due>><br
+          />\r\n</p>\r\n</overdue>\r\n\r\n<hr>\r\n\r\n<h4 style=\"text-align: center;
+          font-style:italic;\">News</h4>\r\n<news>\r\n<div class=\"newsitem\">\r\n<h5
+          style=\"margin-bottom: 1px; margin-top: 1px\"><b><<additional_contents.title>></b></h5>\r\n<p
+          style=\"margin-bottom: 1px; margin-top: 1px\"><<additional_contents.content>></p>\r\n<p
+          class=\"newsfooter\" style=\"font-size: 8pt; font-style:italic; margin-bottom:
+          1px; margin-top: 1px\">Posted on <<additional_contents.published_on>></p>\r\n<hr
+          />\r\n</div>\r\n</news>"
+        title: Lainauskuitti
+      default:
+        content: "<h3><<branches.branchname>></h3>\r\nLainaukset asiakkaalle <<borrowers.title>>
+          <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br
+          />\r\n(<<borrowers.cardnumber>>) <br />\r\n\r\n<<today>><br />\r\n\r\n<h4>Lainassa</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
+          <br />\r\nViivakoodi: <<items.barcode>><br />\r\nEräpäivä: <<issues.date_due>><br
+          />\r\n</p>\r\n</checkedout>\r\n\r\n<h4>Myöhässä</h4>\r\n<overdue>\r\n<p>\r\n<<biblio.title>>
+          <br />\r\nViivakoodi: <<items.barcode>><br />\r\nEräpäivä: <<issues.date_due>><br
+          />\r\n</p>\r\n</overdue>\r\n\r\n<hr>\r\n\r\n<h4 style=\"text-align: center;
+          font-style:italic;\">News</h4>\r\n<news>\r\n<div class=\"newsitem\">\r\n<h5
+          style=\"margin-bottom: 1px; margin-top: 1px\"><b><<additional_contents.title>></b></h5>\r\n<p
+          style=\"margin-bottom: 1px; margin-top: 1px\"><<additional_contents.content>></p>\r\n<p
+          class=\"newsfooter\" style=\"font-size: 8pt; font-style:italic; margin-bottom:
+          1px; margin-top: 1px\">Posted on <<additional_contents.published_on>></p>\r\n<hr
+          />\r\n</div>\r\n</news>"
+        title: Lainauskuitti

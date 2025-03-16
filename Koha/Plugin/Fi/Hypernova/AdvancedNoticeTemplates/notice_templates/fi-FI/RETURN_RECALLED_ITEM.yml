@@ -1,0 +1,18 @@
+---
+module: circulation
+name: Palautuspyyntö niteelle
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavaan
+          niteeseen on palautuspyyntö: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>).
+          Eräpäivä on muuttunu. Uusi eräpäivä on: <<issues.date_due>>. Palauta nide
+          muuttuneeseen eräpäivään mennessä.\r\n\r\nKiitos!"
+        title: Palautuspyyntö niteelle
+      default:
+        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavaan
+          niteeseen on palautuspyyntö: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>).
+          Eräpäivä on muuttunu. Uusi eräpäivä on: <<issues.date_due>>. Palauta nide
+          muuttuneeseen eräpäivään mennessä.\r\n\r\nKiitos!"
+        title: Palautuspyyntö niteelle
