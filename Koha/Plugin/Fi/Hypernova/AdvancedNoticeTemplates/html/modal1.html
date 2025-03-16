@@ -1,0 +1,47 @@
+<div class="modal fade" id="antSetTemplate" tabindex="-1" aria-labelledby="antSetTemplateLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:80%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="antSetTemplateLabel">Advanced Notice Templates<span
+                        class="antLetterCode"></span></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="antLoader" class="dt-container">
+                    <div class="dt-processing">Processing...<div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-success" id="antSuccess"></div>
+                <div class="alert alert-warning" id="antError"></div>
+                <button type="button" class="btn btn-success" id="antConfirmHeader">Confirm</button>
+                <table id="antTemplateResults">
+                    <thead>
+                        <tr>
+                            <th>Accept changes<br><i>select <a href="#" id="antSelectAll">all</a> / <i><a href="#"
+                                            id="antSelectNone">none</a></th>
+                            <th>Freeze template<br><i>select <a href="#" id="antFreezeAll">all</a> / <i><a href="#"
+                                            id="antFreezeNone">none</a></th>
+                            <th>Code</th>
+                            <th>Language</th>
+                            <th>Message transport type</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                        </tr>
+                    </thead>
+                    <tbody id="antTemplateResultsBody">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="antConfirmFooter">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

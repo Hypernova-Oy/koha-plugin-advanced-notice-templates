@@ -1,0 +1,28 @@
+div.antMissingTemplateWarning {
+    color: #ff0000;
+}
+
+div#antLoader,
+div#antError,
+div#antSuccess {
+    display: none;
+}
+
+span.antTitleOld,
+span.antContentOld {
+    display: none;
+}
+
+span.antTitleNew,
+span.antContentNew {
+    display: none;
+}
+
+ins {
+    background-color: #c6ffc6;
+    text-decoration: none;
+}
+
+del {
+    background-color: #ffc6c6;
+}

@@ -1,0 +1,225 @@
+{
+  "/templates/modifiable": {
+    "get": {
+      "x-mojo-to": "Fi::Hypernova::AdvancedNoticeTemplates::Controller#get_modifiable_templates",
+      "operationId": "ant_get_modifiable_templates",
+      "tags": [
+        "advanced_notice_templates"
+      ],
+      "parameters": [
+        {
+          "description": "Notice template code, a comma separated list (,)",
+          "in": "query",
+          "name": "letter_code",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "Library code",
+          "in": "query",
+          "name": "branchcode",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "For Koha table, not in use",
+          "in": "query",
+          "name": "_page",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "description": "For Koha table, not in use",
+          "in": "query",
+          "name": "_per_page",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "description": "For Koha table, not in use",
+          "in": "query",
+          "name": "_match",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "For Koha table, not in use",
+          "in": "query",
+          "name": "_order_by",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Modifiable Notice Templates",
+          "schema": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "description": "Letter code",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "branchcode": {
+                    "type": "string",
+                    "description": "Library code to which this template will be set. Defaults to '' (all libraries). Maps to letter.branchcode"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "Notice template code. Maps to letter.code"
+                  },
+                  "is_html": {
+                    "type": "integer"
+                  },
+                  "lang": {
+                    "type": "string",
+                    "description": "Language code RFC 4646 format (example: fi-FI, sv-SE, exception: en, default). Maps to letter.lang"
+                  },
+                  "message_transport_type": {
+                    "type": "string",
+                    "description": "Message transport type. Maps to letter.message_transport_type"
+                  },
+                  "module": {
+                    "type": "string",
+                    "description": "Notice template module. Maps to letter.module"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "new_template": {
+                    "type": "object",
+                    "properties": {
+                      "content": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "old_template": {
+                    "type": "object",
+                    "properties": {
+                      "content": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Authentication required"
+        },
+        "403": {
+          "description": "Unauthorized"
+        },
+        "404": {
+          "description": "Record ID not found",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "description": "An explanation for the error",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "x-koha-authorization": {
+        "permissions": {
+          "tools": "edit_notices"
+        }
+      }
+    },
+    "post": {
+      "x-mojo-to": "Fi::Hypernova::AdvancedNoticeTemplates::Controller#store_plugin_templates",
+      "operationId": "ant_store_plugin_templates",
+      "tags": [
+        "advanced_notice_templates"
+      ],
+      "parameters": [
+        {
+          "name": "body",
+          "description": "Notice templates to modify",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "branchcode": {
+                  "type": "string",
+                  "description": "Library code to which this template will be set. Defaults to '' (all libraries). Maps to letter.branchcode"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "Notice template code. Maps to letter.code"
+                },
+                "lang": {
+                  "type": "string",
+                  "description": "Language code RFC 4646 format (example: fi-FI, sv-SE, exception: en, default). Maps to letter.lang"
+                },
+                "message_transport_type": {
+                  "type": "string",
+                  "description": "Message transport type. Maps to letter.message_transport_type"
+                },
+                "module": {
+                  "type": "string",
+                  "description": "Notice template module. Maps to letter.module"
+                }
+              },
+              "required": [
+                "code",
+                "lang",
+                "message_transport_type"
+              ]
+            }
+          }
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Modifiable Notice Templates"
+        },
+        "400": {
+          "description": "Bad parameter(s)"
+        },
+        "401": {
+          "description": "Authentication required"
+        },
+        "403": {
+          "description": "Unauthorized"
+        },
+        "500": {
+          "description": "Internal server error"
+        }
+      },
+      "x-koha-authorization": {
+        "permissions": {
+          "tools": "edit_notices"
+        }
+      }
+    }
+  }
+}

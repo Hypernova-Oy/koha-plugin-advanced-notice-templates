@@ -1,0 +1,113 @@
+[% USE raw %]
+[% SET footerjs = 1 %]
+[% USE Asset %]
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha Advanced Notice Templates: Configuration</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="subheader">
+<nav id="breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="/cgi-bin/koha/mainpage.pl">Home</a></li><li class="breadcrumb-item"><a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a></li><li class="breadcrumb-item">Advanced Notice Templates &rsaquo; Configuration</li></ol></nav>
+</div>
+<div class="main container-fluid">
+    <div class="row">
+    <main>
+    <!-- We can access our own plugins resource files using the PLUGIN_PATH variable. -->
+    <h3>Koha: Advanced Notice Templates: Configuration</h3>
+
+    <!-- Notice our form here has no 'action', this is good, it means that our forms will always get passed back to 'plugins/run.pl'. You could hard code it instead if you prefer -->
+    <form method="get">
+        <!-- Always pass these two parameters so the plugin system knows what to execute! -->
+        <input type="hidden" name="class" value="[% CLASS %]"/>
+        <input type="hidden" name="method" value="[% METHOD %]"/>
+
+        <fieldset>
+        <input type="submit" value="Save configuration" />
+        </fieldset>
+
+        <fieldset>
+            <h4>Configuration</h4>
+            <label>Use anonymous templates for these transport types</label><br>
+            <table>
+            <thead>
+            <tr>
+            <th>transport type</th><th>use anonymous templates</th><th>exceptions (notice code, comma separated)</th>
+            </tr>
+            </thead>
+            <tbody>
+            [% FOREACH mtt IN mtts %]
+                <tr>
+                <td><label>[% mtt | html %]</label></td>
+                <td><input type="checkbox" name="use_anonymous_[% mtt | html %]" [% IF ${"use_anonymous_${mtt}"} == 1 %]checked="checked" [% END %]/><br></td>
+                <td><input type="text" name="use_anonymous_[% mtt | html %]_exception" value="[% ${"use_anonymous_${mtt}_exception"} | html %]"/><br></td>
+                </tr>
+            [% END %]
+            </tbody>
+            </table>
+            <br>
+            <label>Use HTML templates for these transport types</label><br>
+            <table>
+            <thead>
+            <tr>
+            <th>transport type</th><th>use html</th><th>exceptions (notice code, comma separated)</th>
+            </tr>
+            </thead>
+            <tbody>
+            [% FOREACH mtt IN mtts %]
+                <tr>
+                <td><label>[% mtt | html %]</label></td>
+                <td><input type="checkbox" name="use_html_[% mtt | html %]" [% IF ${"use_html_${mtt}"} == 1 %]checked="checked" [% END %]/><br></td>
+                <td><input type="text" name="use_html_[% mtt | html %]_exception" value="[% ${"use_html_${mtt}_exception"} | html %]"/><br></td>
+                </tr>
+            [% END %]
+            </tbody>
+            </table>
+            <br>
+            <label for="default_language">Default template language</label>
+            <select name="default_language" id="default_language">
+            [% FOREACH language IN notice_languages %]
+            <option value="[% language.rfc4646_subtag | html %]"[% IF default_language == language.rfc4646_subtag %] selected="selected"[% END %]>[% language.native_description | html %]</option>
+            [% END %]
+            </select>
+            <p>Please note. The above setting only defines the contents for default language template when setting templates through this plugin. It does <strong>not</strong> change the way Koha determines the default notice language.</p>
+
+        </fieldset>
+
+        [% FOREACH language IN notice_languages %]
+        [% FOREACH mtt IN mtts %]
+        [% SET header_var = "${language.rfc4646_subtag}_${mtt}_header" %]
+        [% SET header_exception_var = "${language.rfc4646_subtag}_${mtt}_header_exception" %]
+        [% SET footer_var = "${language.rfc4646_subtag}_${mtt}_footer" %]
+        [% SET footer_exception_var = "${language.rfc4646_subtag}_${mtt}_footer_exception" %]
+        <fieldset>
+            <h4>[% language.native_description | html %] - [% mtt | html %]</h4>
+            <label for="[% language.rfc4646_subtag | html %]_header">Header</label>
+            <textarea name="[% language.rfc4646_subtag | html %]_[% mtt | html %]_header" id="[% language.rfc4646_subtag | html %]_[% mtt | html %]_header" cols="40" rows="5">[% ${header_var} | $raw %]</textarea>
+            <br>
+            <label for="[% language.rfc4646_subtag | html %]_header_exception">Do not apply for the following notice codes (comma separated list)</label>
+            <input name="[% language.rfc4646_subtag | html %]_[% mtt | html %]_header_exception" id="[% language.rfc4646_subtag | html %]_[% mtt | html %]_header_exception" type="text" value="[% ${header_exception_var} | $raw %]" />
+            <br>
+            <hr>
+            <label for="[% language.rfc4646_subtag | html %]_footer">Footer</label>
+            <textarea name="[% language.rfc4646_subtag | html %]_[% mtt | html %]_footer" id="[% language.rfc4646_subtag | html %]_[% mtt | html %]_footer" cols="40" rows="5">[% ${footer_var} | $raw %]</textarea>
+            <br>
+            <label for="[% language.rfc4646_subtag | html %]_footer_exception">Do not apply for the following notice codes (comma separated list)</label>
+            <input name="[% language.rfc4646_subtag | html %]_[% mtt | html %]_footer_exception" id="[% language.rfc4646_subtag | html %]_[% mtt | html %]_footer_exception" type="text" value="[% ${footer_exception_var} | $raw %]" />
+        </fieldset>
+        [% END %]
+        [% END %]
+
+        <input type="hidden" name="save" value="1" />
+
+        <fieldset>
+        <input type="submit" value="Save configuration" />
+        </fieldset>
+    </form>
+    </main>
+    </div>
+</div>
+
+[% INCLUDE 'intranet-bottom.inc' %]
