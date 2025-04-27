@@ -1,0 +1,54 @@
+---
+module: circulation
+name: Notification on auto renewals
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
+          %]\r\nThere were [% error %] items that were not renewed.\r\n[% END %]\r\n[%
+          IF success %]\r\nThere were [% success %] items that were renewed.\r\n[%
+          END %]\r\n[% FOREACH checkout IN checkouts %]\r\n[% NEXT IF (checkout.auto_renew_error
+          == 'auto_too_soon') %]\r\n[% checkout.item.biblio.title %] : [% checkout.item.barcode
+          %]\r\n[% IF !checkout.auto_renew_error %]\r\nwas renewed until [% checkout.date_due
+          | $KohaDates as_due_date => 1%]\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_many' %]\r\nYou have reached the maximum number of renewals possible.\r\n[%
+          ELSIF checkout.auto_renew_error == 'on_reserve' %]\r\nThis item is on hold
+          for another patron.\r\n[% ELSIF checkout.auto_renew_error == 'restriction'
+          %]\r\nYou are currently restricted.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nYou have overdue items.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nIt's too late to renew this item.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_much_oweing' %]\r\nYour total unpaid fines are too high.\r\n[%
+          ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nThis item must be
+          renewed at the library.\r\n[% ELSIF checkout.auto_renew_error == 'auto_renew_final'
+          %]\r\nwas renewed until [% checkout.date_due | $KohaDates as_due_date =>
+          1%]\r\nThis item has reached the maximum number of automatic renewals and
+          will no longer be renewed.\r\n[% ELSIF checkout.auto_renew_error == 'auto_unseen_final'
+          %]\r\nwas renewed until [% checkout.date_due | $KohaDates as_due_date =>
+          1%]\r\nThis item has reached the maximum number of unseen renewals and will
+          need to be renewed at the library.\r\n[% END %]\r\n[% END %]"
+        title: Auto renewals (Digest)
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
+          %]\r\nThere were [% error %] items that were not renewed.\r\n[% END %]\r\n[%
+          IF success %]\r\nThere were [% success %] items that were renewed.\r\n[%
+          END %]\r\n[% FOREACH checkout IN checkouts %]\r\n[% NEXT IF (checkout.auto_renew_error
+          == 'auto_too_soon') %]\r\n[% checkout.item.biblio.title %] : [% checkout.item.barcode
+          %]\r\n[% IF !checkout.auto_renew_error %]\r\nwas renewed until [% checkout.date_due
+          | $KohaDates as_due_date => 1%]\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_many' %]\r\nYou have reached the maximum number of renewals possible.\r\n[%
+          ELSIF checkout.auto_renew_error == 'on_reserve' %]\r\nThis item is on hold
+          for another patron.\r\n[% ELSIF checkout.auto_renew_error == 'restriction'
+          %]\r\nYou are currently restricted.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nYou have overdue items.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nIt's too late to renew this item.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_much_oweing' %]\r\nYour total unpaid fines are too high.\r\n[%
+          ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nThis item must be
+          renewed at the library.\r\n[% ELSIF checkout.auto_renew_error == 'auto_renew_final'
+          %]\r\nwas renewed until [% checkout.date_due | $KohaDates as_due_date =>
+          1%]\r\nThis item has reached the maximum number of automatic renewals and
+          will no longer be renewed.\r\n[% ELSIF checkout.auto_renew_error == 'auto_unseen_final'
+          %]\r\nwas renewed until [% checkout.date_due | $KohaDates as_due_date =>
+          1%]\r\nThis item has reached the maximum number of unseen renewals and will
+          need to be renewed at the library.\r\n[% END %]\r\n[% END %]"
+        title: Auto renewals (Digest)

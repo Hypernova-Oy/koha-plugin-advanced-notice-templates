@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Kvitto för beståndsrotation
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Beståndsrotationsrapport för för [% branch.name %]:\r\n\r\n[% IF
+          branch.items.size %][% branch.items.size %] exemplar är under behandling
+          för detta bibliotek.\r\n[% ELSE %]Inga exemplar är under behandling för
+          denna enhet\r\n[% END %][% FOREACH item IN branch.items %][% IF item.reason
+          != 'in-demand' %]Titel: [% item.title %]\r\nFörfattare: [% item.author %]\r\nHyllsignatur:
+          [% item.callnumber %]\r\nPlats: [% item.location %]\r\nStreckkod: [% item.barcode
+          %]\r\nUtlånad?: [% item.onloan %]\r\nStatus: [% item.reason %]\r\nAktuellt
+          bibliotek: [% item.branch.branchname %] [% item.branch.branchcode %]\r\n\r\n[%
+          END %][% END %]"
+        title: Rapport för beståndsrotation
+      default:
+        content: "Beståndsrotationsrapport för för [% branch.name %]:\r\n\r\n[% IF
+          branch.items.size %][% branch.items.size %] exemplar är under behandling
+          för detta bibliotek.\r\n[% ELSE %]Inga exemplar är under behandling för
+          denna enhet\r\n[% END %][% FOREACH item IN branch.items %][% IF item.reason
+          != 'in-demand' %]Titel: [% item.title %]\r\nFörfattare: [% item.author %]\r\nHyllsignatur:
+          [% item.callnumber %]\r\nPlats: [% item.location %]\r\nStreckkod: [% item.barcode
+          %]\r\nUtlånad?: [% item.onloan %]\r\nStatus: [% item.reason %]\r\nAktuellt
+          bibliotek: [% item.branch.branchname %] [% item.branch.branchcode %]\r\n\r\n[%
+          END %][% END %]"
+        title: Rapport för beståndsrotation

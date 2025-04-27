@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Utlån av exemplar (sammanfattning)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Lån
+      default:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Lån
+  sms:
+    plain:
+      anonymous:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Lån
+      default:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Lån

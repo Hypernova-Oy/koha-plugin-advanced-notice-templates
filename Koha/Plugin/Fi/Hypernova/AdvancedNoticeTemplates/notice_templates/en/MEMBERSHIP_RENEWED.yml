@@ -1,0 +1,22 @@
+---
+module: members
+name: Account renewal
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nDear [% borrower.title %] [% borrower.firstname
+          %] [% borrower.surname %],\r\n\r\nYour library account has been renewed.
+          The new expiry date is: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
+          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
+          with_symbol => 1 %] has been applied.\n[% END %]\r\nThank you,\r\n\r\nYour
+          library,\r\n\r\n[% branch.branchname %]"
+        title: Account renewal
+      default:
+        content: "[%- USE Price -%]\r\nDear [% borrower.title %] [% borrower.firstname
+          %] [% borrower.surname %],\r\n\r\nYour library account has been renewed.
+          The new expiry date is: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
+          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
+          with_symbol => 1 %] has been applied.\n[% END %]\r\nThank you,\r\n\r\nYour
+          library,\r\n\r\n[% branch.branchname %]"
+        title: Account renewal

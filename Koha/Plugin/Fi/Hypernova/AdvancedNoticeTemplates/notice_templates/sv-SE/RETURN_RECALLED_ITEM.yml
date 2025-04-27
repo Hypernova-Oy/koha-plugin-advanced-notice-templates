@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Notification to return a recalled item
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Datum: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nEtt
+          återkrav har gjorts på följande exemplar: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>). Förfallodatumet har uppdaterats, och är nu <<issues.date_due>>.
+          Vänligen återlämna exemplaret före detta datum.\r\n\r\nTack!"
+        title: Notification to return a recalled item
+      default:
+        content: "Datum: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nEtt
+          återkrav har gjorts på följande exemplar: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>). Förfallodatumet har uppdaterats, och är nu <<issues.date_due>>.
+          Vänligen återlämna exemplaret före detta datum.\r\n\r\nTack!"
+        title: Notification to return a recalled item
+  sms:
+    plain:
+      anonymous:
+        content: 'Your item has been recalled: <<biblio.title>> (<<items.barcode>>).
+          Please return it by <<issues.date_due>.'
+        title: Återlämna återkrävt exemplar
+      default:
+        content: 'Your item has been recalled: <<biblio.title>> (<<items.barcode>>).
+          Please return it by <<issues.date_due>.'
+        title: Återlämna återkrävt exemplar

@@ -1,0 +1,20 @@
+---
+module: circulation
+name: Palautuskuitti (yhteenveto)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        title: Palautukset
+      default:
+        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        title: Palautukset
+  sms:
+    plain:
+      anonymous:
+        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        title: Palautukset
+      default:
+        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        title: Palautukset

@@ -1,0 +1,20 @@
+---
+module: reserves
+name: Avbruten reservation tillgänglig för annan låntagare
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The patron picking up <<biblio.title>> (<<items.barcode>>) has changed
+          to <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nUppdatera
+          reservationsinformationen för det här exemplaret.\r\nTitel: <<biblio.title>>\r\nFörfattare:
+          <<biblio.author>>\r\nExemplar: <<items.itemcallnumber>>\r\nAvhämtningsbibliotek:
+          <<branches.branchname>>"
+        title: Avbruten reservation tillgänglig för annan låntagare
+      default:
+        content: "The patron picking up <<biblio.title>> (<<items.barcode>>) has changed
+          to <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nUppdatera
+          reservationsinformationen för det här exemplaret.\r\nTitel: <<biblio.title>>\r\nFörfattare:
+          <<biblio.author>>\r\nExemplar: <<items.itemcallnumber>>\r\nAvhämtningsbibliotek:
+          <<branches.branchname>>"
+        title: Avbruten reservation tillgänglig för annan låntagare

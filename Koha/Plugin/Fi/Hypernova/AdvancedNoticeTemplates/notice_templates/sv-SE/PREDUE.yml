@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Utskick i förväg om förfallodatum
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %], [% biblio.author
+          %] ([% item.barcode %])"
+        title: Utskick i förväg om förfallodatum
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %], [% biblio.author
+          %] ([% item.barcode %])"
+        title: Utskick i förväg om förfallodatum
+  sms:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %]"
+        title: Utskick i förväg om förfallodatum
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %]"
+        title: Utskick i förväg om förfallodatum

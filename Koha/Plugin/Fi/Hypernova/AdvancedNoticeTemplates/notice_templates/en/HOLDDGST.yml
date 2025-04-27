@@ -1,0 +1,32 @@
+---
+module: reserves
+name: Hold(s) available for pickup
+template:
+  email:
+    plain:
+      anonymous:
+        content: "You have one or more holds available for pickup:\r\n----\r\nTitle:
+          [% hold.biblio.title %]\r\nAuthor: [% hold.biblio.author %]\r\nCopy: [%
+          hold.item.copynumber %]\r\nWaiting since: [% hold.waitingdate %]\r\nWaiting
+          at: [% hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[%
+          hold.branch.branchaddress2 %]\r\n[% hold.branch.branchaddress3 %]\r\n[%
+          hold.branch.branchcity %] [% hold.branch.branchzip %]\r\n----\r\nThank you!"
+        title: Hold(s) available for pickup
+      default:
+        content: "You have one or more holds available for pickup:\r\n----\r\nTitle:
+          [% hold.biblio.title %]\r\nAuthor: [% hold.biblio.author %]\r\nCopy: [%
+          hold.item.copynumber %]\r\nWaiting since: [% hold.waitingdate %]\r\nWaiting
+          at: [% hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[%
+          hold.branch.branchaddress2 %]\r\n[% hold.branch.branchaddress3 %]\r\n[%
+          hold.branch.branchcity %] [% hold.branch.branchzip %]\r\n----\r\nThank you!"
+        title: Hold(s) available for pickup
+  sms:
+    plain:
+      anonymous:
+        content: "You have one or more holds available for pickup:\r\n\r\n----\r\nTitle:
+          [% hold.biblio.title %]\r\n----"
+        title: Hold(s) available for pickup
+      default:
+        content: "You have one or more holds available for pickup:\r\n\r\n----\r\nTitle:
+          [% hold.biblio.title %]\r\n----"
+        title: Hold(s) available for pickup

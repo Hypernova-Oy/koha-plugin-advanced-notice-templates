@@ -1,0 +1,20 @@
+---
+module: reserves
+name: Canceled hold available for different patron
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The patron picking up <<biblio.title>> (<<items.barcode>>) has changed
+          to <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nPlease
+          update the hold information for this item.\r\nTitle: <<biblio.title>>\r\nAuthor:
+          <<biblio.author>>\r\nItem: <<items.itemcallnumber>>\r\nPickup location:
+          <<branches.branchname>>"
+        title: Canceled hold available for different patron
+      default:
+        content: "The patron picking up <<biblio.title>> (<<items.barcode>>) has changed
+          to <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nPlease
+          update the hold information for this item.\r\nTitle: <<biblio.title>>\r\nAuthor:
+          <<biblio.author>>\r\nItem: <<items.itemcallnumber>>\r\nPickup location:
+          <<branches.branchname>>"
+        title: Canceled hold available for different patron

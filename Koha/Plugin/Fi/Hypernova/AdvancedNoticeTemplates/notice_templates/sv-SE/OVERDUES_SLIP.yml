@@ -1,0 +1,16 @@
+---
+module: circulation
+name: Förseningslapp
+template:
+  print:
+    plain:
+      anonymous:
+        content: "Följande exemplar är för tillfället försenade:\r\n\r\n<item>\"<<biblio.title>>\"
+          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
+          Fine: <<items.fine>></item>\r\n"
+        title: Förseningslapp
+      default:
+        content: "Följande exemplar är för tillfället försenade:\r\n\r\n<item>\"<<biblio.title>>\"
+          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
+          Fine: <<items.fine>></item>\r\n"
+        title: Förseningslapp

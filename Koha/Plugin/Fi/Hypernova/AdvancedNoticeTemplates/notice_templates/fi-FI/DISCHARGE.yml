@@ -1,0 +1,18 @@
+---
+module: members
+name: Velattomuusilmoituksen vahvistus
+template:
+  email:
+    html:
+      anonymous:
+        content: "\r\n<<today>>\r\n<h1>Velattomuusilmoituksen vahvistus</h1>\r\n<p><<branches.branchname>>
+          vahvistaa, että asiakas:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
+          (kirjastokortin numero: <<borrowers.cardnumber>>)<br>\r\non palauttanut
+          kaikki niteet.</p>"
+        title: Velattomuusilmoitus asiakkaalle <<borrowers.firstname>> <<borrowers.surname>>
+      default:
+        content: "\r\n<<today>>\r\n<h1>Velattomuusilmoituksen vahvistus</h1>\r\n<p><<branches.branchname>>
+          vahvistaa, että asiakas:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
+          (kirjastokortin numero: <<borrowers.cardnumber>>)<br>\r\non palauttanut
+          kaikki niteet.</p>"
+        title: Velattomuusilmoitus asiakkaalle <<borrowers.firstname>> <<borrowers.surname>>

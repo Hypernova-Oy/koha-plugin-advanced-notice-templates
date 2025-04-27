@@ -1,0 +1,40 @@
+---
+module: circulation
+name: Förseningsmeddelande
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nKära [% borrower.firstname %] [% borrower.surname
+          %],\r\n\r\nAccording to our current records, you have items that are overdue.\r\nPlease
+          return or renew them at the branch below as soon as possible.\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %] [% branch.branchaddress3 %]\r\nTelefon: [% branch.branchphone %]\r\nFax:
+          [% branch.branchfax %]\r\nE-post: [% branch.branchemail %]\r\n\r\nIf you
+          have registered a password with the library, and you have a renewal available,
+          you may renew online.\r\nIf an item becomes more than 30 days overdue, you
+          will be unable to use your library card until the item is returned.\r\n\r\nThe
+          following [% IF overdues.count > 1 %]items are[% ELSE %]item is[% END %]
+          currently overdue:\r\n\r\n[% FOREACH overdue IN overdues %]\r\n[%- SET item
+          = overdue.item -%]\r\n\"[% item.biblio.title %]\" by [% item.biblio.author
+          %], [% item.itemcallnumber %], Barcode: [% item.barcode %], Fine: [% overdue.overdue_fines.total_outstanding
+          | $Price %]\r\n[% END %]\r\n\r\nThank you for your prompt attention to this
+          matter.\r\n\r\n[% branch.branchname %] staff\r\n"
+        title: Exemplaret är försenat
+      default:
+        content: "[%- USE Price -%]\r\nKära [% borrower.firstname %] [% borrower.surname
+          %],\r\n\r\nAccording to our current records, you have items that are overdue.\r\nPlease
+          return or renew them at the branch below as soon as possible.\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %] [% branch.branchaddress3 %]\r\nTelefon: [% branch.branchphone %]\r\nFax:
+          [% branch.branchfax %]\r\nE-post: [% branch.branchemail %]\r\n\r\nIf you
+          have registered a password with the library, and you have a renewal available,
+          you may renew online.\r\nIf an item becomes more than 30 days overdue, you
+          will be unable to use your library card until the item is returned.\r\n\r\nThe
+          following [% IF overdues.count > 1 %]items are[% ELSE %]item is[% END %]
+          currently overdue:\r\n\r\n[% FOREACH overdue IN overdues %]\r\n[%- SET item
+          = overdue.item -%]\r\n\"[% item.biblio.title %]\" by [% item.biblio.author
+          %], [% item.itemcallnumber %], Barcode: [% item.barcode %], Fine: [% overdue.overdue_fines.total_outstanding
+          | $Price %]\r\n[% END %]\r\n\r\nThank you for your prompt attention to this
+          matter.\r\n\r\n[% branch.branchname %] staff\r\n"
+        title: Exemplaret är försenat

@@ -1,0 +1,32 @@
+---
+module: reserves
+name: Varaus noudettavissa
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Sinulla on varaus noudettavissa:\r\n----\r\nOtsikko: [% hold.biblio.title
+          %]\r\nTekijä: [% hold.biblio.author %]\r\nKopion numero: [% hold.item.copynumber
+          %]\r\nOdottaa alkaen: [% hold.waitingdate %]\r\nOdottaa kirjastossa: [%
+          hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[% hold.branch.branchaddress2
+          %]\r\n[% hold.branch.branchaddress3 %]\r\n[% hold.branch.branchcity %] [%
+          hold.branch.branchzip %]\r\n----\r\nKiitos!"
+        title: Varaus noudettavissa
+      default:
+        content: "Sinulla on varaus noudettavissa:\r\n----\r\nOtsikko: [% hold.biblio.title
+          %]\r\nTekijä: [% hold.biblio.author %]\r\nKopion numero: [% hold.item.copynumber
+          %]\r\nOdottaa alkaen: [% hold.waitingdate %]\r\nOdottaa kirjastossa: [%
+          hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[% hold.branch.branchaddress2
+          %]\r\n[% hold.branch.branchaddress3 %]\r\n[% hold.branch.branchcity %] [%
+          hold.branch.branchzip %]\r\n----\r\nKiitos!"
+        title: Varaus noudettavissa
+  sms:
+    plain:
+      anonymous:
+        content: "Sinulla on varaus noudettavissa:\r\n\r\n----\r\nOtsikko: [% hold.biblio.title
+          %]\r\n----"
+        title: Varaus noudettavissa
+      default:
+        content: "Sinulla on varaus noudettavissa:\r\n\r\n----\r\nOtsikko: [% hold.biblio.title
+          %]\r\n----"
+        title: Varaus noudettavissa

@@ -1,0 +1,44 @@
+---
+module: ill
+name: Fjärrlånebeställning klar att hämta
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nFjärrlånebeställningsnummer
+          [% illrequest.illrequest_id %] för:\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author
+          %]\r\n\r\nfinns att hämta hos [% branch.branchname %].\r\n\r\nHälsningar\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchemail %]"
+        title: Fjärrlånebeställning finns att hämta
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nFjärrlånebeställningsnummer
+          [% illrequest.illrequest_id %] för:\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author
+          %]\r\n\r\nfinns att hämta hos [% branch.branchname %].\r\n\r\nHälsningar\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchemail %]"
+        title: Fjärrlånebeställning finns att hämta
+  sms:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nFjärrlånebeställningsnummer
+          [% illrequest.illrequest_id %] för:\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author
+          %]\r\n\r\nfinns att hämta hos [% branch.branchname %].\r\n\r\nHälsningar\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchemail %]"
+        title: Fjärrlånebeställning finns att hämta
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nFjärrlånebeställningsnummer
+          [% illrequest.illrequest_id %] för:\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author
+          %]\r\n\r\nfinns att hämta hos [% branch.branchname %].\r\n\r\nHälsningar\r\n\r\n[%
+          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchemail %]"
+        title: Fjärrlånebeställning finns att hämta

@@ -1,0 +1,14 @@
+---
+module: members
+name: Kaksivaiheisen tunnistuksen vaihe
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %])\r\n\r\nVarmennuksesi on [% otp_token %].\r\nOn voimassa yhden minuutin."
+        title: Kaksivaiheinen tunnistus
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %])\r\n\r\nVarmennuksesi on [% otp_token %].\r\nOn voimassa yhden minuutin."
+        title: Kaksivaiheinen tunnistus

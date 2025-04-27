@@ -1,0 +1,22 @@
+---
+module: suggestions
+name: Suggestion available
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
+          %].\r\n\r\nWe are pleased to inform you that the item you requested is now
+          part of the collection.\r\n\r\nIf you have any questions, please email us
+          at [% branch.branchemail %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname
+          %]"
+        title: Suggested purchase available
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
+          %].\r\n\r\nWe are pleased to inform you that the item you requested is now
+          part of the collection.\r\n\r\nIf you have any questions, please email us
+          at [% branch.branchemail %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname
+          %]"
+        title: Suggested purchase available

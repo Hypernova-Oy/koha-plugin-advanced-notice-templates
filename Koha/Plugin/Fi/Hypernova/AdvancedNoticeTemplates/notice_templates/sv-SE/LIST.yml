@@ -1,0 +1,92 @@
+---
+module: lists
+name: Skicka lista
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
+          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHej,<br><br>\r\n[% borrower.firstname
+          | html %] [% borrower.surname | html %] skickade en lista till dig, från
+          vår onlinekatalog, som heter: [% listname | html %].<br>\r\nObservera att
+          den bifogade filen är en bibliografisk fil i MARC-format som kan importeras
+          till bibliografisk programvara, t.ex. EndNote, Reference Manager eller ProCite.<br>\r\n[%
+          IF ( comment ) %]<hr><br>[% comment | html | html_line_break %]<br><br>[%
+          END %]<hr>\r\n<ol>[% FOREACH biblio IN biblios %]<li>\r\n[% biblio.title
+          | html %]\r\n[% IF ( biblio.subtitle ) %][% FOREACH subtitle IN biblio.subtitle.split('
+          | ') %][% subtitle | html %][% END %][% END %][% biblio.part_number | html
+          %] [% biblio.part_name | html %]<br>\r\n[% IF ( biblio.author || biblio.get_marc_contributors.size
+          ) %]Författare: [% IF ( biblio.author ) %][% biblio.author | html %][% END
+          %][% IF ( biblio.get_marc_contributors ) %][% IF ( biblio.author ) %]; [%
+          END %][% FOREACH author IN biblio.get_marc_contributors %][% FOREACH subfield
+          IN author.MARCAUTHOR_SUBFIELDS_LOOP %][% subfield.separator | html %][%
+          subfield.value | html %][% END %][% UNLESS ( loop.last ) %];[% END %][%
+          END %][% END %]<br>[% END %]\r\n[% SET biblioitem = biblio.biblioitem %][%
+          IF ( biblioitem.isbn ) %]ISBN: [% FOREACH isbn IN biblioitem.isbn %][% isbn
+          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]\r\n[%
+          IF ( biblioitem.publishercode ) %]Utigven av: [% biblioitem.publishercode
+          | html %][% IF ( biblioitem.publicationyear ) %] i [% biblioitem.publicationyear
+          | html %][% END %][% IF ( biblioitem.pages ) %], [% biblioitem.pages | html
+          %][% END %]<br>[% END %]\r\n%Samling: [% IF ( biblio.seriestitle ) %][%
+          biblio.seriestitle | html %]<br>\r\nUtgivningsår: [% IF ( biblio.copyrightdate
+          ) %]\r\n[% IF ( biblio.notes ) %]Anmärkning: [% biblio.notes | html %]<br>[%
+          END %]\r\n[% IF ( biblio.unititle ) %]Enhetlig titel: [% biblio.unititle
+          | html %]<br>[% END %]\r\n[% IF ( biblio.serial ) %]Periodika: [% biblio.serial
+          | html %]<br>[% END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
+          | html %]<br>[% END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
+          ) %]I: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE 'biblio-title.inc'
+          \ biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
+          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
+          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n[<a
+          href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
+          biblio.biblionumber | html %]'>Se i onlinekatalog</a>\r\n[% IF ( biblio.items.count
+          > 0 ) %]<br>Exemplar: <ul>[% FOREACH item IN biblio.items %]<li>[% Branches.GetName(
+          item.holdingbranch ) | html %]\r\n[% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
+          kohafield => 'items.location', authorised_value => item.location ) | html
+          %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
+          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
+          END %]</ol>"
+        title: 'Din lista: [% listname | html %]'
+      default:
+        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
+          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHej,<br><br>\r\n[% borrower.firstname
+          | html %] [% borrower.surname | html %] skickade en lista till dig, från
+          vår onlinekatalog, som heter: [% listname | html %].<br>\r\nObservera att
+          den bifogade filen är en bibliografisk fil i MARC-format som kan importeras
+          till bibliografisk programvara, t.ex. EndNote, Reference Manager eller ProCite.<br>\r\n[%
+          IF ( comment ) %]<hr><br>[% comment | html | html_line_break %]<br><br>[%
+          END %]<hr>\r\n<ol>[% FOREACH biblio IN biblios %]<li>\r\n[% biblio.title
+          | html %]\r\n[% IF ( biblio.subtitle ) %][% FOREACH subtitle IN biblio.subtitle.split('
+          | ') %][% subtitle | html %][% END %][% END %][% biblio.part_number | html
+          %] [% biblio.part_name | html %]<br>\r\n[% IF ( biblio.author || biblio.get_marc_contributors.size
+          ) %]Författare: [% IF ( biblio.author ) %][% biblio.author | html %][% END
+          %][% IF ( biblio.get_marc_contributors ) %][% IF ( biblio.author ) %]; [%
+          END %][% FOREACH author IN biblio.get_marc_contributors %][% FOREACH subfield
+          IN author.MARCAUTHOR_SUBFIELDS_LOOP %][% subfield.separator | html %][%
+          subfield.value | html %][% END %][% UNLESS ( loop.last ) %];[% END %][%
+          END %][% END %]<br>[% END %]\r\n[% SET biblioitem = biblio.biblioitem %][%
+          IF ( biblioitem.isbn ) %]ISBN: [% FOREACH isbn IN biblioitem.isbn %][% isbn
+          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]\r\n[%
+          IF ( biblioitem.publishercode ) %]Utigven av: [% biblioitem.publishercode
+          | html %][% IF ( biblioitem.publicationyear ) %] i [% biblioitem.publicationyear
+          | html %][% END %][% IF ( biblioitem.pages ) %], [% biblioitem.pages | html
+          %][% END %]<br>[% END %]\r\n%Samling: [% IF ( biblio.seriestitle ) %][%
+          biblio.seriestitle | html %]<br>\r\nUtgivningsår: [% IF ( biblio.copyrightdate
+          ) %]\r\n[% IF ( biblio.notes ) %]Anmärkning: [% biblio.notes | html %]<br>[%
+          END %]\r\n[% IF ( biblio.unititle ) %]Enhetlig titel: [% biblio.unititle
+          | html %]<br>[% END %]\r\n[% IF ( biblio.serial ) %]Periodika: [% biblio.serial
+          | html %]<br>[% END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
+          | html %]<br>[% END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
+          ) %]I: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE 'biblio-title.inc'
+          \ biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
+          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
+          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n[<a
+          href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
+          biblio.biblionumber | html %]'>Se i onlinekatalog</a>\r\n[% IF ( biblio.items.count
+          > 0 ) %]<br>Exemplar: <ul>[% FOREACH item IN biblio.items %]<li>[% Branches.GetName(
+          item.holdingbranch ) | html %]\r\n[% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
+          kohafield => 'items.location', authorised_value => item.location ) | html
+          %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
+          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
+          END %]</ol>"
+        title: 'Din lista: [% listname | html %]'

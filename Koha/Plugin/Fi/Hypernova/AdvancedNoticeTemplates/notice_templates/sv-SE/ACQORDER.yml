@@ -1,0 +1,16 @@
+---
+module: orderacquisition
+name: Inköpsbeställning
+template:
+  email:
+    plain:
+      anonymous:
+        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nBeställ
+          till biblioteket:\r\n\r\n<order>Ordernumber <<aqorders.ordernumber>> (<<biblio.title>>)
+          (antal: <<aqorders.quantity>>) (<<aqorders.listprice>> kr styck).</order>\r\n\r\nTack,\r\n\r\n<<branches.branchname>>"
+        title: Beställning
+      default:
+        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nBeställ
+          till biblioteket:\r\n\r\n<order>Ordernumber <<aqorders.ordernumber>> (<<biblio.title>>)
+          (antal: <<aqorders.quantity>>) (<<aqorders.listprice>> kr styck).</order>\r\n\r\nTack,\r\n\r\n<<branches.branchname>>"
+        title: Beställning

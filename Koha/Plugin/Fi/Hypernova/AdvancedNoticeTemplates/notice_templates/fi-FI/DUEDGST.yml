@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Eräpäivämuistutus (yhteenveto)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraavat
+          niteet erääntyvät:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.title
+          %], [% checkout.author %] ([% checkout.barcode %])\r\n[% END %]\r\nKiitos."
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraavat
+          niteet erääntyvät:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.title
+          %], [% checkout.author %] ([% checkout.barcode %])\r\n[% END %]\r\nKiitos."
+        title: Eräpäivämuistutus
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
+          on [% checkouts.size %] tänään erääntyvä(ä) nide(ttä)\r\n\r\nKiitos."
+        title: Eräpäivämuistutus
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
+          on [% checkouts.size %] tänään erääntyvä(ä) nide(ttä)\r\n\r\nKiitos."
+        title: Eräpäivämuistutus

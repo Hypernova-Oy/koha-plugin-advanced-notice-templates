@@ -1,0 +1,14 @@
+---
+module: circulation
+name: Niteet uusittu
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Seuraavat niteet on uusittu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Niteet uusittu
+      default:
+        content: "Seuraavat niteet on uusittu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Niteet uusittu

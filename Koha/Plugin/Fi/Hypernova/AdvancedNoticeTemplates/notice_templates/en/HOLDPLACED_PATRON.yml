@@ -1,0 +1,18 @@
+---
+module: reserves
+name: Hold is confirmed
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hello [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %]),\r\nYour hold on [% hold.biblio.title %] ([% hold.biblio.id %]) has
+          been confirmed.\r\nYou will be notified by the library when your item is
+          available for pickup.\r\nThank you!"
+        title: Your hold on [% hold.biblio.title %] is confirmed
+      default:
+        content: "Hello [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %]),\r\nYour hold on [% hold.biblio.title %] ([% hold.biblio.id %]) has
+          been confirmed.\r\nYou will be notified by the library when your item is
+          available for pickup.\r\nThank you!"
+        title: Your hold on [% hold.biblio.title %] is confirmed

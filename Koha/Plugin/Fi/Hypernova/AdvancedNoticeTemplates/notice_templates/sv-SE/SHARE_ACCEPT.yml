@@ -1,0 +1,16 @@
+---
+module: lists
+name: Notification about an accepted share
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej\r\n\r\nVi vill informera dig om att <<borrowers.firstname>>
+          <<borrowers.surname>> tackade ja till din inbjudan att dela din lista <<listname>>
+          i vår bibliotekskatalog.\r\n\r\nTack.\r\n\r\nDitt bibliotek."
+        title: Share on list <<listname>> accepted
+      default:
+        content: "Hej\r\n\r\nVi vill informera dig om att <<borrowers.firstname>>
+          <<borrowers.surname>> tackade ja till din inbjudan att dela din lista <<listname>>
+          i vår bibliotekskatalog.\r\n\r\nTack.\r\n\r\nDitt bibliotek."
+        title: Share on list <<listname>> accepted

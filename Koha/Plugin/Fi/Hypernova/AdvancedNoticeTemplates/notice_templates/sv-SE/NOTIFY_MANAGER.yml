@@ -1,0 +1,16 @@
+---
+module: suggestions
+name: Avisera hanterare av inköpsförslag
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har ett nytt inköpsförslag att hantera: [% suggestion.title %].\r\n\r\nTack,\r\n\r\n[%
+          branch.branchname %]"
+        title: Du har ett inköpsförslag att hantera
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har ett nytt inköpsförslag att hantera: [% suggestion.title %].\r\n\r\nTack,\r\n\r\n[%
+          branch.branchname %]"
+        title: Du har ett inköpsförslag att hantera

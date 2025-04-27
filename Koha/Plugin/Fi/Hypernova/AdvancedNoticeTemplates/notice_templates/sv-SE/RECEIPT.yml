@@ -1,0 +1,102 @@
+---
+module: pos
+name: Kvitto för försäljningsställe
+template:
+  email:
+    html:
+      anonymous:
+        content: "[% USE KohaDates %]\r\n[% USE Branches %]\r\n[% USE Price %]\r\n[%
+          PROCESS \"accounts.inc\" %]\r\n<table>\r\n    [% IF ( LibraryName ) %]\r\n
+          \   <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n        <h3>[%
+          LibraryName | html %]</h3>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n
+          \   [% IF credit.library %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h2>[% payment.library.branchname | html %]</h2>\r\n      </th>\r\n
+          \   </tr>\r\n    [% END %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h3>[% payment.date | $KohaDates %]</h3>\r\n      </th>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Transaktions-ID: </td>\r\n      <td>[% payment.accountlines_id
+          %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Operatörs-ID: </td>\r\n      <td>[%
+          payment.manager_id %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Betalningstyp:
+          </td>\r\n      <td>[% payment.payment_type %]</td>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th colspan=\"2\" class=\"centerednames\">\r\n        <h2><u>Kvitto
+          för avgift</u></h2>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>Beskrivning
+          av avgifter</th>\r\n      <th>Belopp</th>\r\n    </tr>\r\n    [% FOREACH
+          offset IN payment.credit_offsets %]\r\n    <tr>\r\n        <td>[% PROCESS
+          account_type_description account=debit %]</td>\r\n        <td>[% debit.amount
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    [% END %]\r\n  <tfoot>\r\n    <tr
+          class=\"highlight\">\r\n      <td>Totalt:</td>\r\n      <td>[% payment.amount
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Inlämnat: </td>\r\n
+          \     <td>[% collected | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Växel
+          tillbaka: </td>\r\n      <td>[% change | $Price %]</td>\r\n    </tr>\r\n
+          \ </tfoot>\r\n</table>"
+        title: Kvitto
+      default:
+        content: "[% USE KohaDates %]\r\n[% USE Branches %]\r\n[% USE Price %]\r\n[%
+          PROCESS \"accounts.inc\" %]\r\n<table>\r\n    [% IF ( LibraryName ) %]\r\n
+          \   <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n        <h3>[%
+          LibraryName | html %]</h3>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n
+          \   [% IF credit.library %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h2>[% payment.library.branchname | html %]</h2>\r\n      </th>\r\n
+          \   </tr>\r\n    [% END %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h3>[% payment.date | $KohaDates %]</h3>\r\n      </th>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Transaktions-ID: </td>\r\n      <td>[% payment.accountlines_id
+          %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Operatörs-ID: </td>\r\n      <td>[%
+          payment.manager_id %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Betalningstyp:
+          </td>\r\n      <td>[% payment.payment_type %]</td>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th colspan=\"2\" class=\"centerednames\">\r\n        <h2><u>Kvitto
+          för avgift</u></h2>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <th>Beskrivning
+          av avgifter</th>\r\n      <th>Belopp</th>\r\n    </tr>\r\n    [% FOREACH
+          offset IN payment.credit_offsets %]\r\n    <tr>\r\n        <td>[% PROCESS
+          account_type_description account=debit %]</td>\r\n        <td>[% debit.amount
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    [% END %]\r\n  <tfoot>\r\n    <tr
+          class=\"highlight\">\r\n      <td>Totalt:</td>\r\n      <td>[% payment.amount
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Inlämnat: </td>\r\n
+          \     <td>[% collected | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td>Växel
+          tillbaka: </td>\r\n      <td>[% change | $Price %]</td>\r\n    </tr>\r\n
+          \ </tfoot>\r\n</table>"
+        title: Kvitto
+  print:
+    html:
+      anonymous:
+        content: "[% USE KohaDates %]\r\n[% USE Branches %]\r\n[% USE Price %]\r\n[%
+          PROCESS \"accounts.inc\" %]\r\n<table>\r\n[% IF ( LibraryName ) %]\r\n <tr>\r\n
+          \   <th colspan=\"2\" class=\"centerednames\">\r\n        <h3>[% LibraryName
+          | html %]</h3>\r\n    </th>\r\n </tr>\r\n[% END %]\r\n <tr>\r\n    <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h2>[% Branches.GetName( credit.branchcode
+          ) | html %]</h2>\r\n    </th>\r\n </tr>\r\n<tr>\r\n    <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h3>[% credit.date | $KohaDates %]</h3>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Transaktions-ID: </td>\r\n  <td>[% credit.accountlines_id %]</td>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Operatörs-ID: </td>\r\n  <td>[% credit.manager_id %]</td>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Betalningstyp: </td>\r\n  <td>[% credit.payment_type %]</td>\r\n</tr>\r\n
+          <tr></tr>\r\n <tr>\r\n    <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h2><u>Kvitto för avgift</u></h2>\r\n    </th>\r\n </tr>\r\n <tr></tr>\r\n
+          <tr>\r\n    <th>Beskrivning av avgifter</th>\r\n    <th>Belopp</th>\r\n
+          \ </tr>\r\n\r\n  [% FOREACH debit IN credit.debits %]\r\n    <tr>\r\n        <td>[%
+          PROCESS account_type_description account=debit %]</td>\r\n        <td>[%
+          debit.amount * -1 | $Price %]</td>\r\n    </tr>\r\n  [% END %]\r\n\r\n<tfoot>\r\n
+          \ <tr class=\"highlight\">\r\n    <td>Totalt: </td>\r\n    <td>[% credit.amount
+          * -1| $Price %]</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Inlämnat: </td>\r\n
+          \   <td>[% collected | $Price %]</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Ändring:
+          </td>\r\n    <td>[% change | $Price %]</td>\r\n    </tr>\r\n</tfoot>\r\n</table>"
+        title: Kvitto
+      default:
+        content: "[% USE KohaDates %]\r\n[% USE Branches %]\r\n[% USE Price %]\r\n[%
+          PROCESS \"accounts.inc\" %]\r\n<table>\r\n[% IF ( LibraryName ) %]\r\n <tr>\r\n
+          \   <th colspan=\"2\" class=\"centerednames\">\r\n        <h3>[% LibraryName
+          | html %]</h3>\r\n    </th>\r\n </tr>\r\n[% END %]\r\n <tr>\r\n    <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h2>[% Branches.GetName( credit.branchcode
+          ) | html %]</h2>\r\n    </th>\r\n </tr>\r\n<tr>\r\n    <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h3>[% credit.date | $KohaDates %]</h3>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Transaktions-ID: </td>\r\n  <td>[% credit.accountlines_id %]</td>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Operatörs-ID: </td>\r\n  <td>[% credit.manager_id %]</td>\r\n</tr>\r\n<tr>\r\n
+          \ <td>Betalningstyp: </td>\r\n  <td>[% credit.payment_type %]</td>\r\n</tr>\r\n
+          <tr></tr>\r\n <tr>\r\n    <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h2><u>Kvitto för avgift</u></h2>\r\n    </th>\r\n </tr>\r\n <tr></tr>\r\n
+          <tr>\r\n    <th>Beskrivning av avgifter</th>\r\n    <th>Belopp</th>\r\n
+          \ </tr>\r\n\r\n  [% FOREACH debit IN credit.debits %]\r\n    <tr>\r\n        <td>[%
+          PROCESS account_type_description account=debit %]</td>\r\n        <td>[%
+          debit.amount * -1 | $Price %]</td>\r\n    </tr>\r\n  [% END %]\r\n\r\n<tfoot>\r\n
+          \ <tr class=\"highlight\">\r\n    <td>Totalt: </td>\r\n    <td>[% credit.amount
+          * -1| $Price %]</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Inlämnat: </td>\r\n
+          \   <td>[% collected | $Price %]</td>\r\n  </tr>\r\n  <tr>\r\n    <td>Ändring:
+          </td>\r\n    <td>[% change | $Price %]</td>\r\n    </tr>\r\n</tfoot>\r\n</table>"
+        title: Kvitto

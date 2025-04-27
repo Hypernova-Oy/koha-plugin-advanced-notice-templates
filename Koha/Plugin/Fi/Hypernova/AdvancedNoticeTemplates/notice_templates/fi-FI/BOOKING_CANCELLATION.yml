@@ -1,0 +1,24 @@
+---
+module: bookings
+name: Booking cancellation notice
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE KohaDates -%]\r\nHyvä
+          [%- INCLUDE 'patron-title.inc' patron => booking.patron -%],<br>\r\n<br>\r\nWe
+          regret to inform you, that the following booking has been cancelled.<br>\r\n<br>\r\nTitle:
+          [%- INCLUDE 'biblio-title.inc' biblio=booking.biblio link = 0 -%]<br>\r\n<br>\r\nDates:
+          [% booking.start_date | $KohaDates %] to [% booking.end_date | $KohaDates
+          %]<br>\r\n<br>\r\nReason: [% booking.cancellation_reason | html %]<br>\r\n<br>\r\nKind
+          regards<br>\r\n<br>\r\n[% booking.pickup_library.branchname %]"
+        title: A library booking was cancelled
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE KohaDates -%]\r\nHyvä
+          [%- INCLUDE 'patron-title.inc' patron => booking.patron -%],<br>\r\n<br>\r\nWe
+          regret to inform you, that the following booking has been cancelled.<br>\r\n<br>\r\nTitle:
+          [%- INCLUDE 'biblio-title.inc' biblio=booking.biblio link = 0 -%]<br>\r\n<br>\r\nDates:
+          [% booking.start_date | $KohaDates %] to [% booking.end_date | $KohaDates
+          %]<br>\r\n<br>\r\nReason: [% booking.cancellation_reason | html %]<br>\r\n<br>\r\nKind
+          regards<br>\r\n<br>\r\n[% booking.pickup_library.branchname %]"
+        title: A library booking was cancelled

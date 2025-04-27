@@ -1,0 +1,36 @@
+---
+module: members
+name: Uusi verkkokirjaston itserekisteröityminen tehty
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Uusi verkkokirjaston itserekisteröityminen</h3>\r\n<p><h4>Verkkokirjaston
+          itserekisteröityminen tehty:</h4>\r\n<ul>\r\n<li> [% borrower.firstname
+          %] [% borrower.surname %]</li>\r\n[% IF borrower.cardnumber %]<li>Kirjastokortin
+          numero: [% borrower.cardnumber %]</li>[% END %]\r\n[% IF borrower.email
+          %]<li>Sähköposti: [% borrower.email %]</li>[% END %]\r\n[% IF borrower.phone
+          %]<li>Puhelin: [% borrower.phone %]</li>[% END %]\r\n[% IF borrower.mobile
+          %]<li>Matkapuhelin: [% borrower.mobile %]</li>[% END %]\r\n[% IF borrower.fax
+          %]<li>Faksi: [% borrower.fax %]</li>[% END %]\r\n[% IF borrower.emailpro
+          %]<li>Toissijainen sähköpostiosoite: [% borrower.emailpro %]</li>[% END
+          %]\r\n[% IF borrower.phonepro %]<li>Toissijainen puh.nro: [% borrower.phonepro
+          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Kotikirjasto: [% borrower.branchcode
+          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Väliaikainen asiakastyyppi:
+          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: Uusi verkkokirjaston itserekisteröityminen
+      default:
+        content: "<h3>Uusi verkkokirjaston itserekisteröityminen</h3>\r\n<p><h4>Verkkokirjaston
+          itserekisteröityminen tehty:</h4>\r\n<ul>\r\n<li> [% borrower.firstname
+          %] [% borrower.surname %]</li>\r\n[% IF borrower.cardnumber %]<li>Kirjastokortin
+          numero: [% borrower.cardnumber %]</li>[% END %]\r\n[% IF borrower.email
+          %]<li>Sähköposti: [% borrower.email %]</li>[% END %]\r\n[% IF borrower.phone
+          %]<li>Puhelin: [% borrower.phone %]</li>[% END %]\r\n[% IF borrower.mobile
+          %]<li>Matkapuhelin: [% borrower.mobile %]</li>[% END %]\r\n[% IF borrower.fax
+          %]<li>Faksi: [% borrower.fax %]</li>[% END %]\r\n[% IF borrower.emailpro
+          %]<li>Toissijainen sähköpostiosoite: [% borrower.emailpro %]</li>[% END
+          %]\r\n[% IF borrower.phonepro %]<li>Toissijainen puh.nro: [% borrower.phonepro
+          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Kotikirjasto: [% borrower.branchcode
+          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Väliaikainen asiakastyyppi:
+          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: Uusi verkkokirjaston itserekisteröityminen

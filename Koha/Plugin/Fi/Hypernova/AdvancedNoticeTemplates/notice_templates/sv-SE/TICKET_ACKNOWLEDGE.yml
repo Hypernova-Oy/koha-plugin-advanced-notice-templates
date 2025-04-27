@@ -1,0 +1,18 @@
+---
+module: catalogue
+name: Concern acknowledgement
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nKära [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nTack för din rapport rörande
+          [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%].<br>\r\n<br>\r\nYou
+          reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nTack"
+        title: Katalogärende - bekräftelse
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nKära [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nTack för din rapport rörande
+          [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%].<br>\r\n<br>\r\nYou
+          reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nTack"
+        title: Katalogärende - bekräftelse

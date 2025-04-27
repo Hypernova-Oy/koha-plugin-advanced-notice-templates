@@ -1,0 +1,14 @@
+---
+module: members
+name: Account expiration
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej <<borrowers.title>> <<borrowers.firstname>><<borrowers.surname>>,\r\n\r\nDitt
+          lånekort går ut snart:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nTack,\r\n\r\nBibliotekarie\r\n\r\n<<branches.branchname>>"
+        title: Account expiration
+      default:
+        content: "Hej <<borrowers.title>> <<borrowers.firstname>><<borrowers.surname>>,\r\n\r\nDitt
+          lånekort går ut snart:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nTack,\r\n\r\nBibliotekarie\r\n\r\n<<branches.branchname>>"
+        title: Account expiration

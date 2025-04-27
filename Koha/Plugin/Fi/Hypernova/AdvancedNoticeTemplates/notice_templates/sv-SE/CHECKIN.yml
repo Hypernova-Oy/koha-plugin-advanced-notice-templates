@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Återlämning av exemplar (sammanfattning)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack."
+        title: Återlämningar
+      default:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack."
+        title: Återlämningar
+  sms:
+    plain:
+      anonymous:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack."
+        title: Återlämningar
+      default:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack."
+        title: Återlämningar

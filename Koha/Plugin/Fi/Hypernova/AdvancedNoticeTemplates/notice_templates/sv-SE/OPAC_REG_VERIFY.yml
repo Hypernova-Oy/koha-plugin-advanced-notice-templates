@@ -1,0 +1,18 @@
+---
+module: members
+name: Verifieringsmail för självregistrering i OPAC
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej!\r\n\r\nDitt bibliotekskonto har skapats. Vänligen verifiera
+          din e-postadress genom att klicka på den här länken för att slutföra registreringsprocessen:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nOm
+          du inte initierade denna begäran kan du säkert ignorera detta engångsmeddelande.
+          Begäran löper ut inom kort."
+        title: Verifiera ditt konto
+      default:
+        content: "Hej!\r\n\r\nDitt bibliotekskonto har skapats. Vänligen verifiera
+          din e-postadress genom att klicka på den här länken för att slutföra registreringsprocessen:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nOm
+          du inte initierade denna begäran kan du säkert ignorera detta engångsmeddelande.
+          Begäran löper ut inom kort."
+        title: Verifiera ditt konto

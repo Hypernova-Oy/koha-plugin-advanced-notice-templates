@@ -1,0 +1,14 @@
+---
+module: circulation
+name: Omlånade exemplar
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Följande exemplar har blivit omlånade:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Omlånade exemplar
+      default:
+        content: "Följande exemplar har blivit omlånade:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nTack för att du besöker [% branch.branchname %]."
+        title: Omlånade exemplar

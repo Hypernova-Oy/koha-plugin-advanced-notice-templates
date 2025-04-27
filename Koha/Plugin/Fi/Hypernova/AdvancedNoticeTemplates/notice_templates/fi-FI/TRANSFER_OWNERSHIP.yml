@@ -1,0 +1,22 @@
+---
+module: lists
+name: Transfer ownership
+template:
+  email:
+    html:
+      anonymous:
+        content: "Hyvä [%- INCLUDE 'patron-title.inc' patron => owner -%],<br>\r\n<br>\r\nA
+          public list, titled <em>[% shelf.shelfname | html %]</em>, has been transferred
+          to you[% IF ( librarian ) %] by [%- INCLUDE 'patron-title.inc' patron =>
+          librarian %][% END %].<br>\r\n<br>\r\n[% IF old_owner %]The list was previously
+          owned by [%- INCLUDE 'patron-title.inc' patron => old_owner -%].<br><br>[%
+          END %]\r\nThank you<br>\r\n<br>"
+        title: A list has been transferred to you
+      default:
+        content: "Hyvä [%- INCLUDE 'patron-title.inc' patron => owner -%],<br>\r\n<br>\r\nA
+          public list, titled <em>[% shelf.shelfname | html %]</em>, has been transferred
+          to you[% IF ( librarian ) %] by [%- INCLUDE 'patron-title.inc' patron =>
+          librarian %][% END %].<br>\r\n<br>\r\n[% IF old_owner %]The list was previously
+          owned by [%- INCLUDE 'patron-title.inc' patron => old_owner -%].<br><br>[%
+          END %]\r\nThank you<br>\r\n<br>"
+        title: A list has been transferred to you

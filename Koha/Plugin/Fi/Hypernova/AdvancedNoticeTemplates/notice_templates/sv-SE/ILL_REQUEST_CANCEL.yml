@@ -1,0 +1,28 @@
+---
+module: ill
+name: Fjärrlånebeställning avbruten
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Låntagaren knuten till fjärrlånebeställning [% illrequest.illrequest_id
+          %], med följande detaljer, har önskat avbryta denna beställning:\r\n\r\n[%
+          ill_full_metadata %]"
+        title: Fjärrlånebeställning avbruten
+      default:
+        content: "Låntagaren knuten till fjärrlånebeställning [% illrequest.illrequest_id
+          %], med följande detaljer, har önskat avbryta denna beställning:\r\n\r\n[%
+          ill_full_metadata %]"
+        title: Fjärrlånebeställning avbruten
+  sms:
+    plain:
+      anonymous:
+        content: "Låntagaren knuten till fjärrlånebeställning [% illrequest.illrequest_id
+          %], med följande detaljer, har önskat avbryta denna beställning:\r\n\r\n[%
+          ill_full_metadata %]"
+        title: Fjärrlånebeställning avbruten
+      default:
+        content: "Låntagaren knuten till fjärrlånebeställning [% illrequest.illrequest_id
+          %], med följande detaljer, har önskat avbryta denna beställning:\r\n\r\n[%
+          ill_full_metadata %]"
+        title: Fjärrlånebeställning avbruten

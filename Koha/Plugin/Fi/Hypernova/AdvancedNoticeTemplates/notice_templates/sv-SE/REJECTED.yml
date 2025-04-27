@@ -1,0 +1,24 @@
+---
+module: suggestions
+name: Förslag avslaget
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har föreslagit att biblioteket ska köpa in [% suggestion.title %] av [%
+          suggestion.author %].\r\n\r\nBiblioteket har granskat din begäran idag och
+          har beslutat att inte acceptera förslaget för närvarande.\r\n\r\nDen angivna
+          orsaken är: [% suggestion.reason %]\r\n\r\nOm du har några frågor, mejla
+          oss på [% branch.branchemail %].\r\n\r\nTack,\r\n\r\n[% branch.branchname
+          %]"
+        title: Inköpsförslag avslaget
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har föreslagit att biblioteket ska köpa in [% suggestion.title %] av [%
+          suggestion.author %].\r\n\r\nBiblioteket har granskat din begäran idag och
+          har beslutat att inte acceptera förslaget för närvarande.\r\n\r\nDen angivna
+          orsaken är: [% suggestion.reason %]\r\n\r\nOm du har några frågor, mejla
+          oss på [% branch.branchemail %].\r\n\r\nTack,\r\n\r\n[% branch.branchname
+          %]"
+        title: Inköpsförslag avslaget

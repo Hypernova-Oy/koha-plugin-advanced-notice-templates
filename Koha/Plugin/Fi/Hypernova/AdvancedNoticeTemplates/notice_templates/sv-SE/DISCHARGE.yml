@@ -1,0 +1,18 @@
+---
+module: members
+name: Bekräfta godkännande av begäran om att bli borttagen
+template:
+  email:
+    html:
+      anonymous:
+        content: "\r\n<<today>>\r\n<h1>Bekräfta godkännande av begäran om att bli
+          borttagen</h1>\r\n<p><<branches.branchname>> godkänner att följande låntagare:<br>\r\n<<borrowers.firstname>>
+          <<borrowers.surname>> (kortnummer: <<borrowers.cardnumber>>)<br>\r\nhar
+          återlämnat alla exemplar.</p>"
+        title: Godkänn begäran om borttagning för <<borrowers.firstname>> <<borrowers.surname>>
+      default:
+        content: "\r\n<<today>>\r\n<h1>Bekräfta godkännande av begäran om att bli
+          borttagen</h1>\r\n<p><<branches.branchname>> godkänner att följande låntagare:<br>\r\n<<borrowers.firstname>>
+          <<borrowers.surname>> (kortnummer: <<borrowers.cardnumber>>)<br>\r\nhar
+          återlämnat alla exemplar.</p>"
+        title: Godkänn begäran om borttagning för <<borrowers.firstname>> <<borrowers.surname>>

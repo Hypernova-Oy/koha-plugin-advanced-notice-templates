@@ -1,0 +1,34 @@
+---
+module: circulation
+name: Artikelbeställning - fullföljd
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>),\r\n\r\nWe
+          have completed your request for an article from <<biblio.title>> (<<items.barcode>>).\r\n\r\nArtikel
+          beställd:\r\nTitel: <<article_requests.title>>\r\nFörfattare: <<article_requests.author>>\r\nVolym:
+          <<article_requests.volume>>\r\nNummer: <<article_requests.issue>>\r\nDatum:
+          <<article_requests.date>>\r\nTOC: [% IF article_request.toc_request %]Yes[%
+          ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nKapitel: <<article_requests.chapters>>\r\nKommentarer:
+          <<article_requests.patron_notes>>\r\nFormat: [% IF article_request.format
+          == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[%
+          END %]\r\n\r\n[% IF article_request.format == 'PHOTOCOPY' %]You may pick
+          up your article at [% branch.branchname %].[% ELSIF article_request.format
+          == 'SCAN' %]You can download the scanned materials via the following URL(s):
+          [% article_request.urls %].[% END %]\r\n\r\nTack!"
+        title: Artikelbeställning är fullföljd
+      default:
+        content: "Hej <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>),\r\n\r\nWe
+          have completed your request for an article from <<biblio.title>> (<<items.barcode>>).\r\n\r\nArtikel
+          beställd:\r\nTitel: <<article_requests.title>>\r\nFörfattare: <<article_requests.author>>\r\nVolym:
+          <<article_requests.volume>>\r\nNummer: <<article_requests.issue>>\r\nDatum:
+          <<article_requests.date>>\r\nTOC: [% IF article_request.toc_request %]Yes[%
+          ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nKapitel: <<article_requests.chapters>>\r\nKommentarer:
+          <<article_requests.patron_notes>>\r\nFormat: [% IF article_request.format
+          == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[%
+          END %]\r\n\r\n[% IF article_request.format == 'PHOTOCOPY' %]You may pick
+          up your article at [% branch.branchname %].[% ELSIF article_request.format
+          == 'SCAN' %]You can download the scanned materials via the following URL(s):
+          [% article_request.urls %].[% END %]\r\n\r\nTack!"
+        title: Artikelbeställning är fullföljd

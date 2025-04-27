@@ -1,0 +1,18 @@
+---
+module: reserves
+name: Peruutettu varaus vapautunut toiselle asiakkaalle
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Aiempi varaaja: <<biblio.title>>, niteelle (<<items.barcode>>) on
+          muuttunut: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nSiirrä
+          seuraava nide uudelle varaajalle.\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nNide: <<items.itemcallnumber>>\r\nNoutopaikka: <<branches.branchname>>"
+        title: Peruutettu varaus vapautunut toiselle asiakkaalle
+      default:
+        content: "Aiempi varaaja: <<biblio.title>>, niteelle (<<items.barcode>>) on
+          muuttunut: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nSiirrä
+          seuraava nide uudelle varaajalle.\r\nOtsikko: <<biblio.title>>\r\nTekijä:
+          <<biblio.author>>\r\nNide: <<items.itemcallnumber>>\r\nNoutopaikka: <<branches.branchname>>"
+        title: Peruutettu varaus vapautunut toiselle asiakkaalle

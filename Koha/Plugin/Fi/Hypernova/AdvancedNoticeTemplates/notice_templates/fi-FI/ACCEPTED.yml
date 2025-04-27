@@ -1,0 +1,24 @@
+---
+module: suggestions
+name: Ehdotus hyväksytty
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
+          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanyt ehdotuksesi tänään
+          ja ehdottamasi aineisto tilataan pian. Saat sähköpostia, kun tilaus on tehty
+          ja uudelleen, kun aineisto saapuu kirjastolle.\r\n\r\nJos sinulla on kysyttävää,
+          ota yhteys kirjastoon: [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[%
+          branch.branchname %]"
+        title: Hankintaehdotus hyväksytty
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
+          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanyt ehdotuksesi tänään
+          ja ehdottamasi aineisto tilataan pian. Saat sähköpostia, kun tilaus on tehty
+          ja uudelleen, kun aineisto saapuu kirjastolle.\r\n\r\nJos sinulla on kysyttävää,
+          ota yhteys kirjastoon: [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[%
+          branch.branchname %]"
+        title: Hankintaehdotus hyväksytty

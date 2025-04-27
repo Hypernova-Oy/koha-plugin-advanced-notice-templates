@@ -1,0 +1,20 @@
+---
+module: reserves
+name: Reservation har avbrutits
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nVi
+          beklagar att meddela dig att följande exemplar inte kan tillhandahållas
+          på grund av att den saknas. Din reservation har tagits bort.\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\nPlats: [% branch.branchname %]"
+        title: Reservation har avbrutits
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nVi
+          beklagar att meddela dig att följande exemplar inte kan tillhandahållas
+          på grund av att den saknas. Din reservation har tagits bort.\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\nPlats: [% branch.branchname %]"
+        title: Reservation har avbrutits

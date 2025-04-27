@@ -1,0 +1,16 @@
+---
+module: circulation
+name: Kommentar för utlånat exemplar (lämnad av låntagare)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Utlåningsmeddelande
+      default:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Utlåningsmeddelande

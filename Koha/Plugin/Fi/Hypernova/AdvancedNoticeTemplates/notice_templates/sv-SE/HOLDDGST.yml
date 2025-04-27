@@ -1,0 +1,32 @@
+---
+module: reserves
+name: Reservation(er) finns att hämta
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Du har en eller flera reservationer att hämta:\r\n----\r\nTitel:
+          [% hold.biblio.title %]\r\nFörfattare: [% hold.biblio.author %]\r\nExemplar:
+          [% hold.item.copynumber %]\r\nVäntar sedan: [% hold.waitingdate %]\r\nVäntar
+          hos: [% hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[%
+          hold.branch.branchaddress2 %]\r\n[% hold.branch.branchaddress3 %]\r\n[%
+          hold.branch.branchcity %] [% hold.branch.branchzip %]\r\n----\r\nTack!"
+        title: Reservation(er) finns att hämta
+      default:
+        content: "Du har en eller flera reservationer att hämta:\r\n----\r\nTitel:
+          [% hold.biblio.title %]\r\nFörfattare: [% hold.biblio.author %]\r\nExemplar:
+          [% hold.item.copynumber %]\r\nVäntar sedan: [% hold.waitingdate %]\r\nVäntar
+          hos: [% hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[%
+          hold.branch.branchaddress2 %]\r\n[% hold.branch.branchaddress3 %]\r\n[%
+          hold.branch.branchcity %] [% hold.branch.branchzip %]\r\n----\r\nTack!"
+        title: Reservation(er) finns att hämta
+  sms:
+    plain:
+      anonymous:
+        content: "Du har en eller flera reservationer att hämta:\r\n\r\n----\r\nTitel:
+          [% hold.biblio.title %]\r\n----"
+        title: Reservation(er) finns att hämta
+      default:
+        content: "Du har en eller flera reservationer att hämta:\r\n\r\n----\r\nTitel:
+          [% hold.biblio.title %]\r\n----"
+        title: Reservation(er) finns att hämta

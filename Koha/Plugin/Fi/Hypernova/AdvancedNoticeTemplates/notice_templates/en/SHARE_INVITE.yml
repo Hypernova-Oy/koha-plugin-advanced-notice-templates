@@ -1,0 +1,24 @@
+---
+module: lists
+name: Invitation for sharing a list
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear patron,\r\n\r\nOne of our patrons, <<borrowers.firstname>>
+          <<borrowers.surname>>, invites you to share a list <<listname>> in our library
+          catalog.\r\n\r\nTo access this shared list, please click on the following
+          URL or copy-and-paste it into your browser address bar.\r\n\r\n<<shareurl>>\r\n\r\nIn
+          case you are not a patron in our library or do not want to accept this invitation,
+          please ignore this mail. Note also that this invitation expires within two
+          weeks.\r\n\r\nThank you.\r\n\r\nYour library."
+        title: Share list <<listname>>
+      default:
+        content: "Dear patron,\r\n\r\nOne of our patrons, <<borrowers.firstname>>
+          <<borrowers.surname>>, invites you to share a list <<listname>> in our library
+          catalog.\r\n\r\nTo access this shared list, please click on the following
+          URL or copy-and-paste it into your browser address bar.\r\n\r\n<<shareurl>>\r\n\r\nIn
+          case you are not a patron in our library or do not want to accept this invitation,
+          please ignore this mail. Note also that this invitation expires within two
+          weeks.\r\n\r\nThank you.\r\n\r\nYour library."
+        title: Share list <<listname>>

@@ -1,0 +1,18 @@
+---
+module: members
+name: OPAC self-registration verification email
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hello!\r\n\r\nYour library account has been created. Please verify
+          your email address by clicking this link to complete the signup process:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nIf
+          you did not initiate this request, you may safely ignore this one-time message.
+          The request will expire shortly."
+        title: Verify your account
+      default:
+        content: "Hello!\r\n\r\nYour library account has been created. Please verify
+          your email address by clicking this link to complete the signup process:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nIf
+          you did not initiate this request, you may safely ignore this one-time message.
+          The request will expire shortly."
+        title: Verify your account

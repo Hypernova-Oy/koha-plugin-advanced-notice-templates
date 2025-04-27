@@ -1,0 +1,44 @@
+---
+module: suggestions
+name: Nytt inköpsförslag
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Förslag som väntar på godkännande</h3>\r\n    <p><h4>Föreslaget
+          av</h4>\r\n    <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n    <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone
+          -%]\r\n        <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%-
+          IF borrower.email -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%-
+          END -%]\r\n    </ul>\r\n    </p>\r\n    <p><h4>Föreslagen titel</h4>\r\n
+          \   <ul>\r\n    <li><b>Bibliotek:</b> [% branch.branchname %]</li>\r\n    <li><b>Titlel:</b>
+          [% suggestion.title %]</li>\r\n    <li><b>Författare:</b> [% suggestion.author
+          %]</li>\r\n    <li><b>Copyrightdatum:</b> [% suggestion.copyrightdate %]</li>\r\n
+          \   <li><b>Standardnummer (ISBN, ISSN eller annat):</b> [% suggestion.isbn
+          %]</li>\r\n    <li><b>Förläggare:</b> [% suggestion.publishercode %]</li>\r\n
+          \   <li><b>Titel på samling:</b> [% suggestion.collectiontitle %]</li>\r\n
+          \   <li><b>Utgivningsort:</b> [% suggestion.place %]</li>\r\n    <li>%Antal:<b>
+          </b>[% suggestion.quantity %]\r\n    <li><b>Exemplartyp:</b>  [% suggestion.itemtype
+          %]</li>\r\n    <li><b>Anledning till förslag:</b> [% suggestion.patronreason
+          %]</li>\r\n    <li><b>Kommentarer:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n
+          \   </p>"
+        title: Nytt inköpsförslag
+      default:
+        content: "<h3>Förslag som väntar på godkännande</h3>\r\n    <p><h4>Föreslaget
+          av</h4>\r\n    <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n    <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone
+          -%]\r\n        <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%-
+          IF borrower.email -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%-
+          END -%]\r\n    </ul>\r\n    </p>\r\n    <p><h4>Föreslagen titel</h4>\r\n
+          \   <ul>\r\n    <li><b>Bibliotek:</b> [% branch.branchname %]</li>\r\n    <li><b>Titlel:</b>
+          [% suggestion.title %]</li>\r\n    <li><b>Författare:</b> [% suggestion.author
+          %]</li>\r\n    <li><b>Copyrightdatum:</b> [% suggestion.copyrightdate %]</li>\r\n
+          \   <li><b>Standardnummer (ISBN, ISSN eller annat):</b> [% suggestion.isbn
+          %]</li>\r\n    <li><b>Förläggare:</b> [% suggestion.publishercode %]</li>\r\n
+          \   <li><b>Titel på samling:</b> [% suggestion.collectiontitle %]</li>\r\n
+          \   <li><b>Utgivningsort:</b> [% suggestion.place %]</li>\r\n    <li>%Antal:<b>
+          </b>[% suggestion.quantity %]\r\n    <li><b>Exemplartyp:</b>  [% suggestion.itemtype
+          %]</li>\r\n    <li><b>Anledning till förslag:</b> [% suggestion.patronreason
+          %]</li>\r\n    <li><b>Kommentarer:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n
+          \   </p>"
+        title: Nytt inköpsförslag

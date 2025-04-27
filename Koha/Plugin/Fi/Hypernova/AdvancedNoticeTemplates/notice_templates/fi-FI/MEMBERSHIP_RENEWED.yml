@@ -1,0 +1,22 @@
+---
+module: members
+name: Tilin uusinta
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nHyvä [% borrower.title %] [% borrower.firstname
+          %] [% borrower.surname %],\r\n\r\nKirjastokorttisi voimassaoloaikaa on jatkettu.
+          Uusi vanhentumispäivä on: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
+          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
+          with_symbol => 1 %] has been applied.\n[% END %]\r\nKiitos,\r\n\r\nKirjastosi,\r\n\r\n[%
+          branch.branchname %]"
+        title: Tilin uusinta
+      default:
+        content: "[%- USE Price -%]\r\nHyvä [% borrower.title %] [% borrower.firstname
+          %] [% borrower.surname %],\r\n\r\nKirjastokorttisi voimassaoloaikaa on jatkettu.
+          Uusi vanhentumispäivä on: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
+          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
+          with_symbol => 1 %] has been applied.\n[% END %]\r\nKiitos,\r\n\r\nKirjastosi,\r\n\r\n[%
+          branch.branchname %]"
+        title: Tilin uusinta

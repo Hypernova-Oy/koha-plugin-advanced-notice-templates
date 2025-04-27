@@ -1,0 +1,56 @@
+---
+module: circulation
+name: Notification on auto renewals
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
+          %]\r\n[% error %] exemplar lånades inte om.\r\n[% END %]\r\n[% IF success
+          %]\r\n[% success %] exemplar lånades om.\r\n[% END %]\r\n[% FOREACH checkout
+          IN checkouts %]\r\n[% NEXT IF (checkout.auto_renew_error == 'auto_too_soon')
+          %]\r\n[% checkout.item.biblio.title %] : [% checkout.item.barcode %]\r\n[%
+          IF !checkout.auto_renew_error %]\r\nlånades om till [% checkout.date_due
+          | $KohaDates as_due_date => 1%]\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_many' %]\r\nDu har nått gränsen för max antal möjliga omlån för detta
+          exemplar.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve' %]\r\nExemplaret
+          är reserverat för en annan låntagare.\r\n[% ELSIF checkout.auto_renew_error
+          == 'restriction' %]\r\nDu är för närvarande begränsad.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nDu har försenade lån.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nDet är för sent att låna om det här exemplaret.\r\n[%
+          ELSIF checkout.auto_renew_error == 'auto_too_much_oweing' %]\r\nDu har för
+          höga obetalda avgifter totalt.\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_unseen' %]\r\nDetta exemplar måste lånas om på biblioteket.\r\n[% ELSIF
+          checkout.auto_renew_error == 'auto_renew_final' %]\r\nlånades om till [%
+          checkout.date_due | $KohaDates as_due_date => 1%]\r\nExemplaret har lånats
+          om automatiskt maximalt antal gånger och kan inte längre lånas om.\r\n[%
+          ELSIF checkout.auto_renew_error == 'auto_unseen_final' %]\r\nlånades om
+          till [% checkout.date_due | $KohaDates as_due_date => 1%]\r\nDet här exemplaret
+          har nått det maximala antalet osedda omlån och kommer att behöva lånas om
+          på biblioteket.\r\n[% END %]\r\n[% END %]"
+        title: Automatiskt omlån (Förkortat)
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
+          %]\r\n[% error %] exemplar lånades inte om.\r\n[% END %]\r\n[% IF success
+          %]\r\n[% success %] exemplar lånades om.\r\n[% END %]\r\n[% FOREACH checkout
+          IN checkouts %]\r\n[% NEXT IF (checkout.auto_renew_error == 'auto_too_soon')
+          %]\r\n[% checkout.item.biblio.title %] : [% checkout.item.barcode %]\r\n[%
+          IF !checkout.auto_renew_error %]\r\nlånades om till [% checkout.date_due
+          | $KohaDates as_due_date => 1%]\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_many' %]\r\nDu har nått gränsen för max antal möjliga omlån för detta
+          exemplar.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve' %]\r\nExemplaret
+          är reserverat för en annan låntagare.\r\n[% ELSIF checkout.auto_renew_error
+          == 'restriction' %]\r\nDu är för närvarande begränsad.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nDu har försenade lån.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nDet är för sent att låna om det här exemplaret.\r\n[%
+          ELSIF checkout.auto_renew_error == 'auto_too_much_oweing' %]\r\nDu har för
+          höga obetalda avgifter totalt.\r\n[% ELSIF checkout.auto_renew_error ==
+          'too_unseen' %]\r\nDetta exemplar måste lånas om på biblioteket.\r\n[% ELSIF
+          checkout.auto_renew_error == 'auto_renew_final' %]\r\nlånades om till [%
+          checkout.date_due | $KohaDates as_due_date => 1%]\r\nExemplaret har lånats
+          om automatiskt maximalt antal gånger och kan inte längre lånas om.\r\n[%
+          ELSIF checkout.auto_renew_error == 'auto_unseen_final' %]\r\nlånades om
+          till [% checkout.date_due | $KohaDates as_due_date => 1%]\r\nDet här exemplaret
+          har nått det maximala antalet osedda omlån och kommer att behöva lånas om
+          på biblioteket.\r\n[% END %]\r\n[% END %]"
+        title: Automatiskt omlån (Förkortat)

@@ -1,0 +1,54 @@
+---
+module: reserves
+name: Varaus noudettavissa
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
+          on varaus noudettavissa [% hold.waitingdate | $KohaDates %]:\r\n\r\nOtsikko:
+          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
+          %]\r\nHyllypaikka: [% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %] [% branch.branchzip %]"
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
+          on varaus noudettavissa [% hold.waitingdate | $KohaDates %]:\r\n\r\nOtsikko:
+          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
+          %]\r\nHyllypaikka: [% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %] [% branch.branchzip %]"
+        title: Varaus noudettavissa kirjastosta <<branches.branchname>>
+  print:
+    plain:
+      anonymous:
+        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n\r\n\r\nPalvelupyyntö\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[% borrower.firstname
+          %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[% borrower.city
+          %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nSinulla
+          on varaus noudettavissa [% hold.waitingdate | $KohaDates %]:\r\n\r\nOtsikko:
+          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
+          %]\r\n"
+        title: Varaus noudettavissa (tuloste)
+      default:
+        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n\r\n\r\nPalvelupyyntö\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[% borrower.firstname
+          %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[% borrower.city
+          %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nSinulla
+          on varaus noudettavissa [% hold.waitingdate | $KohaDates %]:\r\n\r\nOtsikko:
+          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
+          %]\r\n"
+        title: Varaus noudettavissa (tuloste)
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nVaraamasi
+          [% biblio.title %] on noudettavissa."
+        title: Varaus noudettavissa kirjastosta [% branch.branchname %]
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nVaraamasi
+          [% biblio.title %] on noudettavissa."
+        title: Varaus noudettavissa kirjastosta [% branch.branchname %]

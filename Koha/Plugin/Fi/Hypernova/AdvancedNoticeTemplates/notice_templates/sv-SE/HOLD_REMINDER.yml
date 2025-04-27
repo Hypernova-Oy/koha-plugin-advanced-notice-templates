@@ -1,0 +1,26 @@
+---
+module: reserves
+name: Påminnelse om reservation
+template:
+  email:
+    plain:
+      anonymous:
+        content: |-
+          Dear [% borrower.firstname %] [% borrower.surname %],
+
+          The following holds are waiting at [% branch.branchname %]:
+
+          [% FOREACH hold IN holds %]
+              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
+          [% END %]
+        title: Du har väntande reservationer.
+      default:
+        content: |-
+          Dear [% borrower.firstname %] [% borrower.surname %],
+
+          The following holds are waiting at [% branch.branchname %]:
+
+          [% FOREACH hold IN holds %]
+              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
+          [% END %]
+        title: Du har väntande reservationer.

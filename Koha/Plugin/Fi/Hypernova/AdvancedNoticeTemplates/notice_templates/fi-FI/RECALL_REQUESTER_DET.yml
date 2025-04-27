@@ -1,0 +1,22 @@
+---
+module: circulation
+name: Palautuspyynnön tehneen asiakkaan tiedot
+template:
+  print:
+    plain:
+      anonymous:
+        content: "Pvm: <<today>>\r\n\r\nPalautuspyyntö odottaa noutoa kirjastossa:
+          <<branches.branchname>>\r\n<<borrowers.surname>>, <<borrowers.firstname>>
+          (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nPALAUTUSPYYNTÖ\r\n<<biblio.title>>
+          / <<biblio.author>>\r\nViivakoodi: <<items.barcode>>\r\nLuokka: <<items.itemcallnumber>>\r\nOdottaa
+          alkaen: <<recalls.waiting_date>>\r\nHuomautukset: <<recalls.notes>>"
+        title: Palautuspyynnön tehneen asiakkaan tiedot
+      default:
+        content: "Pvm: <<today>>\r\n\r\nPalautuspyyntö odottaa noutoa kirjastossa:
+          <<branches.branchname>>\r\n<<borrowers.surname>>, <<borrowers.firstname>>
+          (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nPALAUTUSPYYNTÖ\r\n<<biblio.title>>
+          / <<biblio.author>>\r\nViivakoodi: <<items.barcode>>\r\nLuokka: <<items.itemcallnumber>>\r\nOdottaa
+          alkaen: <<recalls.waiting_date>>\r\nHuomautukset: <<recalls.notes>>"
+        title: Palautuspyynnön tehneen asiakkaan tiedot

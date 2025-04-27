@@ -1,0 +1,18 @@
+---
+module: members
+name: Vahvistetaan kaksivaiheisen todennuksen käyttöönotto
+template:
+  email:
+    html:
+      anonymous:
+        content: "<p>Hyvä [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Olet
+          ottanut käyttöön kaksivaiheisen tunnistautumisen tilillesi.</p>\r\n<p>Jos
+          et pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys
+          kirjastoon.</p>\r\n<p>Kirjastosi</p>"
+        title: Vahvistetaan kaksivaiheisen todennuksen käyttöönotto
+      default:
+        content: "<p>Hyvä [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Olet
+          ottanut käyttöön kaksivaiheisen tunnistautumisen tilillesi.</p>\r\n<p>Jos
+          et pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys
+          kirjastoon.</p>\r\n<p>Kirjastosi</p>"
+        title: Vahvistetaan kaksivaiheisen todennuksen käyttöönotto

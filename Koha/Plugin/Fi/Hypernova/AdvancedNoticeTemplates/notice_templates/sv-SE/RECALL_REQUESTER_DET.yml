@@ -1,0 +1,22 @@
+---
+module: circulation
+name: Details of patron who recalled item
+template:
+  print:
+    plain:
+      anonymous:
+        content: "Datum: <<today>>\r\n\r\nÅterkrav för upphämtning på <<branches.branchname>>\r\n<<borrowers.surname>>,
+          <<borrowers.firstname>> (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nEXEMPLAR
+          ÅTERKRÄVT\r\n<<biblio.title>> av <<biblio.author>>\r\nStreckkod: <<items.barcode>>\r\nHyllsignatur:
+          <<items.itemcallnumber>>\r\nVäntar sedan: <<recalls.waiting_date>>\r\nKommentarer:
+          <<recalls.notes>>"
+        title: Details of patron who recalled item
+      default:
+        content: "Datum: <<today>>\r\n\r\nÅterkrav för upphämtning på <<branches.branchname>>\r\n<<borrowers.surname>>,
+          <<borrowers.firstname>> (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nEXEMPLAR
+          ÅTERKRÄVT\r\n<<biblio.title>> av <<biblio.author>>\r\nStreckkod: <<items.barcode>>\r\nHyllsignatur:
+          <<items.itemcallnumber>>\r\nVäntar sedan: <<recalls.waiting_date>>\r\nKommentarer:
+          <<recalls.notes>>"
+        title: Details of patron who recalled item

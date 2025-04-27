@@ -1,0 +1,22 @@
+---
+module: suggestions
+name: Inköpsförslag tillgängligt
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har föreslagit att biblioteket ska köpa in [% suggestion.title %] av [%
+          suggestion.author %].\r\n\r\nVi är glada att kunna meddela att titeln du
+          efterfrågade nu finns på biblioteket.\r\n\r\nOm du har några frågor, mejla
+          oss på [% branch.branchemail %].\r\n\r\nTack,\r\n\r\n[% branch.branchname
+          %]"
+        title: Inköpsförslag är tillgängligt
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har föreslagit att biblioteket ska köpa in [% suggestion.title %] av [%
+          suggestion.author %].\r\n\r\nVi är glada att kunna meddela att titeln du
+          efterfrågade nu finns på biblioteket.\r\n\r\nOm du har några frågor, mejla
+          oss på [% branch.branchemail %].\r\n\r\nTack,\r\n\r\n[% branch.branchname
+          %]"
+        title: Inköpsförslag är tillgängligt

@@ -1,0 +1,16 @@
+---
+module: suggestions
+name: Avisera ansvarig för budgetställe
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDet
+          finns ett nytt inköpsförslag att hantera: [% suggestion.title %] av [% suggestion.author
+          %].\r\n\r\nTack,\r\n\r\n[% branch.branchname %]"
+        title: Ett förslag är redo att behandlas
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDet
+          finns ett nytt inköpsförslag att hantera: [% suggestion.title %] av [% suggestion.author
+          %].\r\n\r\nTack,\r\n\r\n[% branch.branchname %]"
+        title: Ett förslag är redo att behandlas

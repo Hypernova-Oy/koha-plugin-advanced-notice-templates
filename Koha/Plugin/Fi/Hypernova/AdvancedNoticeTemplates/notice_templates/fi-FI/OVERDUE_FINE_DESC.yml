@@ -1,0 +1,12 @@
+---
+module: circulation
+name: Myöhästymismaksun kuvaus
+template:
+  print:
+    plain:
+      anonymous:
+        content: '[% item.biblio.title %] [% checkout.date_due | $KohaDates %]'
+        title: Myöhästymismaksun kuvaus
+      default:
+        content: '[% item.biblio.title %] [% checkout.date_due | $KohaDates %]'
+        title: Myöhästymismaksun kuvaus

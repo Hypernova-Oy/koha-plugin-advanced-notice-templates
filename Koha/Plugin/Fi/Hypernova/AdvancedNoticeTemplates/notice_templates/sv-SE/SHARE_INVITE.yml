@@ -1,0 +1,24 @@
+---
+module: lists
+name: En inbjudan att dela lista
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej\r\n\r\nEn av våra låntagare, <<borrowers.firstname>> <<borrowers.surname>>,
+          inbjuder dig att dela en lista <<listname>> i vår bibliotekskatalog.\r\n\r\nFör
+          att komma åt denna delade lista, klicka på följande URL eller kopiera och
+          klistra in den i webbläsarens adressfält.\r\n\r\n<<shareurl>>\r\n\r\nOm
+          du inte är beskyddare i vårt bibliotek eller inte vill acceptera denna inbjudan,
+          vänligen ignorera detta mejl. Observera också att denna inbjudan går ut
+          inom två veckor.\r\n\r\nTack.\r\n\r\nDitt bibliotek."
+        title: Dela listan <<listname>
+      default:
+        content: "Hej\r\n\r\nEn av våra låntagare, <<borrowers.firstname>> <<borrowers.surname>>,
+          inbjuder dig att dela en lista <<listname>> i vår bibliotekskatalog.\r\n\r\nFör
+          att komma åt denna delade lista, klicka på följande URL eller kopiera och
+          klistra in den i webbläsarens adressfält.\r\n\r\n<<shareurl>>\r\n\r\nOm
+          du inte är beskyddare i vårt bibliotek eller inte vill acceptera denna inbjudan,
+          vänligen ignorera detta mejl. Observera också att denna inbjudan går ut
+          inom två veckor.\r\n\r\nTack.\r\n\r\nDitt bibliotek."
+        title: Dela listan <<listname>

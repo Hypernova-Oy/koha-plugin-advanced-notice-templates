@@ -1,0 +1,14 @@
+---
+module: members
+name: OPAC-problemrapport
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Användarnamn: <<problem_reports.username>>\r\n\r\nProblemsida: <<problem_reports.problempage>>\r\n\r\nTitel:
+          <<problem_reports.title>>\r\n\r\nMeddelande: <<problem_reports.content>>"
+        title: OPAC-problemrapport
+      default:
+        content: "Användarnamn: <<problem_reports.username>>\r\n\r\nProblemsida: <<problem_reports.problempage>>\r\n\r\nTitel:
+          <<problem_reports.title>>\r\n\r\nMeddelande: <<problem_reports.content>>"
+        title: OPAC-problemrapport

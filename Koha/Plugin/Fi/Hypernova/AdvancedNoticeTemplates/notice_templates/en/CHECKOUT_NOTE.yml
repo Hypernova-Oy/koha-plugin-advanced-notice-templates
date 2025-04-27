@@ -1,0 +1,16 @@
+---
+module: circulation
+name: Checkout note on item set by patron
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Checkout note
+      default:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Checkout note

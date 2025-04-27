@@ -1,0 +1,14 @@
+---
+module: circulation
+name: Item renewals
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The following items have been renewed:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Item renewals
+      default:
+        content: "The following items have been renewed:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Item renewals

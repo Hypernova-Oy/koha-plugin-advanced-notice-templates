@@ -1,0 +1,20 @@
+---
+module: lists
+name: Kutsu jakaa listaa
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä asiakas,\r\n\r\nAsiakkaamme <<borrowers.firstname>> <<borrowers.surname>>
+          kutsuu sinut kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nPäästäksesi
+          tälle jaetulle listalla, klikkaa URL:a tai kopio ja liitä se selaimen osoiteriville.\r\n\r\n<<shareurl>>\r\n\r\nJos
+          et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
+          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
+        title: Jaetaan lista <<listname>>
+      default:
+        content: "Hyvä asiakas,\r\n\r\nAsiakkaamme <<borrowers.firstname>> <<borrowers.surname>>
+          kutsuu sinut kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nPäästäksesi
+          tälle jaetulle listalla, klikkaa URL:a tai kopio ja liitä se selaimen osoiteriville.\r\n\r\n<<shareurl>>\r\n\r\nJos
+          et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
+          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
+        title: Jaetaan lista <<listname>>

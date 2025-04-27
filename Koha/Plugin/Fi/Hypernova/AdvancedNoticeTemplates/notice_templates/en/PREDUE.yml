@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Advance notice of item due
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %], [% biblio.author
+          %] ([% item.barcode %])"
+        title: Advance notice of item due
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %], [% biblio.author
+          %] ([% item.barcode %])"
+        title: Advance notice of item due
+  sms:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %]"
+        title: Advance notice of item due
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item will be due soon:\r\n\r\n[% biblio.title %]"
+        title: Advance notice of item due

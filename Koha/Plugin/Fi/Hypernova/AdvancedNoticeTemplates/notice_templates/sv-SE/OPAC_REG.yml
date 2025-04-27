@@ -1,0 +1,34 @@
+---
+module: members
+name: Ny självregistrering i OPAC utförd
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Ny självregistrering i OPAC</h3>\r\n<p><h4>Självregistrering
+          utförd:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n[% IF borrower.cardnumber %]<li>Kortnummer: [% borrower.cardnumber
+          %]</li>[% END %]\r\n[% IF borrower.email %]<li>E-post: [% borrower.email
+          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Telefon: [% borrower.phone
+          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobil: [% borrower.mobile
+          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
+          END %]\r\n[% IF borrower.emailpro %]<li>Sekundär e-post: [% borrower.emailpro
+          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Sekundärt telefonnummer:
+          [% borrower.phonepro %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Hembibliotek:
+          [% borrower.branchcode %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporär
+          låntagarkategori: [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: New OPAC self-registration
+      default:
+        content: "<h3>Ny självregistrering i OPAC</h3>\r\n<p><h4>Självregistrering
+          utförd:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n[% IF borrower.cardnumber %]<li>Kortnummer: [% borrower.cardnumber
+          %]</li>[% END %]\r\n[% IF borrower.email %]<li>E-post: [% borrower.email
+          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Telefon: [% borrower.phone
+          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobil: [% borrower.mobile
+          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
+          END %]\r\n[% IF borrower.emailpro %]<li>Sekundär e-post: [% borrower.emailpro
+          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Sekundärt telefonnummer:
+          [% borrower.phonepro %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Hembibliotek:
+          [% borrower.branchcode %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporär
+          låntagarkategori: [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: New OPAC self-registration

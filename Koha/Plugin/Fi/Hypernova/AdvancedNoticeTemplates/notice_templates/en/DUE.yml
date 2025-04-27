@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Item due reminder
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %], [% biblio.author %]
+          ([% item.barcode %])"
+        title: Item due reminder
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %], [% biblio.author %]
+          ([% item.barcode %])"
+        title: Item due reminder
+  sms:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %]"
+        title: Item due reminder
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %]"
+        title: Item due reminder

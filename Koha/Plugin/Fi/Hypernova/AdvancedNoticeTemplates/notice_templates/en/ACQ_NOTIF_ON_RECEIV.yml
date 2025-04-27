@@ -1,0 +1,16 @@
+---
+module: acquisition
+name: Notification on receiving
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n The
+          order <<aqorders.ordernumber>> (<<biblio.title>>) has been received.\r\n\r\nYour
+          library."
+        title: Order received
+      default:
+        content: "Dear <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n The
+          order <<aqorders.ordernumber>> (<<biblio.title>>) has been received.\r\n\r\nYour
+          library."
+        title: Order received

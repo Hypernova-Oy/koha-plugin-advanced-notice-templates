@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Artikelbeställning - väntande
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nYour
+          request for an article from <<biblio.title>> (<<items.barcode>>) is now
+          in pending state.\r\n\r\nArtikel beställd:\r\nTitel: <<article_requests.title>>\r\nFörfattare:
+          <<article_requests.author>>\r\nVolym: <<article_requests.volume>>\r\nNummer:
+          <<article_requests.issue>>\r\nDatum: <<article_requests.date>>\r\nTOC: [%
+          IF article_request.toc_request %]Yes[% ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nKapitel:
+          <<article_requests.chapters>>\r\nKommentarer: <<article_requests.patron_notes>>\r\n\r\n\r\nTack!"
+        title: Väntande artikelbeställning
+      default:
+        content: "Dear <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nYour
+          request for an article from <<biblio.title>> (<<items.barcode>>) is now
+          in pending state.\r\n\r\nArtikel beställd:\r\nTitel: <<article_requests.title>>\r\nFörfattare:
+          <<article_requests.author>>\r\nVolym: <<article_requests.volume>>\r\nNummer:
+          <<article_requests.issue>>\r\nDatum: <<article_requests.date>>\r\nTOC: [%
+          IF article_request.toc_request %]Yes[% ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nKapitel:
+          <<article_requests.chapters>>\r\nKommentarer: <<article_requests.patron_notes>>\r\n\r\n\r\nTack!"
+        title: Väntande artikelbeställning

@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Lainauskuitti (yhteenveto)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Lainat
+      default:
+        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Lainat
+  sms:
+    plain:
+      anonymous:
+        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Lainat
+      default:
+        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
+          kun kävit [% branch.branchname %]."
+        title: Lainat

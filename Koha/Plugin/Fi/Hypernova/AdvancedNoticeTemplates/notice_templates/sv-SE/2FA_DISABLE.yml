@@ -1,0 +1,18 @@
+---
+module: members
+name: Confirmation of disabling two factor authentication
+template:
+  email:
+    html:
+      anonymous:
+        content: "<p>Hej [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Det
+          här bekräftar att någon har inaktiverat tvåfaktorsautentiseringen för ditt
+          konto.</p>\r\n<p>om du inte har gjort detta så kan någon annan ha använt
+          ditt konto. Var vänlig kontakta biblioteket.</p>\r\n<p>Ditt bibliotek</p>"
+        title: Confirmation of disabling two factor authentication
+      default:
+        content: "<p>Hej [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Det
+          här bekräftar att någon har inaktiverat tvåfaktorsautentiseringen för ditt
+          konto.</p>\r\n<p>om du inte har gjort detta så kan någon annan ha använt
+          ditt konto. Var vänlig kontakta biblioteket.</p>\r\n<p>Ditt bibliotek</p>"
+        title: Confirmation of disabling two factor authentication

@@ -1,0 +1,22 @@
+---
+module: circulation
+name: Återlämningskvitto
+template:
+  print:
+    html:
+      anonymous:
+        content: "<h3>[% branch.branchname %]</h3>\r\nÅterlämnade exemplar för [%
+          borrower.title %] [% borrower.firstname %] [% borrower.initials %] [% borrower.surname
+          %] <br>\r\n([% borrower.cardnumber %]) <br>\r\n<br>\r\n[% today | $KohaDates
+          %]<br>\r\n<br>\r\n<h4>Återlämnade idag</h4>\r\n[% FOREACH checkin IN old_checkouts
+          %]\r\n[% SET item = checkin.item %]\r\n<p>\r\n[% item.biblio.title %] <br>\r\nStreckkod:
+          [% item.barcode %] <br>\r\n</p>\r\n[% END %]"
+        title: Återlämningskvitto
+      default:
+        content: "<h3>[% branch.branchname %]</h3>\r\nÅterlämnade exemplar för [%
+          borrower.title %] [% borrower.firstname %] [% borrower.initials %] [% borrower.surname
+          %] <br>\r\n([% borrower.cardnumber %]) <br>\r\n<br>\r\n[% today | $KohaDates
+          %]<br>\r\n<br>\r\n<h4>Återlämnade idag</h4>\r\n[% FOREACH checkin IN old_checkouts
+          %]\r\n[% SET item = checkin.item %]\r\n<p>\r\n[% item.biblio.title %] <br>\r\nStreckkod:
+          [% item.barcode %] <br>\r\n</p>\r\n[% END %]"
+        title: Återlämningskvitto

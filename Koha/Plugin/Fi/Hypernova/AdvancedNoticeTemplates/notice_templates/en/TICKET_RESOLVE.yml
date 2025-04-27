@@ -1,0 +1,20 @@
+---
+module: catalogue
+name: Concern resolved
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
+          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nThe library
+          has now marked your concern with [%- INCLUDE 'biblio-title.inc' biblio=ticket_update.ticket.biblio
+          link = 0 -%] as resolved.<br>\r\n<br>\r\nThe following comment was left:
+          <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nThank you"
+        title: Catalog concern resolved
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
+          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nThe library
+          has now marked your concern with [%- INCLUDE 'biblio-title.inc' biblio=ticket_update.ticket.biblio
+          link = 0 -%] as resolved.<br>\r\n<br>\r\nThe following comment was left:
+          <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nThank you"
+        title: Catalog concern resolved

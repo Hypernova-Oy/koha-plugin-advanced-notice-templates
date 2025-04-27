@@ -1,0 +1,76 @@
+---
+module: circulation
+name: Account fee
+template:
+  print:
+    html:
+      anonymous:
+        content: "[% USE Price %]\r\n[% USE KohaDates %]\r\n[% PROCESS \"accounts.inc\"
+          %]\r\n<table>\r\n    [% IF ( LibraryName ) %]\r\n    <tr>\r\n      <th colspan=\"3\"
+          class=\"centerednames\">\r\n        <h3>[% LibraryName | html %]</h3>\r\n
+          \     </th>\r\n    </tr>\r\n    [% END %]\r\n    [% IF debit.library %]\r\n
+          \   <tr>\r\n      <th colspan=\"3\" class=\"centerednames\">\r\n        <h2>[%
+          debit.library.branchname | html %]</h2>\r\n      </th>\r\n    </tr>\r\n
+          \   [% END %]\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Fee
+          ID: </td>\r\n      <td>[% debit.accountlines_id %]</td>\r\n    </tr>\r\n
+          \   [% IF credit.manager_id %]\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Operator
+          ID: </td>\r\n      <td>[% credit.manager_id %]</td>\r\n    </tr>\r\n    [%
+          END %]\r\n    <tr>\r\n      <th colspan=\"3\" class=\"centerednames\">\r\n
+          \       <h2><u>Invoice</u></h2>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th colspan=\"3\" >\r\n        Bill to: [% debit.patron.firstname
+          | html %] [% debit.patron.surname | html %] <br>\r\n        Card number:
+          [% debit.patron.cardnumber | html %]<br>\r\n      </th>\r\n    </tr>\r\n
+          \   [% IF debit.amountoutstanding != 0 %]\r\n    <tr>\r\n      <th>Date</th>\r\n
+          \     <th>Description of charges</th>\r\n      <th>Amount</th>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>[% debit.date | $KohaDates %]</td>\r\n      <td>[%
+          PROCESS account_type_description account=debit %]</td>\r\n      <td>[% debit.amount
+          | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Total
+          owed:</td>\r\n      <td>[% debit.amount | $Price %]</td>\r\n    </tr>\r\n
+          \   [% END %]\r\n    [% IF debit.amount != debit.amountoutstanding %]\r\n
+          \   <tr>\r\n      <th>Date</th>\r\n      <th>Description of payments</th>\r\n
+          \     <th>Amount</th>\r\n    </tr>\r\n    [% FOREACH offset IN debit.debit_offsets
+          %]\r\n    <tr>\r\n      <td>[% offset.credit.date | $KohaDates %]</td>\r\n
+          \     <td>[% PROCESS account_type_description account=offset.credit %]</td>\r\n
+          \     <td>[% offset.amount * -1 | $Price %]</td>\r\n    </tr>\r\n    [%
+          END %]\r\n    <tr class=\"highlight\">\r\n      <td colspan=\"2\" style=\"text-align:right;\">Total
+          paid:</td>\r\n      <td>[% debit.amount - debit.amountoutstanding | $Price
+          %]</td>\r\n    </tr>\r\n    [% END %]\r\n    </tr>\r\n      <td colspan=\"3\"></td>\r\n
+          \   <tr>\r\n  <tfoot>\r\n    <tr>\r\n      <th colspan=\"2\" style=\"text-align:right;\">Total
+          outstanding:</th>\r\n      <td>[% debit.amountoutstanding | $Price %]</td>\r\n
+          \   </tr>\r\n  </tfoot>\r\n</table>"
+        title: Account fee
+      default:
+        content: "[% USE Price %]\r\n[% USE KohaDates %]\r\n[% PROCESS \"accounts.inc\"
+          %]\r\n<table>\r\n    [% IF ( LibraryName ) %]\r\n    <tr>\r\n      <th colspan=\"3\"
+          class=\"centerednames\">\r\n        <h3>[% LibraryName | html %]</h3>\r\n
+          \     </th>\r\n    </tr>\r\n    [% END %]\r\n    [% IF debit.library %]\r\n
+          \   <tr>\r\n      <th colspan=\"3\" class=\"centerednames\">\r\n        <h2>[%
+          debit.library.branchname | html %]</h2>\r\n      </th>\r\n    </tr>\r\n
+          \   [% END %]\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Fee
+          ID: </td>\r\n      <td>[% debit.accountlines_id %]</td>\r\n    </tr>\r\n
+          \   [% IF credit.manager_id %]\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Operator
+          ID: </td>\r\n      <td>[% credit.manager_id %]</td>\r\n    </tr>\r\n    [%
+          END %]\r\n    <tr>\r\n      <th colspan=\"3\" class=\"centerednames\">\r\n
+          \       <h2><u>Invoice</u></h2>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th colspan=\"3\" >\r\n        Bill to: [% debit.patron.firstname
+          | html %] [% debit.patron.surname | html %] <br>\r\n        Card number:
+          [% debit.patron.cardnumber | html %]<br>\r\n      </th>\r\n    </tr>\r\n
+          \   [% IF debit.amountoutstanding != 0 %]\r\n    <tr>\r\n      <th>Date</th>\r\n
+          \     <th>Description of charges</th>\r\n      <th>Amount</th>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>[% debit.date | $KohaDates %]</td>\r\n      <td>[%
+          PROCESS account_type_description account=debit %]</td>\r\n      <td>[% debit.amount
+          | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n      <td colspan=\"2\" style=\"text-align:right;\">Total
+          owed:</td>\r\n      <td>[% debit.amount | $Price %]</td>\r\n    </tr>\r\n
+          \   [% END %]\r\n    [% IF debit.amount != debit.amountoutstanding %]\r\n
+          \   <tr>\r\n      <th>Date</th>\r\n      <th>Description of payments</th>\r\n
+          \     <th>Amount</th>\r\n    </tr>\r\n    [% FOREACH offset IN debit.debit_offsets
+          %]\r\n    <tr>\r\n      <td>[% offset.credit.date | $KohaDates %]</td>\r\n
+          \     <td>[% PROCESS account_type_description account=offset.credit %]</td>\r\n
+          \     <td>[% offset.amount * -1 | $Price %]</td>\r\n    </tr>\r\n    [%
+          END %]\r\n    <tr class=\"highlight\">\r\n      <td colspan=\"2\" style=\"text-align:right;\">Total
+          paid:</td>\r\n      <td>[% debit.amount - debit.amountoutstanding | $Price
+          %]</td>\r\n    </tr>\r\n    [% END %]\r\n    </tr>\r\n      <td colspan=\"3\"></td>\r\n
+          \   <tr>\r\n  <tfoot>\r\n    <tr>\r\n      <th colspan=\"2\" style=\"text-align:right;\">Total
+          outstanding:</th>\r\n      <td>[% debit.amountoutstanding | $Price %]</td>\r\n
+          \   </tr>\r\n  </tfoot>\r\n</table>"
+        title: Account fee

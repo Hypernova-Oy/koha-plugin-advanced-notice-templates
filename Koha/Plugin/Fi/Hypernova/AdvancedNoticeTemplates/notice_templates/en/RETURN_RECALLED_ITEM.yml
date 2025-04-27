@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Notification to return a recalled item
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Date: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nA
+          recall has been placed on the following item: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>). The due date has been updated, and is now <<issues.date_due>>.
+          Please return the item before the due date.\r\n\r\nThank you!"
+        title: Notification to return a recalled item
+      default:
+        content: "Date: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nA
+          recall has been placed on the following item: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>). The due date has been updated, and is now <<issues.date_due>>.
+          Please return the item before the due date.\r\n\r\nThank you!"
+        title: Notification to return a recalled item
+  sms:
+    plain:
+      anonymous:
+        content: 'Your item has been recalled: <<biblio.title>> (<<items.barcode>>).
+          Please return it by <<issues.date_due>.'
+        title: Return recalled item
+      default:
+        content: 'Your item has been recalled: <<biblio.title>> (<<items.barcode>>).
+          Please return it by <<issues.date_due>.'
+        title: Return recalled item

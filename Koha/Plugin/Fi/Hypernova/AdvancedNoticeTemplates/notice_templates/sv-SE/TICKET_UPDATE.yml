@@ -1,0 +1,20 @@
+---
+module: catalogue
+name: Ärende uppdaterat
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nKära [%- INCLUDE 'patron-title.inc'
+          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nBiblioteket
+          har uppdaterat det ärende som du har rapporterat angående [%- INCLUDE 'biblio-title.inc'
+          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nFöljande
+          kommentar har lämnats: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nTack"
+        title: Katalogärende uppdaterat
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nKära [%- INCLUDE 'patron-title.inc'
+          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nBiblioteket
+          har uppdaterat det ärende som du har rapporterat angående [%- INCLUDE 'biblio-title.inc'
+          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nFöljande
+          kommentar har lämnats: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nTack"
+        title: Katalogärende uppdaterat

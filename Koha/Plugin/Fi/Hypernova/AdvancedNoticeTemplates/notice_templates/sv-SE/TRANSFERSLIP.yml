@@ -1,0 +1,14 @@
+---
+module: circulation
+name: Överföringslapp
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h5>Datum: <<today>></h5>\r\n<br>\r\n<h3>Överför till <<branches.branchname>></h3>\r\n<br>\r\n<h3>EXEMPLAR</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
+          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n</ul>"
+        title: Överföringslapp
+      default:
+        content: "<h5>Datum: <<today>></h5>\r\n<br>\r\n<h3>Överför till <<branches.branchname>></h3>\r\n<br>\r\n<h3>EXEMPLAR</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
+          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n</ul>"
+        title: Överföringslapp

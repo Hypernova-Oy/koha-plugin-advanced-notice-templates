@@ -1,0 +1,34 @@
+---
+module: members
+name: New OPAC self-registration submitted
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>New OPAC self-registration</h3>\r\n<p><h4>Self-registration
+          made:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n[% IF borrower.cardnumber %]<li>Cardnumber: [% borrower.cardnumber
+          %]</li>[% END %]\r\n[% IF borrower.email %]<li>Email: [% borrower.email
+          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Phone: [% borrower.phone
+          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobile: [% borrower.mobile
+          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
+          END %]\r\n[% IF borrower.emailpro %]<li>Secondary email: [% borrower.emailpro
+          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Secondary phone: [% borrower.phonepro
+          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Home library: [% borrower.branchcode
+          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporary patron category:
+          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: New OPAC self-registration
+      default:
+        content: "<h3>New OPAC self-registration</h3>\r\n<p><h4>Self-registration
+          made:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
+          %]</li>\r\n[% IF borrower.cardnumber %]<li>Cardnumber: [% borrower.cardnumber
+          %]</li>[% END %]\r\n[% IF borrower.email %]<li>Email: [% borrower.email
+          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Phone: [% borrower.phone
+          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobile: [% borrower.mobile
+          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
+          END %]\r\n[% IF borrower.emailpro %]<li>Secondary email: [% borrower.emailpro
+          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Secondary phone: [% borrower.phonepro
+          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Home library: [% borrower.branchcode
+          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporary patron category:
+          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        title: New OPAC self-registration

@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Item check-in (digest)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you."
+        title: Check-ins
+      default:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you."
+        title: Check-ins
+  sms:
+    plain:
+      anonymous:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you."
+        title: Check-ins
+      default:
+        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you."
+        title: Check-ins

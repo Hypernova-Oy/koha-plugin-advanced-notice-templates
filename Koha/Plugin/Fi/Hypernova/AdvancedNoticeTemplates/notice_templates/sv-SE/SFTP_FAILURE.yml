@@ -1,0 +1,12 @@
+---
+module: commandline
+name: File SFTP failed
+template:
+  email:
+    plain:
+      anonymous:
+        content: "SFTP upload failed:\r\n\r\n<<sftp_status>>"
+        title: The SFTP by sftp_file.pl failed
+      default:
+        content: "SFTP upload failed:\r\n\r\n<<sftp_status>>"
+        title: The SFTP by sftp_file.pl failed

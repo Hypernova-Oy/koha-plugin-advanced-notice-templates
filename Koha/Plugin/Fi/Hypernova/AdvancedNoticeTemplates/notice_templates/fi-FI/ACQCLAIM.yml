@@ -1,0 +1,16 @@
+---
+module: claimacquisition
+name: Hankintavaatimus
+template:
+  email:
+    plain:
+      anonymous:
+        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\n<order>Tilausta
+          numerolla <<aqorders.ordernumber>> (<<biblio.title>>) (<<aqorders.quantity>>
+          tilattu) ($<<aqorders.listprice>> €/kpl) ei ole vastaanotettu.</order>"
+        title: Nidettä ei vastaanotettu
+      default:
+        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\n<order>Tilausta
+          numerolla <<aqorders.ordernumber>> (<<biblio.title>>) (<<aqorders.quantity>>
+          tilattu) ($<<aqorders.listprice>> €/kpl) ei ole vastaanotettu.</order>"
+        title: Nidettä ei vastaanotettu

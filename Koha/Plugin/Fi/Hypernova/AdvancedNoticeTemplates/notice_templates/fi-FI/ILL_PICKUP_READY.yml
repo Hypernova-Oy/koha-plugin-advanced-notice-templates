@@ -1,0 +1,44 @@
+---
+module: ill
+name: Kaukolaina noudettavissa
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nKaukolainapyynnöt
+          [% illrequest.illrequest_id %] jotka olet tehnyt:\r\n\r\n- [% ill_bib_title
+          %] - [% ill_bib_author %]\r\n\r\non noudettavissa kirjastosta: [% branch.branchname
+          %].\r\n\r\nYstävällisin terveisin\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
+          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        title: Kaukolainapyyntö noudettavissa
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nKaukolainapyynnöt
+          [% illrequest.illrequest_id %] jotka olet tehnyt:\r\n\r\n- [% ill_bib_title
+          %] - [% ill_bib_author %]\r\n\r\non noudettavissa kirjastosta: [% branch.branchname
+          %].\r\n\r\nYstävällisin terveisin\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
+          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        title: Kaukolainapyyntö noudettavissa
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nKaukolainapyynnöt
+          [% illrequest.illrequest_id %] jotka olet tehnyt:\r\n\r\n- [% ill_bib_title
+          %] - [% ill_bib_author %]\r\n\r\non noudettavissa kirjastosta: [% branch.branchname
+          %].\r\n\r\nYstävällisin terveisin\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
+          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        title: Kaukolainapyyntö noudettavissa
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nKaukolainapyynnöt
+          [% illrequest.illrequest_id %] jotka olet tehnyt:\r\n\r\n- [% ill_bib_title
+          %] - [% ill_bib_author %]\r\n\r\non noudettavissa kirjastosta: [% branch.branchname
+          %].\r\n\r\nYstävällisin terveisin\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
+          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        title: Kaukolainapyyntö noudettavissa

@@ -1,0 +1,24 @@
+---
+module: suggestions
+name: Ehdotus tilattu
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
+          [% suggestion.author %].\r\n\r\nEhdottamasi aineisto on nyt tilattu ja sen
+          pitäisi saapua pian kirjastolle käsiteltäväksi.\r\n\r\nSaat sähköpostin,
+          kun aineisto on saatavana.\r\n\r\nJos sinulla on kysyttävää, ota yhteys
+          kirjastoon: [% branch.branchemail %]\r\n\r\nKiitos,\r\n\r\n[% branch.branchname
+          %]"
+        title: Ehdotettu nide tilattu
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
+          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
+          [% suggestion.author %].\r\n\r\nEhdottamasi aineisto on nyt tilattu ja sen
+          pitäisi saapua pian kirjastolle käsiteltäväksi.\r\n\r\nSaat sähköpostin,
+          kun aineisto on saatavana.\r\n\r\nJos sinulla on kysyttävää, ota yhteys
+          kirjastoon: [% branch.branchemail %]\r\n\r\nKiitos,\r\n\r\n[% branch.branchname
+          %]"
+        title: Ehdotettu nide tilattu

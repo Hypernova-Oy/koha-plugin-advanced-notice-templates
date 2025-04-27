@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Recalled item awaiting pickup
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Date: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nA
+          recall that you requested on the following item: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>) is now ready for you to pick up at <<recalls.pickup_library_id>>.
+          Please pick up your item by <<recalls.expiration_date>>.\r\n\r\nThank you!"
+        title: Recalled item awaiting pickup
+      default:
+        content: "Date: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nA
+          recall that you requested on the following item: <<biblio.title>> / <<biblio.author>>
+          (<<items.barcode>>) is now ready for you to pick up at <<recalls.pickup_library_id>>.
+          Please pick up your item by <<recalls.expiration_date>>.\r\n\r\nThank you!"
+        title: Recalled item awaiting pickup
+  sms:
+    plain:
+      anonymous:
+        content: 'A recalled item: <<biblio.title>> (<<items.barcode>>) is ready for
+          you to pick up at <<recalls.branchcode>>. Please collect by <<recalls.expirationdate>>.'
+        title: Recalled item awaiting pickup
+      default:
+        content: 'A recalled item: <<biblio.title>> (<<items.barcode>>) is ready for
+          you to pick up at <<recalls.branchcode>>. Please collect by <<recalls.expirationdate>>.'
+        title: Recalled item awaiting pickup

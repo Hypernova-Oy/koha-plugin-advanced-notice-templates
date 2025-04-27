@@ -1,0 +1,18 @@
+---
+module: members
+name: Confirmation of enabling two factor authentication
+template:
+  email:
+    html:
+      anonymous:
+        content: "<p>Dear [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>This
+          is to confirm that someone enabled two factor authentication on your account.</p>\r\n<p>If
+          you did not do this, someone else may be using your account. Please contact
+          technical support.</p>\r\n<p>Your library</p>"
+        title: Confirmation of enabling two factor authentication
+      default:
+        content: "<p>Dear [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>This
+          is to confirm that someone enabled two factor authentication on your account.</p>\r\n<p>If
+          you did not do this, someone else may be using your account. Please contact
+          technical support.</p>\r\n<p>Your library</p>"
+        title: Confirmation of enabling two factor authentication

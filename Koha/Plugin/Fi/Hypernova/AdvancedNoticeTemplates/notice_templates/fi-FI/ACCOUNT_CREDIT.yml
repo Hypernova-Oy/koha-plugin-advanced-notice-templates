@@ -1,0 +1,104 @@
+---
+module: circulation
+name: Maksu
+template:
+  print:
+    html:
+      anonymous:
+        content: "[%- USE AuthorisedValues -%]\r\n[%- USE KohaDates -%]\r\n[%- USE
+          Price -%]\r\n[%- PROCESS \"accounts.inc\" -%]\r\n<table>\r\n    [% IF (
+          LibraryName ) %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h3>[% LibraryName | html %]</h3>\r\n      </th>\r\n    </tr>\r\n
+          \   [% END %]\r\n    [% IF credit.library %]\r\n    <tr>\r\n      <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h2>[% credit.library.branchname | html
+          %]</h2>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n    <tr>\r\n      <th
+          colspan=\"2\" class=\"centerednames\">\r\n        <h3>[% today | $KohaDates
+          %]</h3>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <td>Tapahtuman
+          ID: </td>\r\n      <td>[% credit.accountlines_id %]</td>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Operaattorin ID: </td>\r\n      <td>[% credit.manager_id
+          %]</td>\r\n    </tr>\r\n    [% IF credit.payment_type %]\r\n    <tr>\r\n
+          \     <td>Maksun tyyppi: </td>\r\n      <td>[% AuthorisedValues.GetByCode('PAYMENT_TYPE',
+          credit.payment_type) %]</td>\r\n    </tr>\r\n    [% END %]\r\n    <tr>\r\n
+          \     <th colspan=\"2\" class=\"centerednames\">\r\n        <h2><u>[%- PROCESS
+          credit_type_description credit_type = credit.credit_type -%] kuitti</u></h2>\r\n
+          \     </th>\r\n    </tr>\r\n    [% IF ( credit.credit_type_code == 'PAYMENT'
+          ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Vastaanotettu asiakkaalta
+          \ [% credit.patron.firstname | html %] [% credit.patron.surname | html %]
+          <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber | html
+          %]<br>\r\n      </th>\r\n    </tr>\r\n    [% ELSIF ( credit.credit_type_code
+          == 'CREDIT' ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Hyvitystä
+          lisätty asiakkaalle [% credit.patron.firstname | html %] [% credit.patron.surname
+          | html %] <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber
+          | html %]<br>\r\n      </th>\r\n    </tr>\r\n    [% ELSIF ( credit.credit_type_code
+          == 'WRITEOFF' ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Maksu
+          poistettu asiakkaalta [% credit.patron.firstname | html %] [% credit.patron.surname
+          | html %] <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber
+          | html %]<br>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n    [% IF
+          credit.amountoutstanding + 0 != 0 %]\r\n    <tr>\r\n      <th>Hyvityksen
+          kuvaus</th>\r\n      <th>Summa</th>\r\n    </tr>\r\n    <tr>\r\n      <td>[%-
+          PROCESS credit_type_description credit_type = credit.credit_type -%]</td>\r\n
+          \     <td>[% credit.amount * -1 | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th style=\"text-align:right;\">Yhteensä:</th>\r\n      <td>[% credit.amountoutstanding
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    [% END %]\r\n    [% IF credit.amount
+          != credit.amountoutstanding %]\r\n    <tr>\r\n      <th>Maksujen kuvaus</th>\r\n
+          \     <th>Summa</th>\r\n    </tr>\r\n    [% FOREACH offset IN credit.credit_offsets
+          %]\r\n    <tr>\r\n      <td>[% PROCESS account_type_description account=offset.debit
+          %][% IF ( offset.debit.itemnumber ) %] - [% offset.debit.item.biblio.title
+          %][% END %]</td>\r\n      <td>[% offset.amount * -1 | $Price %]</td>\r\n
+          \   </tr>\r\n    [% END %]\r\n    [% END %]\r\n  <tfoot>\r\n    <tr class=\"highlight\">\r\n
+          \     <td>Yhteensä:</td>\r\n      <td>[% credit.amount * -1 | $Price %]</td>\r\n
+          \   </tr>\r\n    [% IF change.defined %]\r\n    <tr>\r\n      <td>Vaihtorahaa
+          annettu: </td>\r\n      <td>[% change | $Price %]</td>\r\n    </tr>\r\n
+          \   [% END %]\r\n    <tr>\r\n      <td colspan=\"2\"></td>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Tilin saldo tällä hetkellä:</td>\r\n      <td>[% credit.patron.account.balance
+          * -1 | $Price %]</td>\r\n    </tr>\r\n  </tfoot>\r\n</table>"
+        title: Maksu
+      default:
+        content: "[%- USE AuthorisedValues -%]\r\n[%- USE KohaDates -%]\r\n[%- USE
+          Price -%]\r\n[%- PROCESS \"accounts.inc\" -%]\r\n<table>\r\n    [% IF (
+          LibraryName ) %]\r\n    <tr>\r\n      <th colspan=\"2\" class=\"centerednames\">\r\n
+          \       <h3>[% LibraryName | html %]</h3>\r\n      </th>\r\n    </tr>\r\n
+          \   [% END %]\r\n    [% IF credit.library %]\r\n    <tr>\r\n      <th colspan=\"2\"
+          class=\"centerednames\">\r\n        <h2>[% credit.library.branchname | html
+          %]</h2>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n    <tr>\r\n      <th
+          colspan=\"2\" class=\"centerednames\">\r\n        <h3>[% today | $KohaDates
+          %]</h3>\r\n      </th>\r\n    </tr>\r\n    <tr>\r\n      <td>Tapahtuman
+          ID: </td>\r\n      <td>[% credit.accountlines_id %]</td>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Operaattorin ID: </td>\r\n      <td>[% credit.manager_id
+          %]</td>\r\n    </tr>\r\n    [% IF credit.payment_type %]\r\n    <tr>\r\n
+          \     <td>Maksun tyyppi: </td>\r\n      <td>[% AuthorisedValues.GetByCode('PAYMENT_TYPE',
+          credit.payment_type) %]</td>\r\n    </tr>\r\n    [% END %]\r\n    <tr>\r\n
+          \     <th colspan=\"2\" class=\"centerednames\">\r\n        <h2><u>[%- PROCESS
+          credit_type_description credit_type = credit.credit_type -%] kuitti</u></h2>\r\n
+          \     </th>\r\n    </tr>\r\n    [% IF ( credit.credit_type_code == 'PAYMENT'
+          ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Vastaanotettu asiakkaalta
+          \ [% credit.patron.firstname | html %] [% credit.patron.surname | html %]
+          <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber | html
+          %]<br>\r\n      </th>\r\n    </tr>\r\n    [% ELSIF ( credit.credit_type_code
+          == 'CREDIT' ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Hyvitystä
+          lisätty asiakkaalle [% credit.patron.firstname | html %] [% credit.patron.surname
+          | html %] <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber
+          | html %]<br>\r\n      </th>\r\n    </tr>\r\n    [% ELSIF ( credit.credit_type_code
+          == 'WRITEOFF' ) %]\r\n    <tr>\r\n      <th colspan=\"2\">\r\n        Maksu
+          poistettu asiakkaalta [% credit.patron.firstname | html %] [% credit.patron.surname
+          | html %] <br>\r\n        Kirjastokortin numero: [% credit.patron.cardnumber
+          | html %]<br>\r\n      </th>\r\n    </tr>\r\n    [% END %]\r\n    [% IF
+          credit.amountoutstanding + 0 != 0 %]\r\n    <tr>\r\n      <th>Hyvityksen
+          kuvaus</th>\r\n      <th>Summa</th>\r\n    </tr>\r\n    <tr>\r\n      <td>[%-
+          PROCESS credit_type_description credit_type = credit.credit_type -%]</td>\r\n
+          \     <td>[% credit.amount * -1 | $Price %]</td>\r\n    </tr>\r\n    <tr>\r\n
+          \     <th style=\"text-align:right;\">Yhteensä:</th>\r\n      <td>[% credit.amountoutstanding
+          * -1 | $Price %]</td>\r\n    </tr>\r\n    [% END %]\r\n    [% IF credit.amount
+          != credit.amountoutstanding %]\r\n    <tr>\r\n      <th>Maksujen kuvaus</th>\r\n
+          \     <th>Summa</th>\r\n    </tr>\r\n    [% FOREACH offset IN credit.credit_offsets
+          %]\r\n    <tr>\r\n      <td>[% PROCESS account_type_description account=offset.debit
+          %][% IF ( offset.debit.itemnumber ) %] - [% offset.debit.item.biblio.title
+          %][% END %]</td>\r\n      <td>[% offset.amount * -1 | $Price %]</td>\r\n
+          \   </tr>\r\n    [% END %]\r\n    [% END %]\r\n  <tfoot>\r\n    <tr class=\"highlight\">\r\n
+          \     <td>Yhteensä:</td>\r\n      <td>[% credit.amount * -1 | $Price %]</td>\r\n
+          \   </tr>\r\n    [% IF change.defined %]\r\n    <tr>\r\n      <td>Vaihtorahaa
+          annettu: </td>\r\n      <td>[% change | $Price %]</td>\r\n    </tr>\r\n
+          \   [% END %]\r\n    <tr>\r\n      <td colspan=\"2\"></td>\r\n    </tr>\r\n
+          \   <tr>\r\n      <td>Tilin saldo tällä hetkellä:</td>\r\n      <td>[% credit.patron.account.balance
+          * -1 | $Price %]</td>\r\n    </tr>\r\n  </tfoot>\r\n</table>"
+        title: Maksu

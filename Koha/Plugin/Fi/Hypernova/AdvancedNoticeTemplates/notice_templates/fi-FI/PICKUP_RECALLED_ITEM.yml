@@ -1,0 +1,30 @@
+---
+module: circulation
+name: Noudettavissa olevat palautuspyynnöt
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nTekemäsi
+          palautuspyyntö niteeseen: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>)
+          on noudettavissa kirjastosta: <<recalls.pickup_library_id>>. Niteen nouto
+          <<recalls.expiration_date>> mennessä.\r\n\r\nKiitos!"
+        title: Noudettavissa olevat palautuspyynnöt
+      default:
+        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nTekemäsi
+          palautuspyyntö niteeseen: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>)
+          on noudettavissa kirjastosta: <<recalls.pickup_library_id>>. Niteen nouto
+          <<recalls.expiration_date>> mennessä.\r\n\r\nKiitos!"
+        title: Noudettavissa olevat palautuspyynnöt
+  sms:
+    plain:
+      anonymous:
+        content: 'Tekemäsi palautuspyyntö niteeseen: <<biblio.title>> (<<items.barcode>>)
+          on noudettavissa kirjastosta: <<recalls.branchcode>>. Niteen nouto <<recalls.expirationdate>>
+          mennessä.'
+        title: Noudettavissa olevat palautuspyynnöt
+      default:
+        content: 'Tekemäsi palautuspyyntö niteeseen: <<biblio.title>> (<<items.barcode>>)
+          on noudettavissa kirjastosta: <<recalls.branchcode>>. Niteen nouto <<recalls.expirationdate>>
+          mennessä.'
+        title: Noudettavissa olevat palautuspyynnöt

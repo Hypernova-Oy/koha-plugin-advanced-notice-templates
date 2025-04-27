@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Advance notice of item due (digest)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item(s) will be due soon:\r\n[% FOREACH checkout IN checkouts
+          %]\r\n[% checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
+          END %]\r\nThank you."
+        title: Advance notice of item due
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item(s) will be due soon:\r\n[% FOREACH checkout IN checkouts
+          %]\r\n[% checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
+          END %]\r\nThank you."
+        title: Advance notice of item due
+  sms:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have [% checkouts.size %] item(s) that will be due soon.\r\n\r\nThank you."
+        title: Advance notice of item due
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have [% checkouts.size %] item(s) that will be due soon.\r\n\r\nThank you."
+        title: Advance notice of item due

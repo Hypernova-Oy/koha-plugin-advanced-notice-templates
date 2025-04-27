@@ -1,0 +1,26 @@
+---
+module: suggestions
+name: Suggestion ordered
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
+          %].\r\n\r\nWe are pleased to inform you that the item you requested has
+          now been ordered. It should arrive soon, at which time it will be processed
+          for addition into the collection.\r\n\r\nYou will be notified again when
+          the book is available.\r\n\r\nIf you have any questions, please email us
+          at [% branch.branchemail %]\r\n\r\nThank you,\r\n\r\n[% branch.branchname
+          %]"
+        title: Suggested item ordered
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
+          %].\r\n\r\nWe are pleased to inform you that the item you requested has
+          now been ordered. It should arrive soon, at which time it will be processed
+          for addition into the collection.\r\n\r\nYou will be notified again when
+          the book is available.\r\n\r\nIf you have any questions, please email us
+          at [% branch.branchemail %]\r\n\r\nThank you,\r\n\r\n[% branch.branchname
+          %]"
+        title: Suggested item ordered

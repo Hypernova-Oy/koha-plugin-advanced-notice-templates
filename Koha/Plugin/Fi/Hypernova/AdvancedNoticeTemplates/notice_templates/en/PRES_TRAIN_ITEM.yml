@@ -1,0 +1,28 @@
+---
+module: preservation
+name: Train item slip
+template:
+  print:
+    plain:
+      anonymous:
+        content: "[%~ USE AuthorisedValues ~%]\r\n[%~ SET train = train_item.train
+          ~%]\r\n[%~ SET item = train_item.catalogue_item ~%]\r\nTrain name: [% train.name
+          %]\r\nSent on: [% train.sent_on | $KohaDates %]\r\n\r\n[% train.default_processing.name
+          %]\r\n\r\nItem number #[% train_item.user_train_item_id %]\r\n\r\n[% FOREACH
+          item_attribute IN train_item.attributes %]\r\n    [%~ SET value = item_attribute.value
+          ~%]\r\n    [%~ IF item_attribute.processing_attribute.type == 'authorised_value'
+          ~%]\r\n        [%~ SET value = AuthorisedValues.GetByCode(item_attribute.processing_attribute.option_source,
+          item_attribute.value) ~%]\r\n    [%~ END ~%]\r\n    [% item_attribute.processing_attribute.name
+          %]: [% value %]\r\n[% END %]"
+        title: Train item slip
+      default:
+        content: "[%~ USE AuthorisedValues ~%]\r\n[%~ SET train = train_item.train
+          ~%]\r\n[%~ SET item = train_item.catalogue_item ~%]\r\nTrain name: [% train.name
+          %]\r\nSent on: [% train.sent_on | $KohaDates %]\r\n\r\n[% train.default_processing.name
+          %]\r\n\r\nItem number #[% train_item.user_train_item_id %]\r\n\r\n[% FOREACH
+          item_attribute IN train_item.attributes %]\r\n    [%~ SET value = item_attribute.value
+          ~%]\r\n    [%~ IF item_attribute.processing_attribute.type == 'authorised_value'
+          ~%]\r\n        [%~ SET value = AuthorisedValues.GetByCode(item_attribute.processing_attribute.option_source,
+          item_attribute.value) ~%]\r\n    [%~ END ~%]\r\n    [% item_attribute.processing_attribute.name
+          %]: [% value %]\r\n[% END %]"
+        title: Train item slip

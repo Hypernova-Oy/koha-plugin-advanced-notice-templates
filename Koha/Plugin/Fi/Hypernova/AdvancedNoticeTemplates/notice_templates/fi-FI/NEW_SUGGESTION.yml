@@ -1,0 +1,44 @@
+---
+module: suggestions
+name: Uusi ehdotus
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Hyväksymistä odottava hankintaehdotus</h3>\r\n    <p><h4>Ehdottaja</h4>\r\n
+          \   <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname %]</li>\r\n
+          \   <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone -%]\r\n
+          \       <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%- IF borrower.email
+          -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%- END -%]\r\n    </ul>\r\n
+          \   </p>\r\n    <p><h4>Ehdotetun aineiston nimeke</h4>\r\n    <ul>\r\n    <li><b>Kirjasto:</b>
+          [% branch.branchname %]</li>\r\n    <li><b>Nimi:</b> [% suggestion.title
+          %]</li>\r\n    <li><b>Tekijä:</b> [% suggestion.author %]</li>\r\n    <li><b>Tekijänoikeusvuosi:</b>
+          [% suggestion.copyrightdate %]</li>\r\n    <li><b>Standardoitu numero (ISBN,
+          ISSN tai muu):</b> [% suggestion.isbn %]</li>\r\n    <li><b>Julkaisija:</b>
+          [% suggestion.publishercode %]</li>\r\n    <li><b>Kokoelman nimi:</b> [%
+          suggestion.collectiontitle %]</li>\r\n    <li><b>Julkaisu-/kustannuspaikka:</b>
+          [% suggestion.place %]</li>\r\n    <li><b>Määrä:</b> [% suggestion.quantity
+          %]</li>\r\n    <li><b>Nidetyyppi:</b>  [% suggestion.itemtype %]</li>\r\n
+          \   <li><b>Hankintaperusteet:</b> [% suggestion.patronreason %]</li>\r\n
+          \   <li><b>Huomautukset:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n
+          \   </p>"
+        title: Uusi ehdotus
+      default:
+        content: "<h3>Hyväksymistä odottava hankintaehdotus</h3>\r\n    <p><h4>Ehdottaja</h4>\r\n
+          \   <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname %]</li>\r\n
+          \   <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone -%]\r\n
+          \       <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%- IF borrower.email
+          -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%- END -%]\r\n    </ul>\r\n
+          \   </p>\r\n    <p><h4>Ehdotetun aineiston nimeke</h4>\r\n    <ul>\r\n    <li><b>Kirjasto:</b>
+          [% branch.branchname %]</li>\r\n    <li><b>Nimi:</b> [% suggestion.title
+          %]</li>\r\n    <li><b>Tekijä:</b> [% suggestion.author %]</li>\r\n    <li><b>Tekijänoikeusvuosi:</b>
+          [% suggestion.copyrightdate %]</li>\r\n    <li><b>Standardoitu numero (ISBN,
+          ISSN tai muu):</b> [% suggestion.isbn %]</li>\r\n    <li><b>Julkaisija:</b>
+          [% suggestion.publishercode %]</li>\r\n    <li><b>Kokoelman nimi:</b> [%
+          suggestion.collectiontitle %]</li>\r\n    <li><b>Julkaisu-/kustannuspaikka:</b>
+          [% suggestion.place %]</li>\r\n    <li><b>Määrä:</b> [% suggestion.quantity
+          %]</li>\r\n    <li><b>Nidetyyppi:</b>  [% suggestion.itemtype %]</li>\r\n
+          \   <li><b>Hankintaperusteet:</b> [% suggestion.patronreason %]</li>\r\n
+          \   <li><b>Huomautukset:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n
+          \   </p>"
+        title: Uusi ehdotus

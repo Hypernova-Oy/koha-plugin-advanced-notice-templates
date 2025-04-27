@@ -1,0 +1,42 @@
+---
+module: suggestions
+name: New suggestion
+template:
+  email:
+    html:
+      anonymous:
+        content: "<h3>Suggestion pending approval</h3>\r\n    <p><h4>Suggested by</h4>\r\n
+          \   <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname %]</li>\r\n
+          \   <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone -%]\r\n
+          \       <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%- IF borrower.email
+          -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%- END -%]\r\n    </ul>\r\n
+          \   </p>\r\n    <p><h4>Title suggested</h4>\r\n    <ul>\r\n    <li><b>Library:</b>
+          [% branch.branchname %]</li>\r\n    <li><b>Title:</b> [% suggestion.title
+          %]</li>\r\n    <li><b>Author:</b> [% suggestion.author %]</li>\r\n    <li><b>Copyright
+          date:</b> [% suggestion.copyrightdate %]</li>\r\n    <li><b>Standard number
+          (ISBN, ISSN or other):</b> [% suggestion.isbn %]</li>\r\n    <li><b>Publisher:</b>
+          [% suggestion.publishercode %]</li>\r\n    <li><b>Collection title:</b>
+          [% suggestion.collectiontitle %]</li>\r\n    <li><b>Publication place:</b>
+          [% suggestion.place %]</li>\r\n    <li><b>Quantity:</b> [% suggestion.quantity
+          %]</li>\r\n    <li><b>Item type:</b>  [% suggestion.itemtype %]</li>\r\n
+          \   <li><b>Reason for suggestion:</b> [% suggestion.patronreason %]</li>\r\n
+          \   <li><b>Notes:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n    </p>"
+        title: New suggestion
+      default:
+        content: "<h3>Suggestion pending approval</h3>\r\n    <p><h4>Suggested by</h4>\r\n
+          \   <ul>\r\n    <li>[% borrower.firstname %] [% borrower.surname %]</li>\r\n
+          \   <li>[% borrower.cardnumber %]</li>\r\n    [%- IF borrower.phone -%]\r\n
+          \       <li>[% borrower.phone %]</li>\r\n    [%- END -%]\r\n    [%- IF borrower.email
+          -%]\r\n        <li>[% borrower.email %]</li>\r\n    [%- END -%]\r\n    </ul>\r\n
+          \   </p>\r\n    <p><h4>Title suggested</h4>\r\n    <ul>\r\n    <li><b>Library:</b>
+          [% branch.branchname %]</li>\r\n    <li><b>Title:</b> [% suggestion.title
+          %]</li>\r\n    <li><b>Author:</b> [% suggestion.author %]</li>\r\n    <li><b>Copyright
+          date:</b> [% suggestion.copyrightdate %]</li>\r\n    <li><b>Standard number
+          (ISBN, ISSN or other):</b> [% suggestion.isbn %]</li>\r\n    <li><b>Publisher:</b>
+          [% suggestion.publishercode %]</li>\r\n    <li><b>Collection title:</b>
+          [% suggestion.collectiontitle %]</li>\r\n    <li><b>Publication place:</b>
+          [% suggestion.place %]</li>\r\n    <li><b>Quantity:</b> [% suggestion.quantity
+          %]</li>\r\n    <li><b>Item type:</b>  [% suggestion.itemtype %]</li>\r\n
+          \   <li><b>Reason for suggestion:</b> [% suggestion.patronreason %]</li>\r\n
+          \   <li><b>Notes:</b> [% suggestion.note %]</li>\r\n    </ul>\r\n    </p>"
+        title: New suggestion

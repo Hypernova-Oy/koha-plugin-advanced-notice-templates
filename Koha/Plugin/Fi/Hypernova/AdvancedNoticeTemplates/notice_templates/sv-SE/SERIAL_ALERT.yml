@@ -1,0 +1,16 @@
+---
+module: serial
+name: New serial issue
+template:
+  email:
+    plain:
+      anonymous:
+        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nFöljande nummer
+          är nu tillgängligt:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVänligen
+          hämta när det passar dig."
+        title: New serial issue is now available
+      default:
+        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nFöljande nummer
+          är nu tillgängligt:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVänligen
+          hämta när det passar dig."
+        title: New serial issue is now available

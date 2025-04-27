@@ -1,0 +1,20 @@
+---
+module: circulation
+name: Account payment
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nA payment of [% credit.amount * -1 | $Price
+          %] has been applied to your account.\r\n\r\nThis payment affected the following
+          fees:\r\n[%- FOREACH o IN offsets %]\r\nDescription: [% o.debit.description
+          %]\r\nAmount paid: [% o.amount * -1 | $Price %]\r\nAmount remaining: [%
+          o.debit.amountoutstanding | $Price %]\r\n[% END %]"
+        title: Account payment
+      default:
+        content: "[%- USE Price -%]\r\nA payment of [% credit.amount * -1 | $Price
+          %] has been applied to your account.\r\n\r\nThis payment affected the following
+          fees:\r\n[%- FOREACH o IN offsets %]\r\nDescription: [% o.debit.description
+          %]\r\nAmount paid: [% o.amount * -1 | $Price %]\r\nAmount remaining: [%
+          o.debit.amountoutstanding | $Price %]\r\n[% END %]"
+        title: Account payment

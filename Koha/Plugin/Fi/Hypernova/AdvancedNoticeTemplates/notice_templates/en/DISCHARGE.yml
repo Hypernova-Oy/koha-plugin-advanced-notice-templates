@@ -1,0 +1,16 @@
+---
+module: members
+name: Discharge confirmation
+template:
+  email:
+    html:
+      anonymous:
+        content: "\r\n<<today>>\r\n<h1>Discharge confirmation</h1>\r\n<p><<branches.branchname>>
+          certifies that the following borrower:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
+          (cardnumber: <<borrowers.cardnumber>>)<br>\r\nhas returned all items.</p>"
+        title: Discharge for <<borrowers.firstname>> <<borrowers.surname>>
+      default:
+        content: "\r\n<<today>>\r\n<h1>Discharge confirmation</h1>\r\n<p><<branches.branchname>>
+          certifies that the following borrower:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
+          (cardnumber: <<borrowers.cardnumber>>)<br>\r\nhas returned all items.</p>"
+        title: Discharge for <<borrowers.firstname>> <<borrowers.surname>>

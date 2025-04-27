@@ -1,0 +1,16 @@
+---
+module: reserves
+name: Reservation lagd
+template:
+  email:
+    plain:
+      anonymous:
+        content: 'En reservation har lagts på följande exemplar : <<biblio.title>>
+          (<<biblio.biblionumber>>) av användare <<borrowers.firstname>> <<borrowers.surname>>
+          (<<borrowers.cardnumber>>).'
+        title: Reservation lagd
+      default:
+        content: 'En reservation har lagts på följande exemplar : <<biblio.title>>
+          (<<biblio.biblionumber>>) av användare <<borrowers.firstname>> <<borrowers.surname>>
+          (<<borrowers.cardnumber>>).'
+        title: Reservation lagd

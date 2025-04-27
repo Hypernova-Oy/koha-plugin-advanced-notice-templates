@@ -1,0 +1,18 @@
+---
+module: reserves
+name: Reservation är bekräftad
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hej [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %]),\r\nDin reservation på [% hold.biblio.title %] ([% hold.biblio.id %])
+          har bekräftats.\r\nDu får ett meddelande från biblioteket när ditt exemplar
+          är tillgänglig för upphämtning.\r\nTack!"
+        title: Din reservation hos [% hold.biblio.title %] är bekräftad
+      default:
+        content: "Hej [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %]),\r\nDin reservation på [% hold.biblio.title %] ([% hold.biblio.id %])
+          har bekräftats.\r\nDu får ett meddelande från biblioteket när ditt exemplar
+          är tillgänglig för upphämtning.\r\nTack!"
+        title: Din reservation hos [% hold.biblio.title %] är bekräftad

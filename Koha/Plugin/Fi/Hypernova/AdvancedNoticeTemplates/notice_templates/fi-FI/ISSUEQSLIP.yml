@@ -1,0 +1,18 @@
+---
+module: circulation
+name: Tänään lainatut
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nLainaukset
+          asiakkaalle <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br>\r\n(<<borrowers.cardnumber>>)
+          <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Tänään lainatut</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
+          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        title: Tänään lainatut
+      default:
+        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nLainaukset
+          asiakkaalle <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br>\r\n(<<borrowers.cardnumber>>)
+          <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Tänään lainatut</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
+          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        title: Tänään lainatut

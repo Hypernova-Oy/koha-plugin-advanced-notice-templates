@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Stock rotation slip
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Stock rotation report for [% branch.name %]:\r\n\r\n[% IF branch.items.size
+          %][% branch.items.size %] items to be processed for this branch.\r\n[% ELSE
+          %]No items to be processed for this branch\r\n[% END %][% FOREACH item IN
+          branch.items %][% IF item.reason != 'in-demand' %]Title: [% item.title %]\r\nAuthor:
+          [% item.author %]\r\nCall number: [% item.callnumber %]\r\nLocation: [%
+          item.location %]\r\nBarcode: [% item.barcode %]\r\nOn loan?: [% item.onloan
+          %]\r\nStatus: [% item.reason %]\r\nCurrent library: [% item.branch.branchname
+          %] [% item.branch.branchcode %]\r\n\r\n[% END %][% END %]"
+        title: Stock rotation report
+      default:
+        content: "Stock rotation report for [% branch.name %]:\r\n\r\n[% IF branch.items.size
+          %][% branch.items.size %] items to be processed for this branch.\r\n[% ELSE
+          %]No items to be processed for this branch\r\n[% END %][% FOREACH item IN
+          branch.items %][% IF item.reason != 'in-demand' %]Title: [% item.title %]\r\nAuthor:
+          [% item.author %]\r\nCall number: [% item.callnumber %]\r\nLocation: [%
+          item.location %]\r\nBarcode: [% item.barcode %]\r\nOn loan?: [% item.onloan
+          %]\r\nStatus: [% item.reason %]\r\nCurrent library: [% item.branch.branchname
+          %] [% item.branch.branchcode %]\r\n\r\n[% END %][% END %]"
+        title: Stock rotation report

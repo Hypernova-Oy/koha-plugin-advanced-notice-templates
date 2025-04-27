@@ -1,0 +1,54 @@
+---
+module: reserves
+name: Reservation finns att hämta
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har en reservation att hämta sedan [% hold.waitingdate | $KohaDates %]:\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\nPlats: [% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %] [% branch.branchzip %]"
+        title: Reservation finns att hämta hos <<branches.branchname>>
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDu
+          har en reservation att hämta sedan [% hold.waitingdate | $KohaDates %]:\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\nPlats: [% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
+          %] [% branch.branchzip %]"
+        title: Reservation finns att hämta hos <<branches.branchname>>
+  print:
+    plain:
+      anonymous:
+        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n\r\n\r\nChange service requested\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[%
+          borrower.city %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nDu
+          har en reservation att hämta sedan [% hold.waitingdate | $KohaDates %]:\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\n"
+        title: Reservation finns att hämta (meddelandekvitto)
+      default:
+        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
+          %]\r\n\r\n\r\nChange service requested\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[%
+          borrower.city %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
+          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nDu
+          har en reservation att hämta sedan [% hold.waitingdate | $KohaDates %]:\r\n\r\nTitel:
+          [% biblio.title %]\r\nFörfattare: [% biblio.author %]\r\nExemplar: [% item.copynumber
+          %]\r\n"
+        title: Reservation finns att hämta (meddelandekvitto)
+  sms:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDin
+          reservation för [% biblio.title %] är tillgänglig för hämtning."
+        title: Hold available for pickup at [% branch.branchname %]
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nDin
+          reservation för [% biblio.title %] är tillgänglig för hämtning."
+        title: Hold available for pickup at [% branch.branchname %]

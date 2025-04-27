@@ -1,0 +1,16 @@
+---
+module: acquisition
+name: Notifiera vid mottagning
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Beställningen
+          <<aqorders.ordernumber>> (<<biblio.title>>) har tagits emot.\r\n\r\nDitt
+          bibliotek."
+        title: Beställning mottagen
+      default:
+        content: "Kära <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Beställningen
+          <<aqorders.ordernumber>> (<<biblio.title>>) har tagits emot.\r\n\r\nDitt
+          bibliotek."
+        title: Beställning mottagen

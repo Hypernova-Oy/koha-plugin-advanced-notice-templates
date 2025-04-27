@@ -1,0 +1,16 @@
+---
+module: circulation
+name: Asiakkaan tekemä huomautus niteelle
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Lainahuomautus
+      default:
+        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
+          checkout.note %]"
+        title: Lainahuomautus

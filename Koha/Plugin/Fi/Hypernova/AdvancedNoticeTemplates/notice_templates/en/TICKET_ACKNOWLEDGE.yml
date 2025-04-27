@@ -1,0 +1,20 @@
+---
+module: catalogue
+name: Concern acknowledgement
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nThank you for your report
+          concerning [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0
+          -%].<br>\r\n<br>\r\nYou reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nThank
+          you"
+        title: Catalog concern acknowledgment
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nThank you for your report
+          concerning [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0
+          -%].<br>\r\n<br>\r\nYou reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nThank
+          you"
+        title: Catalog concern acknowledgment

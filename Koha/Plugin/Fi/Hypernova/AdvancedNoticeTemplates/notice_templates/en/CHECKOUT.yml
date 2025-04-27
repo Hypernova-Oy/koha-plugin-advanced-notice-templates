@@ -1,0 +1,24 @@
+---
+module: circulation
+name: Item check-out (digest)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Checkouts
+      default:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Checkouts
+  sms:
+    plain:
+      anonymous:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Checkouts
+      default:
+        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
+          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        title: Checkouts

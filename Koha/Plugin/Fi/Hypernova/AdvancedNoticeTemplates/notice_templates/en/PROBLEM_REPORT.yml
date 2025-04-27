@@ -1,0 +1,14 @@
+---
+module: members
+name: OPAC problem report
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Username: <<problem_reports.username>>\r\n\r\nProblem page: <<problem_reports.problempage>>\r\n\r\nTitle:
+          <<problem_reports.title>>\r\n\r\nMessage: <<problem_reports.content>>"
+        title: OPAC problem report
+      default:
+        content: "Username: <<problem_reports.username>>\r\n\r\nProblem page: <<problem_reports.problempage>>\r\n\r\nTitle:
+          <<problem_reports.title>>\r\n\r\nMessage: <<problem_reports.content>>"
+        title: OPAC problem report

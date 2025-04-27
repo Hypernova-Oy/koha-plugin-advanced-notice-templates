@@ -1,0 +1,16 @@
+---
+module: members
+name: two-authentication step token
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %])\r\n\r\nDin autentiseringstoken är [% otp_token %].\r\nDen är giltig
+          en minut."
+        title: Two-authentication token
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
+          %])\r\n\r\nDin autentiseringstoken är [% otp_token %].\r\nDen är giltig
+          en minut."
+        title: Two-authentication token

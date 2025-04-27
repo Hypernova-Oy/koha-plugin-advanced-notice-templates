@@ -1,0 +1,16 @@
+---
+module: reserves
+name: Hold placed on item
+template:
+  email:
+    plain:
+      anonymous:
+        content: 'A hold has been placed on the following item : <<biblio.title>>
+          (<<biblio.biblionumber>>) by the user <<borrowers.firstname>> <<borrowers.surname>>
+          (<<borrowers.cardnumber>>).'
+        title: Hold placed on item
+      default:
+        content: 'A hold has been placed on the following item : <<biblio.title>>
+          (<<biblio.biblionumber>>) by the user <<borrowers.firstname>> <<borrowers.surname>>
+          (<<borrowers.cardnumber>>).'
+        title: Hold placed on item

@@ -1,0 +1,18 @@
+---
+module: catalogue
+name: Virheilmoitus vastaanotettu
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nHyvä [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nKiitos raportoimastasi virheestä
+          [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%].<br>\r\n<br>\r\nIlmoitit:
+          <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nKiitos"
+        title: Kuvailutietojen virheilmoitus vastaanotettu
+      default:
+        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nHyvä [%- INCLUDE 'patron-title.inc'
+          patron => ticket.reporter -%],<br>\r\n<br>\r\nKiitos raportoimastasi virheestä
+          [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%].<br>\r\n<br>\r\nIlmoitit:
+          <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nKiitos"
+        title: Kuvailutietojen virheilmoitus vastaanotettu

@@ -1,0 +1,84 @@
+---
+module: members
+name: Account balance slip
+template:
+  print:
+    html:
+      anonymous:
+        content: "[% USE Branches %]\r\n[% USE Koha %]\r\n[% USE KohaDates %]\r\n[%
+          USE Price %]\r\n[% PROCESS 'accounts.inc' %]\r\n<table>\r\n  [% IF ( Koha.Preference('LibraryName')
+          ) %]\r\n    <tr>\r\n      <th colspan='4' class='centerednames'>\r\n        <h1>[%
+          Koha.Preference('LibraryName') | html %]</h1>\r\n      </th>\r\n    </tr>\r\n
+          \ [% END %]\r\n\r\n  <tr>\r\n    <th colspan='4' class='centerednames'>\r\n
+          \     <h2>[% Branches.GetName( borrower.branchcode ) | html %]</h2>\r\n
+          \   </th>\r\n  </tr>\r\n\r\n  <tr>\r\n    <th colspan='4' class='centerednames'>\r\n
+          \     <h3>Utestående konton</h3>\r\n    </th>\r\n  </tr>\r\n\r\n  <tr>\r\n
+          \   <th colspan='4' class='centerednames'>\r\n      <h4>Avgifter</h4>\r\n
+          \   </th>\r\n  </tr>\r\n  [% IF borrower.account.outstanding_debits.total_outstanding
+          %]\r\n  <tr>\r\n    <th>Datum</th>\r\n    <th>Avgift</th>\r\n    <th>Belopp</th>\r\n
+          \   <th>Utestående</th>\r\n  </tr>\r\n  [% FOREACH debit IN borrower.account.outstanding_debits
+          %]\r\n  <tr>\r\n    <td>[% debit.date | $KohaDates %]</td>\r\n    <td>\r\n
+          \     [% PROCESS account_type_description account=debit %]\r\n      [%-
+          IF debit.description %], [% debit.description | html %][% END %]\r\n    </td>\r\n
+          \   <td class='debit'>[% debit.amount | $Price %]</td>\r\n    <td class='debit'>[%
+          debit.amountoutstanding | $Price %]</td>\r\n  </tr>\r\n  [% END %]\r\n  [%
+          ELSE %]\r\n  <tr>\r\n    <td colspan='4'>Det finns inga utestående skulder
+          på ditt konto</td>\r\n  </tr>\r\n  [% END %]\r\n\r\n  <tr>\r\n    <th colspan='4'
+          class='centerednames'>\r\n      %Krediter<h4>\r\n    </th>\r\n  </tr>\r\n
+          \ [% IF borrower.account.outstanding_credits.total_outstanding %]\r\n  <tr>\r\n
+          \   <th>Datum</th>\r\n    <th>Kredit</th>\r\n    <th>Belopp</th>\r\n    <th>Utestående</th>\r\n
+          \ </tr>\r\n  [% FOREACH credit IN borrower.account.outstanding_credits %]\r\n
+          \ <tr>\r\n    <td>[% credit.date | $KohaDates%]</td>\r\n    <td>\r\n      [%
+          PROCESS account_type_description account=credit %]\r\n      [%- IF credit.description
+          %], [% credit.description | html %][% END %]\r\n    </td>\r\n    <td class='credit'>[%
+          credit.amount *-1 | $Price %]</td>\r\n    <td class='credit'>[% credit.amountoutstanding
+          *-1 | $Price %]</td>\r\n  </tr>\r\n  [% END %]\r\n  [% ELSE %]\r\n  <tr>\r\n
+          \   <td colspan='4'>Det finns inga utestående krediter på ditt konto</td>\r\n
+          \ </tr>\r\n  [% END %]\r\n\r\n  <tfoot>\r\n    <td colspan='3'>\r\n      [%
+          IF borrower.account.balance < 0 %]\r\n        Total kredit per [% today
+          | $KohaDates %]:\r\n      [% ELSE %]\r\n        Totala utestående avgifter
+          per [% today | $KohaDates %]:\r\n      [% END %]\r\n    </td>\r\n    [%
+          IF ( borrower.account.balance <= 0 ) %]<td class='credit'>[% borrower.account.balance
+          * -1 | $Price %]</td>\r\n    [% ELSE %]<td class='debit'>[% borrower.account.balance
+          | $Price %]</td>[% END %]\r\n  </tfoot>\r\n</table>"
+        title: Kontosammanfattning för [% borrower.firstname %] [% borrower.surname
+          %]
+      default:
+        content: "[% USE Branches %]\r\n[% USE Koha %]\r\n[% USE KohaDates %]\r\n[%
+          USE Price %]\r\n[% PROCESS 'accounts.inc' %]\r\n<table>\r\n  [% IF ( Koha.Preference('LibraryName')
+          ) %]\r\n    <tr>\r\n      <th colspan='4' class='centerednames'>\r\n        <h1>[%
+          Koha.Preference('LibraryName') | html %]</h1>\r\n      </th>\r\n    </tr>\r\n
+          \ [% END %]\r\n\r\n  <tr>\r\n    <th colspan='4' class='centerednames'>\r\n
+          \     <h2>[% Branches.GetName( borrower.branchcode ) | html %]</h2>\r\n
+          \   </th>\r\n  </tr>\r\n\r\n  <tr>\r\n    <th colspan='4' class='centerednames'>\r\n
+          \     <h3>Utestående konton</h3>\r\n    </th>\r\n  </tr>\r\n\r\n  <tr>\r\n
+          \   <th colspan='4' class='centerednames'>\r\n      <h4>Avgifter</h4>\r\n
+          \   </th>\r\n  </tr>\r\n  [% IF borrower.account.outstanding_debits.total_outstanding
+          %]\r\n  <tr>\r\n    <th>Datum</th>\r\n    <th>Avgift</th>\r\n    <th>Belopp</th>\r\n
+          \   <th>Utestående</th>\r\n  </tr>\r\n  [% FOREACH debit IN borrower.account.outstanding_debits
+          %]\r\n  <tr>\r\n    <td>[% debit.date | $KohaDates %]</td>\r\n    <td>\r\n
+          \     [% PROCESS account_type_description account=debit %]\r\n      [%-
+          IF debit.description %], [% debit.description | html %][% END %]\r\n    </td>\r\n
+          \   <td class='debit'>[% debit.amount | $Price %]</td>\r\n    <td class='debit'>[%
+          debit.amountoutstanding | $Price %]</td>\r\n  </tr>\r\n  [% END %]\r\n  [%
+          ELSE %]\r\n  <tr>\r\n    <td colspan='4'>Det finns inga utestående skulder
+          på ditt konto</td>\r\n  </tr>\r\n  [% END %]\r\n\r\n  <tr>\r\n    <th colspan='4'
+          class='centerednames'>\r\n      %Krediter<h4>\r\n    </th>\r\n  </tr>\r\n
+          \ [% IF borrower.account.outstanding_credits.total_outstanding %]\r\n  <tr>\r\n
+          \   <th>Datum</th>\r\n    <th>Kredit</th>\r\n    <th>Belopp</th>\r\n    <th>Utestående</th>\r\n
+          \ </tr>\r\n  [% FOREACH credit IN borrower.account.outstanding_credits %]\r\n
+          \ <tr>\r\n    <td>[% credit.date | $KohaDates%]</td>\r\n    <td>\r\n      [%
+          PROCESS account_type_description account=credit %]\r\n      [%- IF credit.description
+          %], [% credit.description | html %][% END %]\r\n    </td>\r\n    <td class='credit'>[%
+          credit.amount *-1 | $Price %]</td>\r\n    <td class='credit'>[% credit.amountoutstanding
+          *-1 | $Price %]</td>\r\n  </tr>\r\n  [% END %]\r\n  [% ELSE %]\r\n  <tr>\r\n
+          \   <td colspan='4'>Det finns inga utestående krediter på ditt konto</td>\r\n
+          \ </tr>\r\n  [% END %]\r\n\r\n  <tfoot>\r\n    <td colspan='3'>\r\n      [%
+          IF borrower.account.balance < 0 %]\r\n        Total kredit per [% today
+          | $KohaDates %]:\r\n      [% ELSE %]\r\n        Totala utestående avgifter
+          per [% today | $KohaDates %]:\r\n      [% END %]\r\n    </td>\r\n    [%
+          IF ( borrower.account.balance <= 0 ) %]<td class='credit'>[% borrower.account.balance
+          * -1 | $Price %]</td>\r\n    [% ELSE %]<td class='debit'>[% borrower.account.balance
+          | $Price %]</td>[% END %]\r\n  </tfoot>\r\n</table>"
+        title: Kontosammanfattning för [% borrower.firstname %] [% borrower.surname
+          %]

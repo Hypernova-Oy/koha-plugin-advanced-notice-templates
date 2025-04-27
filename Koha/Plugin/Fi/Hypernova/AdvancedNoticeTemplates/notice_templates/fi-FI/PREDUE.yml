@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Ennakkoilmoitus erääntyvästä lainasta
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+          nide erääntyy pian:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
+          %])"
+        title: Ennakkoilmoitus erääntyvästä lainasta
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+          nide erääntyy pian:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
+          %])"
+        title: Ennakkoilmoitus erääntyvästä lainasta
+  sms:
+    plain:
+      anonymous:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+          nide erääntyy pian:\r\n\r\n[% biblio.title %]"
+        title: Ennakkoilmoitus erääntyvästä lainasta
+      default:
+        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+          nide erääntyy pian:\r\n\r\n[% biblio.title %]"
+        title: Ennakkoilmoitus erääntyvästä lainasta

@@ -1,0 +1,26 @@
+---
+module: circulation
+name: Påminnelse om förfallodatum
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %], [% biblio.author %]
+          ([% item.barcode %])"
+        title: Påminnelse om förfallodatum
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %], [% biblio.author %]
+          ([% item.barcode %])"
+        title: Påminnelse om förfallodatum
+  sms:
+    plain:
+      anonymous:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %]"
+        title: Påminnelse om förfallodatum
+      default:
+        content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item is now due:\r\n\r\n[% biblio.title %]"
+        title: Påminnelse om förfallodatum

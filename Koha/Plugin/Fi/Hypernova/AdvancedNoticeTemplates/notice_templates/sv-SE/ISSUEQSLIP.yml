@@ -1,0 +1,20 @@
+---
+module: circulation
+name: Snabbkvitto
+template:
+  email:
+    html:
+      anonymous:
+        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nUtlånad
+          till <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>
+          <<borrowers.surname>> <br>\r\n(<<borrowers.cardnumber>>) <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Utlånade
+          idag</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>> <br>\r\nStreckkod:
+          <<items.barcode>><br>\r\nFörfallodatum: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        title: Snabbkvitto
+      default:
+        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nUtlånad
+          till <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>
+          <<borrowers.surname>> <br>\r\n(<<borrowers.cardnumber>>) <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Utlånade
+          idag</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>> <br>\r\nStreckkod:
+          <<items.barcode>><br>\r\nFörfallodatum: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        title: Snabbkvitto

@@ -1,0 +1,54 @@
+---
+module: circulation
+name: Notification of automatic renewal
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n[% IF checkout.auto_renew_error
+          == 'auto_renew_final' %]\r\nThe following item, [% biblio.title %], has
+          correctly been renewed and is now due on [% checkout.date_due | $KohaDates
+          as_due_date => 1 %]\r\nThis item has reached the maximum number of automatic
+          renewals and will no longer be renewed.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_unseen_final' %]\r\nThe following item, [% biblio.title %], has
+          correctly been renewed and is now due on [% checkout.date_due | $KohaDates
+          as_due_date => 1 %]\r\nThis item has reached the maximum number of unseen
+          renewals and will need to be renewed at the library.\r\n[% ELSIF checkout.auto_renew_error
+          %]\r\nThe following item, [% biblio.title %], has not been renewed because:\r\n[%
+          IF checkout.auto_renew_error == 'too_many' %]\r\nYou have reached the maximum
+          number of renewals possible.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve'
+          %]\r\nThis item is on hold for another patron.\r\n[% ELSIF checkout.auto_renew_error
+          == 'restriction' %]\r\nYou are currently restricted.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nYou have overdue items.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nIt's too late to renew this item.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_much_oweing' %]\r\nYour total unpaid fines are too high.\r\n[%
+          ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nThis item must be
+          renewed at the library.\r\n[% ELSIF checkout.auto_renew_error == 'auto_account_expired'
+          %]\r\nYour account has expired.\r\n[% END %]\r\n[% ELSE %]\r\nThe following
+          item, [% biblio.title %], has correctly been renewed and is now due on [%
+          checkout.date_due | $KohaDates as_due_date => 1 %]\r\n[% END %]"
+        title: Automatic renewal notice
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n[% IF checkout.auto_renew_error
+          == 'auto_renew_final' %]\r\nThe following item, [% biblio.title %], has
+          correctly been renewed and is now due on [% checkout.date_due | $KohaDates
+          as_due_date => 1 %]\r\nThis item has reached the maximum number of automatic
+          renewals and will no longer be renewed.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_unseen_final' %]\r\nThe following item, [% biblio.title %], has
+          correctly been renewed and is now due on [% checkout.date_due | $KohaDates
+          as_due_date => 1 %]\r\nThis item has reached the maximum number of unseen
+          renewals and will need to be renewed at the library.\r\n[% ELSIF checkout.auto_renew_error
+          %]\r\nThe following item, [% biblio.title %], has not been renewed because:\r\n[%
+          IF checkout.auto_renew_error == 'too_many' %]\r\nYou have reached the maximum
+          number of renewals possible.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve'
+          %]\r\nThis item is on hold for another patron.\r\n[% ELSIF checkout.auto_renew_error
+          == 'restriction' %]\r\nYou are currently restricted.\r\n[% ELSIF checkout.auto_renew_error
+          == 'overdue' %]\r\nYou have overdue items.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_late' %]\r\nIt's too late to renew this item.\r\n[% ELSIF checkout.auto_renew_error
+          == 'auto_too_much_oweing' %]\r\nYour total unpaid fines are too high.\r\n[%
+          ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nThis item must be
+          renewed at the library.\r\n[% ELSIF checkout.auto_renew_error == 'auto_account_expired'
+          %]\r\nYour account has expired.\r\n[% END %]\r\n[% ELSE %]\r\nThe following
+          item, [% biblio.title %], has correctly been renewed and is now due on [%
+          checkout.date_due | $KohaDates as_due_date => 1 %]\r\n[% END %]"
+        title: Automatic renewal notice

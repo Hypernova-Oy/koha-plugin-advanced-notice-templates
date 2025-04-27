@@ -1,0 +1,22 @@
+---
+module: circulation
+name: Details of patron who recalled item
+template:
+  print:
+    plain:
+      anonymous:
+        content: "Date: <<today>>\r\n\r\nRecall for pickup at <<branches.branchname>>\r\n<<borrowers.surname>>,
+          <<borrowers.firstname>> (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nITEM
+          RECALLED\r\n<<biblio.title>> by <<biblio.author>>\r\nBarcode: <<items.barcode>>\r\nCallnumber:
+          <<items.itemcallnumber>>\r\nWaiting since: <<recalls.waiting_date>>\r\nNotes:
+          <<recalls.notes>>"
+        title: Details of patron who recalled item
+      default:
+        content: "Date: <<today>>\r\n\r\nRecall for pickup at <<branches.branchname>>\r\n<<borrowers.surname>>,
+          <<borrowers.firstname>> (<<borrowers.cardnumber>>)\r\n<<borrowers.phone>>\r\n<<borrowers.streetnumber>>
+          <<borrowers.address>>, <<borrowers.address2>>, <<borrowers.city>> <<borrowers.zipcode>>\r\n<<borrowers.email>>\r\n\r\nITEM
+          RECALLED\r\n<<biblio.title>> by <<biblio.author>>\r\nBarcode: <<items.barcode>>\r\nCallnumber:
+          <<items.itemcallnumber>>\r\nWaiting since: <<recalls.waiting_date>>\r\nNotes:
+          <<recalls.notes>>"
+        title: Details of patron who recalled item

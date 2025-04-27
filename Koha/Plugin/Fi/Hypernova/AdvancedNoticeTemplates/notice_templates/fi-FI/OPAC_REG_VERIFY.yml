@@ -1,0 +1,18 @@
+---
+module: members
+name: Verkkokirjaston itserekisteröitymisen vahvistussähköposti
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Hei!\r\n\r\nOlet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
+          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nJos
+          et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee
+          pian."
+        title: Vahvista käyttäjätilisi
+      default:
+        content: "Hei!\r\n\r\nOlet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
+          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nJos
+          et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee
+          pian."
+        title: Vahvista käyttäjätilisi

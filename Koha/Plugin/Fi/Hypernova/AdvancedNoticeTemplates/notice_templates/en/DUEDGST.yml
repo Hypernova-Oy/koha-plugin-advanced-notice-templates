@@ -1,0 +1,28 @@
+---
+module: circulation
+name: Item due reminder (digest)
+template:
+  email:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[%
+          checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
+          END %]\r\nThank you."
+        title: Item due reminder
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[%
+          checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
+          END %]\r\nThank you."
+        title: Item due reminder
+  sms:
+    plain:
+      anonymous:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have [% checkouts.size %] item(s) that are now due\r\n\r\nThank you."
+        title: Item due reminder
+      default:
+        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
+          have [% checkouts.size %] item(s) that are now due\r\n\r\nThank you."
+        title: Item due reminder

@@ -1,0 +1,20 @@
+---
+module: circulation
+name: Din betalning
+template:
+  email:
+    plain:
+      anonymous:
+        content: "[%- USE Price -%]\r\nEn betalning på [% credit.amount * -1 | $Price
+          %] har gjorts på ditt konto.\r\n\r\nBetalningen berör följande avgifter:\r\n[%-
+          FOREACH o IN offsets %]\r\nBeskrivning: [% o.debit.description %]\r\nBetalt
+          belopp: [% o.amount * -1 | $Price %]\r\nÅterstående belopp: [% o.debit.amountoutstanding
+          | $Price %]\r\n[% END %]"
+        title: Din betalning
+      default:
+        content: "[%- USE Price -%]\r\nEn betalning på [% credit.amount * -1 | $Price
+          %] har gjorts på ditt konto.\r\n\r\nBetalningen berör följande avgifter:\r\n[%-
+          FOREACH o IN offsets %]\r\nBeskrivning: [% o.debit.description %]\r\nBetalt
+          belopp: [% o.amount * -1 | $Price %]\r\nÅterstående belopp: [% o.debit.amountoutstanding
+          | $Price %]\r\n[% END %]"
+        title: Din betalning

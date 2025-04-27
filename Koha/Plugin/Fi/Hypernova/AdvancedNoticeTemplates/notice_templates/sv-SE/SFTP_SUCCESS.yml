@@ -1,0 +1,12 @@
+---
+module: commandline
+name: File SFTP success
+template:
+  email:
+    plain:
+      anonymous:
+        content: SFTP upload succeeded
+        title: The SFTP by sftp_file.pl was successful
+      default:
+        content: SFTP upload succeeded
+        title: The SFTP by sftp_file.pl was successful
