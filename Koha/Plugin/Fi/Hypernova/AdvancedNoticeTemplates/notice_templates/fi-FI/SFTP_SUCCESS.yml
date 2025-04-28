@@ -1,12 +1,12 @@
 ---
 module: commandline
-name: File SFTP success
+name: Onnistunut tiedoston SFTP-siirto
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: SFTP upload succeeded
-        title: The SFTP by sftp_file.pl was successful
+        content: <p>SFTP-siirto onnistui</p>
+        title: sftp_file.pl:n suorittama SFTP-siirto onnistui
       default:
-        content: SFTP upload succeeded
-        title: The SFTP by sftp_file.pl was successful
+        content: <p>SFTP-siirto onnistui</p>
+        title: sftp_file.pl:n suorittama SFTP-siirto onnistui

@@ -3,12 +3,18 @@ module: acquisition
 name: Tilaus vastaanotettu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Tilaus
-          <<aqorders.ordernumber>> (<<biblio.title>>) on vastaanotettu.\r\n\r\nKirjastosi."
+        content: |
+          <p>Kirjasto ilmoittaa että tilaus on vastaanotettu.</p>
+          <p>Tilausnumero: <<aqorders.ordernumber>></p>
+          <p>Jos olet tehnyt hankintaehdotuksen, voit tarkistaa
+          hankintaehdotuksen tilan verkkokirjastosta.</p>
         title: Tilaus vastaanotettu
       default:
-        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n Tilaus
-          <<aqorders.ordernumber>> (<<biblio.title>>) on vastaanotettu.\r\n\r\nKirjastosi."
+        content: |
+          <p>Kirjasto ilmoittaa että tilaus on vastaanotettu.</p>
+          <p>Tilausnumero: <<aqorders.ordernumber>> (<<biblio.title>>)</p>
+          <p>Jos olet tehnyt hankintaehdotuksen, voit tarkistaa
+          hankintaehdotuksen tilan verkkokirjastosta.</p>
         title: Tilaus vastaanotettu

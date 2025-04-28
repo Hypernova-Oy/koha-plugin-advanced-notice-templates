@@ -3,12 +3,14 @@ module: lists
 name: Ilmoitus jakamisen onnistumisesta
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä asiakas,\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          on hyväksynyt kutsusi kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
-        title: Jaetun listan <<listname>> jako hyväksytty
+        content: |
+          <p>Hyvä asiakas,</p>
+          <p>Kirjaston kokoelman jaetulle listalle <<listname>> tekemäsi kutsu on hyväksytty.</p>
+        title: Jaetun listan jako hyväksytty
       default:
-        content: "Hyvä asiakas,\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          on hyväksynyt kutsusi kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
+        content: |
+          <p><borrowers.firstname>> <<borrowers.surname>> on hyväksynyt kutsusi kirjaston kokoelman
+          jaetulle listalle <<listname>>.</p>
         title: Jaetun listan <<listname>> jako hyväksytty

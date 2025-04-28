@@ -1,20 +1,25 @@
 ---
 module: circulation
-name: Maksu
+name: Uusi maksusuoritus
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[%- USE Price -%]\r\nMaksusuoritus [% credit.amount * -1 | $Price
-          %] on laitettu tilillesi.\r\n\r\nTämä suorite kohdistuu seuraaviin maksuihin:\r\n[%-
-          FOREACH o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu
-          määrä: [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
-          | $Price %]\r\n[% END %]"
-        title: Maksu
+        content: |
+          <p>Maksusuoritus on laitettu tilillesi.</p>
+          <p>Tarkista maksusi verkkokirjastosta.</p>
+        title: Uusi maksusuoritus
       default:
-        content: "[%- USE Price -%]\r\nMaksusuoritus [% credit.amount * -1 | $Price
-          %] on laitettu tilillesi.\r\n\r\nTämä suorite kohdistuu seuraaviin maksuihin:\r\n[%-
-          FOREACH o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu
-          määrä: [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
-          | $Price %]\r\n[% END %]"
-        title: Maksu
+        content: |
+          [%- USE Price -%]
+          <p>Maksusuoritus [% credit.amount * -1 | $Price %] on laitettu tilillesi.</p>
+          <p>Tämä suorite kohdistuu seuraaviin maksuihin:</p>
+          <p>
+          [%- FOREACH o IN offsets %]
+          <br>
+          Kuvaus: [% o.debit.description %]<br>
+          Maksettu määrä: [% o.amount * -1 | $Price %]<br>
+          Jäljelle jäänyt määrä: [% o.debit.amountoutstanding | $Price %]<br>
+          [% END %]
+          </p>
+        title: Uusi maksusuoritus

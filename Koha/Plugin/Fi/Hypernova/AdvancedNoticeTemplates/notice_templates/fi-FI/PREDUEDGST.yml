@@ -3,24 +3,27 @@ module: circulation
 name: Ennakkoilmoitus erääntyvästä lainasta (yhteenveto)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraavat
-          niteet erääntyvät pian:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.title
-          %], [% checkout.author %] ([% checkout.barcode %])\r\n[% END %]\r\nKiitos."
+        content: |
+          <p>Lainasi ovat pian erääntymässä.</p>
+          <p>Tarkista lainasi verkkokirjastosta ja uusi lainasi tai palauta niteet kirjastoon.</p>
         title: Ennakkoilmoitus erääntyvästä lainasta
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraavat
-          niteet erääntyvät pian:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.title
-          %], [% checkout.author %] ([% checkout.barcode %])\r\n[% END %]\r\nKiitos."
+        content: |
+          <p>Lainasi ovat pian erääntymässä.</p>
+          <p>Seuraavat niteet erääntyvät pian:<br>
+          [% FOREACH checkout IN checkouts %]
+          [% checkout.title %] / [% checkout.author %] ([% checkout.barcode %])<br>
+          [% END %]</p>
+          <p>Tarkista lainasi verkkokirjastosta ja uusi lainasi tai palauta niteet kirjastoon.</p>
         title: Ennakkoilmoitus erääntyvästä lainasta
   sms:
     plain:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
-          on [% checkouts.size %] pian erääntyvä(ä) nide(ttä).\r\n\r\nKiitos."
+        content: "Lainasi ovat pian erääntymässä. Tarkista lainasi verkkokirjastosta ja uusi lainasi tai palauta niteet kirjastoon."
         title: Ennakkoilmoitus erääntyvästä lainasta
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulla
-          on [% checkouts.size %] pian erääntyvä(ä) nide(ttä).\r\n\r\nKiitos."
+        content: "Sinulla
+          on [% checkouts.size %] pian erääntyvä(ä) nide(ttä)."
         title: Ennakkoilmoitus erääntyvästä lainasta

@@ -3,16 +3,19 @@ module: reserves
 name: Varaus on peruutettu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nValitettavasti
-          varaamasi nide on kadonnut. Olemme peruuttaneet varauksesi.\r\n\r\nOtsikko:
-          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
-          %]\r\nHyllypaikka: [% branch.branchname %]"
+        content: |
+          <p>Valitettavasti varaamasi nide on kadonnut. Olemme peruuttaneet varauksesi.</p>
+          <p>Tarkista varauksesi verkkokirjastosta.</p>
         title: Varaus on peruutettu
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nValitettavasti
-          varaamasi nide on kadonnut. Olemme peruuttaneet varauksesi.\r\n\r\nOtsikko:
-          [% biblio.title %]\r\nTekijä: [% biblio.author %]\r\nKopion numero: [% item.copynumber
-          %]\r\nHyllypaikka: [% branch.branchname %]"
+        content: |
+          <p>Valitettavasti varaamasi nide on kadonnut. Olemme peruuttaneet varauksesi.</p>
+          <p>
+          Otsikko: [% biblio.title %]<br>
+          Tekijä: [% biblio.author %]<br>
+          Kopion numero: [% item.copynumber %]<br>
+          Hyllypaikka: [% branch.branchname %]
+          </p>
         title: Varaus on peruutettu

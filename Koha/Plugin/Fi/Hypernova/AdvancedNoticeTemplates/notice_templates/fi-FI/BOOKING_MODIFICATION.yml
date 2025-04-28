@@ -1,24 +1,23 @@
 ---
 module: bookings
-name: Booking modification notice
+name: Käyttövarauksen muutos
 template:
   email:
     html:
       anonymous:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE KohaDates -%]\r\nHyvä
-          [%- INCLUDE 'patron-title.inc' patron => booking.patron -%],<br>\r\n<br>\r\nYour
-          booking of [%- INCLUDE 'biblio-title.inc' biblio=booking.biblio link = 0
-          -%] has been modified.<br>\r\n<br>\r\nThe new details are:<br>\r\n<br>\r\nDates:
-          [% booking.start_date | $KohaDates %] to [% booking.end_date | $KohaDates
-          %]<br>\r\n<br>\r\nPickup at: [% booking.pickup_library.branchname %]<br>\r\nKind
-          regards<br>\r\n<br>\r\n[% booking.pickup_library.branchname %]"
-        title: A library booking was modified
+        content: |
+          <p>Käyttövaraukseesi on tullut muutos.</p>
+          <p>Tarkista käyttövarauksesi verkkokirjastosta.</p>
+        title: Käyttövarausta muutettu
       default:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE KohaDates -%]\r\nHyvä
-          [%- INCLUDE 'patron-title.inc' patron => booking.patron -%],<br>\r\n<br>\r\nYour
-          booking of [%- INCLUDE 'biblio-title.inc' biblio=booking.biblio link = 0
-          -%] has been modified.<br>\r\n<br>\r\nThe new details are:<br>\r\n<br>\r\nDates:
-          [% booking.start_date | $KohaDates %] to [% booking.end_date | $KohaDates
-          %]<br>\r\n<br>\r\nPickup at: [% booking.pickup_library.branchname %]<br>\r\nKind
-          regards<br>\r\n<br>\r\n[% booking.pickup_library.branchname %]"
-        title: A library booking was modified
+        content: |
+          [%- PROCESS 'html_helpers.inc' -%]
+          [%- USE KohaDates -%]
+          <p>Käyttövaraukseesi on tullut muutos.</p>
+          <p>
+          [%- INCLUDE 'biblio-title.inc' biblio=booking.biblio link = 0 -%]<br>
+          Päivämäärät:[% booking.start_date | $KohaDates %] - [% booking.end_date | $KohaDates %]<br>
+          <br>
+          Noudettavissa: [% booking.pickup_library.branchname %]
+          </p>
+        title: Käyttövarausta muutettu

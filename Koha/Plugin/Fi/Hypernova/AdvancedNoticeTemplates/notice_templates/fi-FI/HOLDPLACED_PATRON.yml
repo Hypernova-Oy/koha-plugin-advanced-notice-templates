@@ -3,14 +3,14 @@ module: reserves
 name: Varaus on vahvistettu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hei [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
-          %]),\r\nVarauksesi [% hold.biblio.title %] ([% hold.biblio.id %]) on vahvistettu.\r\nSaat
-          ilmoituksen kun nide on noudettavissa.\r\nKiitos!"
-        title: Varauksesi teokseen [% hold.biblio.title %] on vahvistettu
+        content: |
+         <p>Varauksesi on vahvistettu. Saat ilmoituksen kun nide on noudettavissa.</p>
+         <p>Tarkista varauksesi verkkokirjastosta.</p>
+        title: Varauksesi on vahvistettu
       default:
-        content: "Hei [% borrower.firstname %] [% borrower.surname %] ([% borrower.cardnumber
-          %]),\r\nVarauksesi [% hold.biblio.title %] ([% hold.biblio.id %]) on vahvistettu.\r\nSaat
-          ilmoituksen kun nide on noudettavissa.\r\nKiitos!"
+        content: |
+          <p>Varauksesi [% hold.biblio.title %] ([% hold.biblio.id %]) on vahvistettu.</p>
+          <p>Saat ilmoituksen kun nide on noudettavissa.</p>
         title: Varauksesi teokseen [% hold.biblio.title %] on vahvistettu

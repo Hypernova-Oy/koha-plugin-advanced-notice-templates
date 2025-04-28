@@ -3,22 +3,19 @@ module: suggestions
 name: Ehdotus tilattu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nEhdottamasi aineisto on nyt tilattu ja sen
-          pitäisi saapua pian kirjastolle käsiteltäväksi.\r\n\r\nSaat sähköpostin,
-          kun aineisto on saatavana.\r\n\r\nJos sinulla on kysyttävää, ota yhteys
-          kirjastoon: [% branch.branchemail %]\r\n\r\nKiitos,\r\n\r\n[% branch.branchname
-          %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen. Ehdottamasi aineisto on nyt tilattu
+          ja sen pitäisi saapua pian kirjastolle käsiteltäväksi.</p>
+          <p>Saat sähköpostin, kun aineisto on saatavana.</p>
+          <p>Jos sinulla on kysyttävää, ota yhteys kirjastoon.</p>
         title: Ehdotettu nide tilattu
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nEhdottamasi aineisto on nyt tilattu ja sen
-          pitäisi saapua pian kirjastolle käsiteltäväksi.\r\n\r\nSaat sähköpostin,
-          kun aineisto on saatavana.\r\n\r\nJos sinulla on kysyttävää, ota yhteys
-          kirjastoon: [% branch.branchemail %]\r\n\r\nKiitos,\r\n\r\n[% branch.branchname
-          %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen. Ehdottamasi aineisto on nyt tilattu
+          ja sen pitäisi saapua pian kirjastolle käsiteltäväksi.</p>
+          <p>[% suggestion.title %] / [% suggestion.author %]</p>
+          <p>Saat sähköpostin, kun aineisto on saatavana.</p>
+          <p>Jos sinulla on kysyttävää, ota yhteys kirjastoon.</p>
         title: Ehdotettu nide tilattu

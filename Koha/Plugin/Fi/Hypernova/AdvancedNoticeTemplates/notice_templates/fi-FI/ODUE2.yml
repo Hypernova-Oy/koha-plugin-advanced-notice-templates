@@ -1,6 +1,6 @@
 ---
 module: circulation
-name: Myöhästymisilmoitus
+name: Myöhästymisilmoitus (toinen)
 template:
   email:
     html:

@@ -3,12 +3,14 @@ module: members
 name: Käyttäjätilin vanhentuminen
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nKirjastokorttisi
-          vanhenee pian:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nKiitos,\r\n\r\nVirkailija\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>Kirjastokorttisi vanhenee <<borrowers.dateexpiry>></p>
+          <p>Ole hyvä ja ota yhteyttä kirjastoon.</p>
         title: Käyttäjätilin vanhentuminen
       default:
-        content: "Hyvä <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nKirjastokorttisi
-          vanhenee pian:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nKiitos,\r\n\r\nVirkailija\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>Kirjastokorttisi vanhenee <<borrowers.dateexpiry>></p>
+          <p>Ole hyvä ja ota yhteyttä kirjastoon.</p>
         title: Käyttäjätilin vanhentuminen

@@ -3,14 +3,14 @@ module: serial
 name: Uusi kausijulkaisun numero
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava numero
-          on saatavana:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVoit
-          noutaa numeron, kun se sinulle sopii."
+        content: |
+          <p>Seuraava kausijulkaisun numero on saatavana. Voit noutaa numeron, kun se sinulle sopii.</p>
+          <p>Tarkista tiedot verkkokirjastosta.</p>
         title: Uusi kausijulkaisun numero on saatavana
       default:
-        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraava numero
-          on saatavana:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nVoit
-          noutaa numeron, kun se sinulle sopii."
+        content: |
+          <p>Seuraava kausijulkaisun numero on saatavana: <<biblio.title>>, <<biblio.author>> (<<items.barcode>>)</p>
+          <p>Voit noutaa numeron, kun se sinulle sopii.</p>
         title: Uusi kausijulkaisun numero on saatavana

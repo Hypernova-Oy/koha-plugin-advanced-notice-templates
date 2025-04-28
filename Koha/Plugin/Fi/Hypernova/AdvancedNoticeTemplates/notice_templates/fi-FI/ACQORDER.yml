@@ -3,14 +3,36 @@ module: orderacquisition
 name: Hankintatilaus
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nTilataan
-          kirjastoon:\r\n\r\n<order>Tilausnumero <<aqorders.ordernumber>> (<<biblio.title>>)
-          (määrä: <<aqorders.quantity>>) ($<<aqorders.listprice>> €/kpl).</order>\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>Tilataan kirjastoon <<branches.branchname>>:</p>
+          <p>
+          <order>Tilausnumero <<aqorders.ordernumber>> (<<biblio.title>>)
+          (määrä: <<aqorders.quantity>>) ($<<aqorders.listprice>> €/kpl).</order>
+          </p>
         title: Tilaus
       default:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nTilataan
-          kirjastoon:\r\n\r\n<order>Tilausnumero <<aqorders.ordernumber>> (<<biblio.title>>)
-          (määrä: <<aqorders.quantity>>) ($<<aqorders.listprice>> €/kpl).</order>\r\n\r\nKiitos,\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>Tilataan kirjastoon <<branches.branchname>>:</p>
+          <p>
+          <order>Tilausnumero <<aqorders.ordernumber>> (<<biblio.title>>)
+          (määrä: <<aqorders.quantity>>) ($<<aqorders.listprice>> €/kpl).</order>
+          </p>
         title: Tilaus

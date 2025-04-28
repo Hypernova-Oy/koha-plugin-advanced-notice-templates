@@ -3,14 +3,33 @@ module: claimacquisition
 name: Hankintavaatimus
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\n<order>Tilausta
-          numerolla <<aqorders.ordernumber>> (<<biblio.title>>) (<<aqorders.quantity>>
-          tilattu) ($<<aqorders.listprice>> €/kpl) ei ole vastaanotettu.</order>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>
+          <order>Tilausta numerolla <<aqorders.ordernumber>> ei ole vastaanotettu.</order>
+          </p>
         title: Nidettä ei vastaanotettu
       default:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\n<order>Tilausta
-          numerolla <<aqorders.ordernumber>> (<<biblio.title>>) (<<aqorders.quantity>>
-          tilattu) ($<<aqorders.listprice>> €/kpl) ei ole vastaanotettu.</order>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>
+          <order>Tilausta numerolla <<aqorders.ordernumber>> (<<biblio.title>>)
+          (<<aqorders.quantity>> tilattu) ($<<aqorders.listprice>> €/kpl) ei ole vastaanotettu.</order>
+          </p>
         title: Nidettä ei vastaanotettu

@@ -1,20 +1,39 @@
 ---
 module: circulation
-name: Palautuskuitti (yhteenveto)
+name: Palautusilmoitus
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        content: |
+          <p>Tämä on vahvistus palautetuista niteistä. Tietosuojasyistä emme näytä palautettuja niteitä tässä viestissä.</p>
+          ----
+          ----
+          <p>Voit tarkistaa lainasi ja lainahistoriasi verkkokirjastosta.</p>
         title: Palautukset
       default:
-        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        content: |
+          <p>Tämä on vahvistus palautetuista niteistä.</p>
+          <p>Seuraavat niteet on palautettu:</p>
+          ----
+          <p>[% biblio.title %]</p>
+          ----
+          <p>Voit tarkistaa lainasi ja lainahistoriasi verkkokirjastosta.</p>
         title: Palautukset
   sms:
     plain:
       anonymous:
-        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        content: |
+          Palautit niteitä.
+          ----
+          ----
+          Tarkista lainahistoriasi verkkokirjastosta.
         title: Palautukset
       default:
-        content: "Seuraavat niteet on palautettu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos."
+        content: |
+          Palautit seuraavat niteet
+          ----
+          [% biblio.title %]
+          ----
+          Voit tarkistaa lainasi ja lainahistoriasi verkkokirjastosta.
         title: Palautukset

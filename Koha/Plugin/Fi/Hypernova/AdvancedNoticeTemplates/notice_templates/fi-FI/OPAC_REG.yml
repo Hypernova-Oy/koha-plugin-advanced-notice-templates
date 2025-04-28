@@ -5,32 +5,33 @@ template:
   email:
     html:
       anonymous:
-        content: "<h3>Uusi verkkokirjaston itserekisteröityminen</h3>\r\n<p><h4>Verkkokirjaston
-          itserekisteröityminen tehty:</h4>\r\n<ul>\r\n<li> [% borrower.firstname
-          %] [% borrower.surname %]</li>\r\n[% IF borrower.cardnumber %]<li>Kirjastokortin
-          numero: [% borrower.cardnumber %]</li>[% END %]\r\n[% IF borrower.email
-          %]<li>Sähköposti: [% borrower.email %]</li>[% END %]\r\n[% IF borrower.phone
-          %]<li>Puhelin: [% borrower.phone %]</li>[% END %]\r\n[% IF borrower.mobile
-          %]<li>Matkapuhelin: [% borrower.mobile %]</li>[% END %]\r\n[% IF borrower.fax
-          %]<li>Faksi: [% borrower.fax %]</li>[% END %]\r\n[% IF borrower.emailpro
-          %]<li>Toissijainen sähköpostiosoite: [% borrower.emailpro %]</li>[% END
-          %]\r\n[% IF borrower.phonepro %]<li>Toissijainen puh.nro: [% borrower.phonepro
-          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Kotikirjasto: [% borrower.branchcode
-          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Väliaikainen asiakastyyppi:
-          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        content: |
+          <h3>Uusi verkkokirjaston itserekisteröityminen</h3>
+          [% IF borrower.cardnumber %]<p>Kirjastokortin
+          numero: [% borrower.cardnumber %]</p>[% END %]
+          <p>Tarkista itserekisteröityneet asiakkaat Kohasta.</p>
+          <p>Mikäli hyväksyt itserekisteröitymisen, siirrä asiakas oikeaan asiakaslajiin.</p>
         title: Uusi verkkokirjaston itserekisteröityminen
       default:
-        content: "<h3>Uusi verkkokirjaston itserekisteröityminen</h3>\r\n<p><h4>Verkkokirjaston
-          itserekisteröityminen tehty:</h4>\r\n<ul>\r\n<li> [% borrower.firstname
-          %] [% borrower.surname %]</li>\r\n[% IF borrower.cardnumber %]<li>Kirjastokortin
-          numero: [% borrower.cardnumber %]</li>[% END %]\r\n[% IF borrower.email
-          %]<li>Sähköposti: [% borrower.email %]</li>[% END %]\r\n[% IF borrower.phone
-          %]<li>Puhelin: [% borrower.phone %]</li>[% END %]\r\n[% IF borrower.mobile
-          %]<li>Matkapuhelin: [% borrower.mobile %]</li>[% END %]\r\n[% IF borrower.fax
-          %]<li>Faksi: [% borrower.fax %]</li>[% END %]\r\n[% IF borrower.emailpro
-          %]<li>Toissijainen sähköpostiosoite: [% borrower.emailpro %]</li>[% END
-          %]\r\n[% IF borrower.phonepro %]<li>Toissijainen puh.nro: [% borrower.phonepro
-          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Kotikirjasto: [% borrower.branchcode
-          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Väliaikainen asiakastyyppi:
-          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        content: |
+          <h3>Uusi verkkokirjaston itserekisteröityminen</h3>
+          <p>
+          <h4>Verkkokirjaston itserekisteröityminen tehty:</h4>
+          <ul>
+          <li>[% borrower.firstname %] [% borrower.surname %]</li>
+          [% IF borrower.cardnumber %]<li>Kirjastokortin
+          numero: [% borrower.cardnumber %]</li>[% END %]
+          [% IF borrower.email %]<li>Sähköposti: [% borrower.email %]</li>[% END %]
+          [% IF borrower.phone %]<li>Puhelin: [% borrower.phone %]</li>[% END %]
+          [% IF borrower.mobile %]<li>Matkapuhelin: [% borrower.mobile %]</li>[% END %]
+          [% IF borrower.fax %]<li>Faksi: [% borrower.fax %]</li>[% END %]
+          [% IF borrower.emailpro %]<li>Toissijainen sähköpostiosoite: [% borrower.emailpro %]</li>[% END %]
+          [% IF borrower.phonepro %]<li>Toissijainen puh.nro: [% borrower.phonepro %]</li>[% END %]
+          [% IF borrower.branchcode %]<li>Kotikirjasto: [% borrower.branchcode %]</li>[% END %]
+          [% IF borrower.categorycode %]<li>Väliaikainen asiakastyyppi:
+          [% borrower.categorycode %]</li>[% END %]
+          </ul>
+          </p>
+          <p>Tarkista itserekisteröityneet asiakkaat Kohasta.</p>
+          <p>Mikäli hyväksyt itserekisteröitymisen, siirrä asiakas oikeaan asiakaslajiin.</p>
         title: Uusi verkkokirjaston itserekisteröityminen

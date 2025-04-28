@@ -5,30 +5,84 @@ template:
   email:
     html:
       anonymous:
-        content: "<h3><<branches.branchname>></h3>\r\nLainaukset asiakkaalle <<borrowers.title>>
-          <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br>\r\n(<<borrowers.cardnumber>>)
-          <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Lainassa</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
-          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>\r\n<br>\r\n<h4>Myöhässä</h4>\r\n<overdue>\r\n<p>\r\n<<biblio.title>>
-          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</overdue>\r\n<br>\r\n<hr>\r\n<br>\r\n[%
-          IF additional_contents.count %]\r\n<h4 style=\"text-align: center; font-style:italic;\">Uutiset</h4>\r\n[%
-          FOREACH content IN additional_contents %]\r\n<div class=\"newsitem\">\r\n<h5
-          style=\"margin-bottom: 1px; margin-top: 1px\"><b>[% content.title %]</b></h5>\r\n<p
-          style=\"margin-bottom: 1px; margin-top: 1px\">[% content.content %]</p>\r\n<p
-          class=\"newsfooter\" style=\"font-size: 8pt; font-style:italic; margin-bottom:
-          1px; margin-top: 1px\">Lisätty [% content.published_on | $KohaDates %]</p>\r\n<hr
-          />\r\n</div>\r\n[% END %]\r\n[% END %]"
+        content: |
+          <h3><<branches.branchname>></h3>
+          Lainaukset<br>
+          <br>
+          <br>
+          <<today>><br>
+          <br>
+          <h4>Lainassa</h4>
+          <checkedout>
+          <p>
+          <biblio.title>>
+          <br>
+          Viivakoodi: <<items.barcode>><br>
+          Eräpäivä: <<issues.date_due>><br>
+          </p>
+          </checkedout>
+          <br>
+          <h4>Myöhässä</h4>
+          <overdue>
+          <p>
+          <biblio.title>>
+          <br>
+          Viivakoodi: <<items.barcode>><br>
+          Eräpäivä: <<issues.date_due>><br>
+          </p>
+          </overdue>
+          <br>
+          <hr>
+          <br>
+          [% IF additional_contents.count %]<h4 style="text-align: center; font-style:italic;">Uutiset</h4>
+          [% FOREACH content IN additional_contents %]
+          <div class="newsitem">
+          <h5 style="margin-bottom: 1px; margin-top: 1px"><b>[% content.title %]</b></h5>
+          <p style="margin-bottom: 1px; margin-top: 1px">[% content.content %]</p>
+          <p class="newsfooter" style="font-size: 8pt; font-style:italic; margin-bottom: 1px; margin-top: 1px">Lisätty [% content.published_on | $KohaDates %]</p>
+          <hr />
+          </div>
+          [% END %]
+          [% END %]
         title: Lainauskuitti
       default:
-        content: "<h3><<branches.branchname>></h3>\r\nLainaukset asiakkaalle <<borrowers.title>>
-          <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br>\r\n(<<borrowers.cardnumber>>)
-          <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Lainassa</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>>
-          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>\r\n<br>\r\n<h4>Myöhässä</h4>\r\n<overdue>\r\n<p>\r\n<<biblio.title>>
-          <br>\r\nViivakoodi: <<items.barcode>><br>\r\nEräpäivä: <<issues.date_due>><br>\r\n</p>\r\n</overdue>\r\n<br>\r\n<hr>\r\n<br>\r\n[%
-          IF additional_contents.count %]\r\n<h4 style=\"text-align: center; font-style:italic;\">Uutiset</h4>\r\n[%
-          FOREACH content IN additional_contents %]\r\n<div class=\"newsitem\">\r\n<h5
-          style=\"margin-bottom: 1px; margin-top: 1px\"><b>[% content.title %]</b></h5>\r\n<p
-          style=\"margin-bottom: 1px; margin-top: 1px\">[% content.content %]</p>\r\n<p
-          class=\"newsfooter\" style=\"font-size: 8pt; font-style:italic; margin-bottom:
-          1px; margin-top: 1px\">Lisätty [% content.published_on | $KohaDates %]</p>\r\n<hr
-          />\r\n</div>\r\n[% END %]\r\n[% END %]"
+        content: |
+          <h3><<branches.branchname>></h3>
+          Lainaukset asiakkaalle <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)<br>
+          <br>
+          <br>
+          <<today>><br>
+          <br>
+          <h4>Lainassa</h4>
+          <checkedout>
+          <p>
+          <biblio.title>>
+          <br>
+          Viivakoodi: <<items.barcode>><br>
+          Eräpäivä: <<issues.date_due>><br>
+          </p>
+          </checkedout>
+          <br>
+          <h4>Myöhässä</h4>
+          <overdue>
+          <p>
+          <biblio.title>>
+          <br>
+          Viivakoodi: <<items.barcode>><br>
+          Eräpäivä: <<issues.date_due>><br>
+          </p>
+          </overdue>
+          <br>
+          <hr>
+          <br>
+          [% IF additional_contents.count %]<h4 style="text-align: center; font-style:italic;">Uutiset</h4>
+          [% FOREACH content IN additional_contents %]
+          <div class="newsitem">
+          <h5 style="margin-bottom: 1px; margin-top: 1px"><b>[% content.title %]</b></h5>
+          <p style="margin-bottom: 1px; margin-top: 1px">[% content.content %]</p>
+          <p class="newsfooter" style="font-size: 8pt; font-style:italic; margin-bottom: 1px; margin-top: 1px">Lisätty [% content.published_on | $KohaDates %]</p>
+          <hr />
+          </div>
+          [% END %]
+          [% END %]
         title: Lainauskuitti

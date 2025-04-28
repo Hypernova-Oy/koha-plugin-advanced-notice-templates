@@ -3,20 +3,23 @@ module: members
 name: Tilin uusinta
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[%- USE Price -%]\r\nHyvä [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %],\r\n\r\nKirjastokorttisi voimassaoloaikaa on jatkettu.
-          Uusi vanhentumispäivä on: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
-          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
-          with_symbol => 1 %] has been applied.\n[% END %]\r\nKiitos,\r\n\r\nKirjastosi,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          [%- USE Price -%]
+          <p>Kirjastokorttisi voimassaoloaikaa on jatkettu.</p>
+          <p>Uusi vanhentumispäivä on: [% borrower.dateexpiry %].</p>
+          [% IF borrower.category.enrolmentfee > 0 %]
+          <p>Ilmoittautumismaksu on lisätty tilillesi.</p>
+          [% END %]
         title: Tilin uusinta
       default:
-        content: "[%- USE Price -%]\r\nHyvä [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %],\r\n\r\nKirjastokorttisi voimassaoloaikaa on jatkettu.
-          Uusi vanhentumispäivä on: [% borrower.dateexpiry %].\r\n[% IF borrower.category.enrolmentfee
-          > 0 %]\nAn enrollment fee of [% borrower.category.enrolmentfee | $Price
-          with_symbol => 1 %] has been applied.\n[% END %]\r\nKiitos,\r\n\r\nKirjastosi,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          [%- USE Price -%]
+          <p>Kirjastokorttisi voimassaoloaikaa on jatkettu.</p>
+          <p>Uusi vanhentumispäivä on: [% borrower.dateexpiry %].</p>
+          [% IF borrower.category.enrolmentfee > 0 %]
+          <p>Ilmoittautumismaksu [% borrower.category.enrolmentfee | $Price
+          with_symbol => 1 %] on lisätty tilillesi.</p>
+          [% END %]
         title: Tilin uusinta

@@ -3,16 +3,21 @@ module: reserves
 name: Peruutettu varaus vapautunut toiselle asiakkaalle
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Aiempi varaaja: <<biblio.title>>, niteelle (<<items.barcode>>) on
-          muuttunut: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nSiirrä
-          seuraava nide uudelle varaajalle.\r\nOtsikko: <<biblio.title>>\r\nTekijä:
-          <<biblio.author>>\r\nNide: <<items.itemcallnumber>>\r\nNoutopaikka: <<branches.branchname>>"
+        content: |
+          <p>Varaus niteelle <<items.barcode>> on muuttunut.</p>
+          <p>Siirrä seuraava nide uudelle varaajalle.</p>
+          <p>Tarkista varauksen tiedot Kohasta.</p>
         title: Peruutettu varaus vapautunut toiselle asiakkaalle
       default:
-        content: "Aiempi varaaja: <<biblio.title>>, niteelle (<<items.barcode>>) on
-          muuttunut: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).\r\nSiirrä
-          seuraava nide uudelle varaajalle.\r\nOtsikko: <<biblio.title>>\r\nTekijä:
-          <<biblio.author>>\r\nNide: <<items.itemcallnumber>>\r\nNoutopaikka: <<branches.branchname>>"
+        content: |
+          <p>Aiempi varaaja: <<biblio.title>>, niteelle (<<items.barcode>>) on
+          muuttunut: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>).</p>
+          <p>Siirrä seuraava nide uudelle varaajalle.</p>
+          <p>Otsikko: <<biblio.title>><br>
+          Tekijä: <<biblio.author>><br>
+          Nide: <<items.itemcallnumber>><br>
+          Noutopaikka: <<branches.branchname>>
+          </p>
         title: Peruutettu varaus vapautunut toiselle asiakkaalle

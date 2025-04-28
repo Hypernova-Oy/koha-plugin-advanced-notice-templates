@@ -5,16 +5,16 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nHyvä [%- INCLUDE 'patron-title.inc'
-          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nKirjasto on
-          päivittänyt ilmoitustasi, jonka teit virheestä [%- INCLUDE 'biblio-title.inc'
-          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nSeuraava
-          kommentti on tallennettu: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nKiitos"
+        content: |
+          <p>Kiitos raportoimastasi kuvailutietojen virheestä.</p>
+          <p>Virheilmoitukseen on tullut päivitys.</p>
+          <p>Seuraava kommentti on tallennettu:</p>
+          <p>[%- ticket_update.message -%]</p>
         title: Kuvailutietojen virheilmoitus päivitetty
       default:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nHyvä [%- INCLUDE 'patron-title.inc'
-          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nKirjasto on
-          päivittänyt ilmoitustasi, jonka teit virheestä [%- INCLUDE 'biblio-title.inc'
-          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nSeuraava
-          kommentti on tallennettu: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nKiitos"
+        content: |
+          <p>Kiitos raportoimastasi kuvailutietojen virheestä.</p>
+          <p>Virheilmoitukseen on tullut päivitys.</p>
+          <p>Seuraava kommentti on tallennettu:</p>
+          <p>[%- ticket_update.message -%]</p>
         title: Kuvailutietojen virheilmoitus päivitetty

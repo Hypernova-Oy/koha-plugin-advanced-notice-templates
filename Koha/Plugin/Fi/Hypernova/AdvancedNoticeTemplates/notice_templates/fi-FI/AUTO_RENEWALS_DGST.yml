@@ -3,50 +3,37 @@ module: circulation
 name: Ilmoitus automaattisesta uusinnasta
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
-          %]\r\n[% error %] nidettä ei uusittu.\r\n[% END %]\r\n[% IF success %]\r\n[%
-          success %] nidettä uusittiin.\r\n[% END %]\r\n[% FOREACH checkout IN checkouts
-          %]\r\n[% NEXT IF (checkout.auto_renew_error == 'auto_too_soon') %]\r\n[%
-          checkout.item.biblio.title %] : [% checkout.item.barcode %]\r\n[% IF !checkout.auto_renew_error
-          %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti\r\n[%
-          ELSIF checkout.auto_renew_error == 'too_many' %]\r\nLainan uusimiskerrat
-          ovat tulleet täyteen.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve'
-          %]\r\nTämä nide varattu toiselle asiakkaalle.\r\n[% ELSIF checkout.auto_renew_error
-          == 'restriction' %]\r\nSinulla on tällä hetkellä rajoitus.\r\n[% ELSIF checkout.auto_renew_error
-          == 'overdue' %]\r\nSinulla on myöhässä olevia lainoja.\r\n[% ELSIF checkout.auto_renew_error
-          == 'auto_too_late' %]\r\nNidettä ei voi enää uusia.\r\n[% ELSIF checkout.auto_renew_error
-          == 'auto_too_much_oweing' %]\r\nMaksamattomien maksujesi yhteissumma on
-          liian korkea.\r\n[% ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nTämä
-          nide täytyy uusia kirjastossa.\r\n[% ELSIF checkout.auto_renew_error ==
-          'auto_renew_final' %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date
-          => 1%] asti\r\nLainan uusimiskerrat ovat tulleet täyteen eikä uusinta ole
-          enää mahdollista.\r\n[% ELSIF checkout.auto_renew_error == 'auto_unseen_final'
-          %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti\r\nLainan
-          verkkokirjastouusimiskerrat ovat tulleet täyteen ja laina on uusittava kirjastossa.\r\n[%
-          END %]\r\n[% END %]"
+        content: |
+          <p>Tämä on lainojasi koskeva automaattisen uusinnan ilmoitus.</p>
+          <p>Tarkista lainasi uusinnan tila verkkokirjastosta.</p>
         title: Automaattinen uusinta (yhteenveto)
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n[% IF error
-          %]\r\n[% error %] nidettä ei uusittu.\r\n[% END %]\r\n[% IF success %]\r\n[%
-          success %] nidettä uusittiin.\r\n[% END %]\r\n[% FOREACH checkout IN checkouts
-          %]\r\n[% NEXT IF (checkout.auto_renew_error == 'auto_too_soon') %]\r\n[%
-          checkout.item.biblio.title %] : [% checkout.item.barcode %]\r\n[% IF !checkout.auto_renew_error
-          %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti\r\n[%
-          ELSIF checkout.auto_renew_error == 'too_many' %]\r\nLainan uusimiskerrat
-          ovat tulleet täyteen.\r\n[% ELSIF checkout.auto_renew_error == 'on_reserve'
-          %]\r\nTämä nide varattu toiselle asiakkaalle.\r\n[% ELSIF checkout.auto_renew_error
-          == 'restriction' %]\r\nSinulla on tällä hetkellä rajoitus.\r\n[% ELSIF checkout.auto_renew_error
-          == 'overdue' %]\r\nSinulla on myöhässä olevia lainoja.\r\n[% ELSIF checkout.auto_renew_error
-          == 'auto_too_late' %]\r\nNidettä ei voi enää uusia.\r\n[% ELSIF checkout.auto_renew_error
-          == 'auto_too_much_oweing' %]\r\nMaksamattomien maksujesi yhteissumma on
-          liian korkea.\r\n[% ELSIF checkout.auto_renew_error == 'too_unseen' %]\r\nTämä
-          nide täytyy uusia kirjastossa.\r\n[% ELSIF checkout.auto_renew_error ==
-          'auto_renew_final' %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date
-          => 1%] asti\r\nLainan uusimiskerrat ovat tulleet täyteen eikä uusinta ole
-          enää mahdollista.\r\n[% ELSIF checkout.auto_renew_error == 'auto_unseen_final'
-          %]\r\non uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti\r\nLainan
-          verkkokirjastouusimiskerrat ovat tulleet täyteen ja laina on uusittava kirjastossa.\r\n[%
-          END %]\r\n[% END %]"
+        content: |
+          <p>Automaattisen uusinnan ilmoitus</p>
+          <p>
+          [% IF error %]
+            [% error %] nidettä ei uusittu.<br>
+          [% END %]
+          [% IF success %]
+            [% success %] nidettä uusittiin.<br>
+          [% END %]
+          [% FOREACH checkout IN checkouts %]
+            <br>
+            [% NEXT IF (checkout.auto_renew_error == 'auto_too_soon') %]
+            [% checkout.item.biblio.title %] : [% checkout.item.barcode %]
+            [% IF !checkout.auto_renew_error %] on uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti
+            [% ELSIF checkout.auto_renew_error == 'too_many' %] Lainan uusimiskerrat ovat tulleet täyteen.
+            [% ELSIF checkout.auto_renew_error == 'on_reserve' %] Tämä nide varattu toiselle asiakkaalle.
+            [% ELSIF checkout.auto_renew_error == 'restriction' %] Sinulla on tällä hetkellä rajoitus.
+            [% ELSIF checkout.auto_renew_error == 'overdue' %] Sinulla on myöhässä olevia lainoja.
+            [% ELSIF checkout.auto_renew_error == 'auto_too_late' %] Nidettä ei voi enää uusia.
+            [% ELSIF checkout.auto_renew_error == 'auto_too_much_oweing' %] Maksamattomien maksujesi yhteissumma on liian korkea.
+            [% ELSIF checkout.auto_renew_error == 'too_unseen' %] Tämä nide täytyy uusia kirjastossa.
+            [% ELSIF checkout.auto_renew_error == 'auto_renew_final' %] on uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti. Lainan uusimiskerrat ovat tulleet täyteen eikä uusinta ole enää mahdollista.
+            [% ELSIF checkout.auto_renew_error == 'auto_unseen_final' %] on uusittu [% checkout.date_due | $KohaDates as_due_date => 1%] asti. Lainan verkkokirjastouusimiskerrat ovat tulleet täyteen ja laina on uusittava kirjastossa.
+            [% END %]
+          [% END %]"
+          </p>
         title: Automaattinen uusinta (yhteenveto)

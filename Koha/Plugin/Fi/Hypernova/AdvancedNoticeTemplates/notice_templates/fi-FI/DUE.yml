@@ -3,24 +3,24 @@ module: circulation
 name: Eräpäivämuistutus
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
-          %])"
+        content: |
+          <p>Lainaamasi nide erääntyy. Tarkista lainasi verkkokirjastosta.</p>
         title: Eräpäivämuistutus
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
-          %])"
+        content: |
+          <p>Seuraava nide erääntyy:</p>
+          <p>[% biblio.title %], [% biblio.author %] ([% item.barcode %])</p>
+          <p>Tarkista lainasi verkkokirjastosta.</p>
         title: Eräpäivämuistutus
   sms:
     plain:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy:\r\n\r\n[% biblio.title %]"
+        content: |
+          Lainaamasi nide erääntyy. Tarkista lainasi verkkokirjastosta.
         title: Eräpäivämuistutus
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+        content: "Seuraava
           nide erääntyy:\r\n\r\n[% biblio.title %]"
         title: Eräpäivämuistutus

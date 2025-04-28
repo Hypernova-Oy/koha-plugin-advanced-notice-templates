@@ -5,14 +5,15 @@ template:
   email:
     html:
       anonymous:
-        content: "\r\n<<today>>\r\n<h1>Velattomuusilmoituksen vahvistus</h1>\r\n<p><<branches.branchname>>
-          vahvistaa, että asiakas:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (kirjastokortin numero: <<borrowers.cardnumber>>)<br>\r\non palauttanut
-          kaikki niteet.</p>"
-        title: Velattomuusilmoitus asiakkaalle <<borrowers.firstname>> <<borrowers.surname>>
+        content: |
+          <h1>Velattomuusilmoituksen vahvistus</h1>
+          <p><<branches.branchname>> vahvistaa, että olet palauttanut kaikki niteet.</p>
+          <p><<today>></p>
+        title: Velattomuusilmoitus
       default:
-        content: "\r\n<<today>>\r\n<h1>Velattomuusilmoituksen vahvistus</h1>\r\n<p><<branches.branchname>>
-          vahvistaa, että asiakas:<br>\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (kirjastokortin numero: <<borrowers.cardnumber>>)<br>\r\non palauttanut
-          kaikki niteet.</p>"
+        content: |
+          <h1>Velattomuusilmoituksen vahvistus</h1>
+          <p><<branches.branchname>> vahvistaa, että asiakas <<borrowers.firstname>> <<borrowers.surname>>
+          (kirjastokortin numero: <<borrowers.cardnumber>>) on palauttanut kaikki niteet.</p>
+          <p><<today>></p>
         title: Velattomuusilmoitus asiakkaalle <<borrowers.firstname>> <<borrowers.surname>>

@@ -3,24 +3,18 @@ module: reserves
 name: Muistutus odottavasta varauksesta
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: |-
-          Dear [% borrower.firstname %] [% borrower.surname %],
-
-          The following holds are waiting at [% branch.branchname %]:
-
-          [% FOREACH hold IN holds %]
-              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
-          [% END %]
-        title: Sinulla on odottavia varauksia.
+        content: |
+          <p>Varauksesi odottaa kirjastossa [% branch.branchname %].</p>
+          <p>Tarkista varauksesi verkkokirjastosta.</p>
+        title: Sinulla on odottavia varauksia
       default:
-        content: |-
-          Dear [% borrower.firstname %] [% borrower.surname %],
-
-          The following holds are waiting at [% branch.branchname %]:
-
+        content: |
+          <p>Seuraavat varaukset odottavat kirjastossa [% branch.branchname %]:</p>
+          <p>
           [% FOREACH hold IN holds %]
-              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
+              [% hold.biblio.title %] : odottaa alkaen [% hold.waitingdate | $KohaDates %]<br>
           [% END %]
-        title: Sinulla on odottavia varauksia.
+          </p>
+        title: Sinulla on odottavia varauksia

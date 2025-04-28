@@ -1,28 +1,29 @@
 ---
 module: members
-name: 'Tervetuloilmoitus '
+name: Tervetuloilmoitus
 template:
   email:
     html:
       anonymous:
-        content: "[% USE Koha %]\r\nHei [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %]. <br>\r\n<br>\r\nTervetuloa asiakkaaksi [% IF
-          Koha.Preference('LibraryName') %][% Koha.Preference('LibraryName') %]kirjasto[%
-          ELSE %][% END %]\r\n<br>\r\nVoit etsiä kaikkia aineistojamme <a href='[%
-          Koha.Preference('OPACBaseURL') %]'>kirjaston haulla</a>.<br>\r\n<br>\r\nKirjastokorttisi
-          numero on [% borrower.cardnumber %]<br>\r\n<br>\r\nJos sinulla on ongelmia
-          tai kysyttävää, ota yhteys kirjastoon."
+        content: |
+          [% USE Koha %]
+          <p>Tervetuloa asiakkaaksi [% IF Koha.Preference('LibraryName') %][% Koha.Preference('LibraryName') %]kirjastoomme[%
+          ELSE %][% END %].</p>
+          <p>Voit etsiä kaikkia aineistojamme <a href='[% Koha.Preference('OPACBaseURL') %]'>kirjaston haulla</a>.</p>
+          [% IF borrower.cardnumber %]<p>Kirjastokorttisi numero löytyy verkkokirjastosta.</p>[% END %]
+          <p>Jos sinulla on ongelmia tai kysyttävää, ota yhteys kirjastoon.</p>
         title: '[% USE Koha %][% IF Koha.Preference(''LibraryName'') %] [% Koha.Preference(''LibraryName'')
           %] toivottaa sinut tervetulleeksi [% ELSE %]Tervetuloa kirjastoon[% END
           %]'
       default:
-        content: "[% USE Koha %]\r\nHei [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %]. <br>\r\n<br>\r\nTervetuloa asiakkaaksi [% IF
-          Koha.Preference('LibraryName') %][% Koha.Preference('LibraryName') %]kirjasto[%
-          ELSE %][% END %]\r\n<br>\r\nVoit etsiä kaikkia aineistojamme <a href='[%
-          Koha.Preference('OPACBaseURL') %]'>kirjaston haulla</a>.<br>\r\n<br>\r\nKirjastokorttisi
-          numero on [% borrower.cardnumber %]<br>\r\n<br>\r\nJos sinulla on ongelmia
-          tai kysyttävää, ota yhteys kirjastoon."
+        content: |
+          [% USE Koha %]
+          <p>Tervetuloa asiakkaaksi [% IF Koha.Preference('LibraryName') %][% Koha.Preference('LibraryName') %]kirjastoomme[%
+          ELSE %][% END %].</p>
+          <p>Voit etsiä kaikkia aineistojamme <a href='[% Koha.Preference('OPACBaseURL') %]'>kirjaston haulla</a>.</p>
+          [% IF borrower.cardnumber %]<p>Kirjastokorttisi
+          numero on [% borrower.cardnumber %]</p>[% END %]
+          <p>Jos sinulla on ongelmia tai kysyttävää, ota yhteys kirjastoon.</p>
         title: '[% USE Koha %][% IF Koha.Preference(''LibraryName'') %] [% Koha.Preference(''LibraryName'')
           %] toivottaa sinut tervetulleeksi [% ELSE %]Tervetuloa kirjastoon[% END
           %]'

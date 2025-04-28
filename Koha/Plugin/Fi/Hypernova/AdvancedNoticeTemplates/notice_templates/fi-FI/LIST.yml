@@ -5,90 +5,134 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHei,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] lähetti sinulle verkkokirjastostamme
-          listan nimeltään [% listname | html %].<br>\r\nHuomaa, että liitetiedosto
-          on MARC-formaatissa, jota käyttävät kirjastot ja useimmat viitteidenhallintaohjelmat
-          kuten EndNote, Referece Manager tai ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[%
-          comment | html | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH
-          biblio IN biblios %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hei,</p>
+          <p>Sinulle on lähetetty lista.</p>
+          <p>Huomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät kirjastot ja useimmat viitteidenhallintaohjelmat
+          kuten EndNote, Referece Manager tai ProCite.</p>
+          [% IF ( comment ) %]<hr><br>[%
+          comment | html | html_line_break %]<br><br>[% END %]<hr>
+          <ol>[% FOREACH
+          biblio IN biblios %]<li>
+          [% biblio.title | html %]
+          [% IF ( biblio.subtitle
           ) %][% FOREACH subtitle IN biblio.subtitle.split(' | ') %][% subtitle |
           html %][% END %][% END %][% biblio.part_number | html %] [% biblio.part_name
-          | html %]<br>\r\n[% IF ( biblio.author || biblio.get_marc_contributors.size
+          | html %]<br>
+          [% IF ( biblio.author || biblio.get_marc_contributors.size
           ) %]Tekijä(t): [% IF ( biblio.author ) %][% biblio.author | html %][% END
           %][% IF ( biblio.get_marc_contributors ) %][% IF ( biblio.author ) %]; [%
           END %][% FOREACH author IN biblio.get_marc_contributors %][% FOREACH subfield
           IN author.MARCAUTHOR_SUBFIELDS_LOOP %][% subfield.separator | html %][%
           subfield.value | html %][% END %][% UNLESS ( loop.last ) %];[% END %][%
-          END %][% END %]<br>[% END %]\r\n[% SET biblioitem = biblio.biblioitem %][%
+          END %][% END %]<br>[% END %]
+          [% SET biblioitem = biblio.biblioitem %][%
           IF ( biblioitem.isbn ) %]ISBN: [% FOREACH isbn IN biblioitem.isbn %][% isbn
-          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]\r\n[%
+          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]
+          [%
           IF ( biblioitem.publishercode ) %]Julkaisija: [% biblioitem.publishercode
           | html %][% IF ( biblioitem.publicationyear ) %] vuonna [% biblioitem.publicationyear
           | html %][% END %][% IF ( biblioitem.pages ) %], [% biblioitem.pages | html
-          %][% END %]<br>[% END %]\r\n[% IF ( biblio.seriestitle ) %]Kokoelma: [%
-          biblio.seriestitle | html %]<br>[% END %]\r\n[% IF ( biblio.copyrightdate
-          ) %]Tekijänoikeusvuosi: [% biblio.copyrightdate | html %]<br>[% END %]\r\n[%
+          %][% END %]<br>[% END %]
+          [% IF ( biblio.seriestitle ) %]Kokoelma: [%
+          biblio.seriestitle | html %]<br>[% END %]
+          [% IF ( biblio.copyrightdate
+          ) %]Tekijänoikeusvuosi: [% biblio.copyrightdate | html %]<br>[% END %]
+          [%
           IF ( biblio.notes ) %]Huomautukset: [% biblio.notes | html %]<br>[% END
-          %]\r\n[% IF ( biblio.unititle ) %]Yhtenäistetty nimeke: [% biblio.unititle
-          | html %]<br>[% END %]\r\n[% IF ( biblio.serial ) %]Kausijulkaisu: [% biblio.serial
-          | html %]<br>[% END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
-          | html %]<br>[% END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
+          %]
+          [% IF ( biblio.unititle ) %]Yhtenäistetty nimeke: [% biblio.unititle
+          | html %]<br>[% END %]
+          [% IF ( biblio.serial ) %]Kausijulkaisu: [% biblio.serial
+          | html %]<br>[% END %]
+          [% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
+          | html %]<br>[% END %]
+          [% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
           ) %]Teoksessa: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE
           'biblio-title.inc'  biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
-          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
-          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n[<a
+          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]
+          [%
+          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]
+          [<a
           href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
-          biblio.biblionumber | html %]'>Katso verkkokirjastossa</a>\r\n[% IF ( biblio.items.count
+          biblio.biblionumber | html %]'>Katso verkkokirjastossa</a>
+          [% IF ( biblio.items.count
           > 0 ) %]<br>Niteitä: <ul>[% FOREACH item IN biblio.items %]<li>[% Branches.GetName(
-          item.holdingbranch ) | html %]\r\n[% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
+          item.holdingbranch ) | html %]
+          [% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
-          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
-        title: 'Listasi: [% listname | html %]'
+          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]
+          <hr></li>[%
+          END %]</ol>
+        title: 'Sinulle on lähetetty lista'
       default:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHei,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] lähetti sinulle verkkokirjastostamme
-          listan nimeltään [% listname | html %].<br>\r\nHuomaa, että liitetiedosto
-          on MARC-formaatissa, jota käyttävät kirjastot ja useimmat viitteidenhallintaohjelmat
-          kuten EndNote, Referece Manager tai ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[%
-          comment | html | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH
-          biblio IN biblios %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hei,</p>
+          <p>[% borrower.firstname | html %] [% borrower.surname | html %] lähetti sinulle lista nimeltään [% listname | html %].</p>
+          <p>Huomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät kirjastot ja useimmat viitteidenhallintaohjelmat
+          kuten EndNote, Referece Manager tai ProCite.</p>
+          [% IF ( comment ) %]<hr><br>[%
+          comment | html | html_line_break %]<br><br>[% END %]<hr>
+          <ol>[% FOREACH
+          biblio IN biblios %]<li>
+          [% biblio.title | html %]
+          [% IF ( biblio.subtitle
           ) %][% FOREACH subtitle IN biblio.subtitle.split(' | ') %][% subtitle |
           html %][% END %][% END %][% biblio.part_number | html %] [% biblio.part_name
-          | html %]<br>\r\n[% IF ( biblio.author || biblio.get_marc_contributors.size
+          | html %]<br>
+          [% IF ( biblio.author || biblio.get_marc_contributors.size
           ) %]Tekijä(t): [% IF ( biblio.author ) %][% biblio.author | html %][% END
           %][% IF ( biblio.get_marc_contributors ) %][% IF ( biblio.author ) %]; [%
           END %][% FOREACH author IN biblio.get_marc_contributors %][% FOREACH subfield
           IN author.MARCAUTHOR_SUBFIELDS_LOOP %][% subfield.separator | html %][%
           subfield.value | html %][% END %][% UNLESS ( loop.last ) %];[% END %][%
-          END %][% END %]<br>[% END %]\r\n[% SET biblioitem = biblio.biblioitem %][%
+          END %][% END %]<br>[% END %]
+          [% SET biblioitem = biblio.biblioitem %][%
           IF ( biblioitem.isbn ) %]ISBN: [% FOREACH isbn IN biblioitem.isbn %][% isbn
-          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]\r\n[%
+          | html %][% UNLESS ( loop.last ) %]; [% END %][% END %]<br>[% END %]
+          [%
           IF ( biblioitem.publishercode ) %]Julkaisija: [% biblioitem.publishercode
           | html %][% IF ( biblioitem.publicationyear ) %] vuonna [% biblioitem.publicationyear
           | html %][% END %][% IF ( biblioitem.pages ) %], [% biblioitem.pages | html
-          %][% END %]<br>[% END %]\r\n[% IF ( biblio.seriestitle ) %]Kokoelma: [%
-          biblio.seriestitle | html %]<br>[% END %]\r\n[% IF ( biblio.copyrightdate
-          ) %]Tekijänoikeusvuosi: [% biblio.copyrightdate | html %]<br>[% END %]\r\n[%
+          %][% END %]<br>[% END %]
+          [% IF ( biblio.seriestitle ) %]Kokoelma: [%
+          biblio.seriestitle | html %]<br>[% END %]
+          [% IF ( biblio.copyrightdate
+          ) %]Tekijänoikeusvuosi: [% biblio.copyrightdate | html %]<br>[% END %]
+          [%
           IF ( biblio.notes ) %]Huomautukset: [% biblio.notes | html %]<br>[% END
-          %]\r\n[% IF ( biblio.unititle ) %]Yhtenäistetty nimeke: [% biblio.unititle
-          | html %]<br>[% END %]\r\n[% IF ( biblio.serial ) %]Kausijulkaisu: [% biblio.serial
-          | html %]<br>[% END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
-          | html %]<br>[% END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
+          %]
+          [% IF ( biblio.unititle ) %]Yhtenäistetty nimeke: [% biblio.unititle
+          | html %]<br>[% END %]
+          [% IF ( biblio.serial ) %]Kausijulkaisu: [% biblio.serial
+          | html %]<br>[% END %]
+          [% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn
+          | html %]<br>[% END %]
+          [% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
           ) %]Teoksessa: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE
           'biblio-title.inc'  biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
-          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
-          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n[<a
+          %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]
+          [%
+          IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]
+          [<a
           href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
-          biblio.biblionumber | html %]'>Katso verkkokirjastossa</a>\r\n[% IF ( biblio.items.count
+          biblio.biblionumber | html %]'>Katso verkkokirjastossa</a>
+          [% IF ( biblio.items.count
           > 0 ) %]<br>Niteitä: <ul>[% FOREACH item IN biblio.items %]<li>[% Branches.GetName(
-          item.holdingbranch ) | html %]\r\n[% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
+          item.holdingbranch ) | html %]
+          [% IF ( item.location ) %], [% AuthorisedValues.GetDescriptionByKohaField(
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
-          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
-        title: 'Listasi: [% listname | html %]'
+          END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]
+          <hr></li>[%
+          END %]</ol>
+        title: 'Sinulle on lähetetty lista [% listname | html %]'

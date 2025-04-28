@@ -3,14 +3,12 @@ module: suggestions
 name: Uusi hankintaehdotus (hankintavastaava)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulle
-          on uusi hankintaehdotus: [% suggestion.title %].\r\n\r\nKiitos,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          <p>Sinulle on uusi hankintaehdotus: [% suggestion.title %].</p>
         title: Sinulle on hankintaehdotus
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSinulle
-          on uusi hankintaehdotus: [% suggestion.title %].\r\n\r\nKiitos,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          <p>Sinulle on uusi hankintaehdotus: [% suggestion.title %].</p>
         title: Sinulle on hankintaehdotus

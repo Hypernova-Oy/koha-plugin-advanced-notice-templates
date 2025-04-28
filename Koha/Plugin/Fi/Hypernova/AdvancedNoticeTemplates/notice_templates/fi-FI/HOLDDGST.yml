@@ -3,30 +3,56 @@ module: reserves
 name: Varaus noudettavissa
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Sinulla on varaus noudettavissa:\r\n----\r\nOtsikko: [% hold.biblio.title
-          %]\r\nTekijä: [% hold.biblio.author %]\r\nKopion numero: [% hold.item.copynumber
-          %]\r\nOdottaa alkaen: [% hold.waitingdate %]\r\nOdottaa kirjastossa: [%
-          hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[% hold.branch.branchaddress2
-          %]\r\n[% hold.branch.branchaddress3 %]\r\n[% hold.branch.branchcity %] [%
-          hold.branch.branchzip %]\r\n----\r\nKiitos!"
+        content: |
+          <p>Varauksesi on noudettavissa.</p>
+          ----
+          <p>
+          Varaus<br>
+          Alkaen: [% hold.waitingdate %]<br>
+          Noudettavissa kirjastossa: [% hold.branch.branchname %]<br>
+          [% hold.branch.branchaddress1 %]<br>
+          [% hold.branch.branchaddress2 %]<br>
+          [% hold.branch.branchaddress3 %]<br>
+          [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          </p>
+          ----
+          <p>Tarkista varauksesi verkkokirjastosta.</p>
         title: Varaus noudettavissa
       default:
-        content: "Sinulla on varaus noudettavissa:\r\n----\r\nOtsikko: [% hold.biblio.title
-          %]\r\nTekijä: [% hold.biblio.author %]\r\nKopion numero: [% hold.item.copynumber
-          %]\r\nOdottaa alkaen: [% hold.waitingdate %]\r\nOdottaa kirjastossa: [%
-          hold.branch.branchname %]\r\n[% hold.branch.branchaddress1 %]\r\n[% hold.branch.branchaddress2
-          %]\r\n[% hold.branch.branchaddress3 %]\r\n[% hold.branch.branchcity %] [%
-          hold.branch.branchzip %]\r\n----\r\nKiitos!"
+        content: |
+          <p>Sinulla on varaus noudettavissa:</p>
+          ----
+          <p>Otsikko: [% hold.biblio.title %]<br>
+          Tekijä: [% hold.biblio.author %]<br>
+          Kopion numero: [% hold.item.copynumber %]<br>
+          Alkaen: [% hold.waitingdate %]<br>
+          Noudettavissa kirjastosta: [% hold.branch.branchname %]<br>
+          [% hold.branch.branchaddress1 %]<br>
+          [% hold.branch.branchaddress2 %]<br>
+          [% hold.branch.branchaddress3 %]<br>
+          [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          </p>
+          ----
+          <p>Tarkista varauksesi verkkokirjastosta.</p>
         title: Varaus noudettavissa
   sms:
     plain:
       anonymous:
-        content: "Sinulla on varaus noudettavissa:\r\n\r\n----\r\nOtsikko: [% hold.biblio.title
-          %]\r\n----"
+        content: |
+          Varauksesi on noudettavissa kirjastosta.
+          ----
+          Noutopaikka: [% hold.branch.branchname %]
+          ----
+          Tarkista varauksesi verkkokirjastosta.
         title: Varaus noudettavissa
       default:
-        content: "Sinulla on varaus noudettavissa:\r\n\r\n----\r\nOtsikko: [% hold.biblio.title
-          %]\r\n----"
+        content: |
+          Sinulla on varaus noudettavissa:
+          ----
+          Otsikko: [% hold.biblio.title %]
+          Noutopaikka: [% hold.branch.branchname %]
+          ----
+          Tarkista varauksesi verkkokirjastosta.
         title: Varaus noudettavissa

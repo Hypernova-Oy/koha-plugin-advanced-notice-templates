@@ -3,12 +3,20 @@ module: circulation
 name: Niteet uusittu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Seuraavat niteet on uusittu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          <p>Tämä on vahvistus uusituista niteistä. Tietosuojasyistä emme näytä uusittuja niteitä tässä viestissä.</p>
+          ----
+          ----
+          <p>Voit tarkistaa aktiiviset lainasi ja uusintasi verkkokirjastosta.</p>
         title: Niteet uusittu
       default:
-        content: "Seuraavat niteet on uusittu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          <p>Tämä on vahvistus uusituista niteistä.</p>
+          <p>Seuraavat niteet on uusittu:</p>
+          ----
+          <p>[% biblio.title %]</p>
+          ----
+          <p>Voit tarkistaa aktiiviset lainasi ja uusintasi verkkokirjastosta.</p>
         title: Niteet uusittu

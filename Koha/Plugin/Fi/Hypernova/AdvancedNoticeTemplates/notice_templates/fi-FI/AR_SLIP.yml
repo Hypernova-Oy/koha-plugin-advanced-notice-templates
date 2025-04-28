@@ -3,28 +3,53 @@ module: circulation
 name: Artikkelipyyntö - tulosta kuitti
 template:
   print:
-    plain:
+    html:
       anonymous:
-        content: "Artikkelipyyntö:\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (<<borrowers.cardnumber>>),\r\n\r\nOtsikko: <<biblio.title>>\r\nViivakoodi:
-          <<items.barcode>>\r\n\r\nArtikkelia pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä:
-          <<article_requests.author>>\r\nVuosikerta: <<article_requests.volume>>\r\nNumero:
-          <<article_requests.issue>>\r\nPvm: <<article_requests.date>>\r\nSisällysluettelo:
-          [% IF article_request.toc_request %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua:
-          <<article_requests.pages>>\r\nLuvut: <<article_requests.chapters>>\r\nHuomautukset:
-          <<article_requests.patron_notes>>\r\nMuoto: [% IF article_request.format
-          == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format == 'SCAN' %]Skannaus[%
-          END %]"
+        content: |
+          <p>Artikkelipyyntö:</p>
+          <p>Asiakas ID (borrowernumber): <<borrowers.borrowernumber>></p>
+          <p>
+          Otsikko: <<biblio.title>><br>
+          Viivakoodi: <<items.barcode>><br>
+          </p>
+          <h4>Artikkelia pyydetty:</h4>
+          <p>
+          Otsikko: <<article_requests.title>><br>
+          Tekijä: <<article_requests.author>><br>
+          Vuosikerta: <<article_requests.volume>><br>
+          Numero: <<article_requests.issue>><br>
+          Pvm: <<article_requests.date>><br>
+          Sisällysluettelo: [% IF article_request.toc_request %]Kyllä[% ELSE %]Ei[% END %]<br>
+          Sivua: <<article_requests.pages>><br>
+          Luvut: <<article_requests.chapters>><br>
+          Huomautukset: <<article_requests.patron_notes>><br>
+          Muoto: [% IF article_request.format == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format
+          == 'SCAN' %]Skannaus[% END %]
+          </p>
         title: Artikkelipyyntö
       default:
-        content: "Artikkelipyyntö:\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (<<borrowers.cardnumber>>),\r\n\r\nOtsikko: <<biblio.title>>\r\nViivakoodi:
-          <<items.barcode>>\r\n\r\nArtikkelia pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä:
-          <<article_requests.author>>\r\nVuosikerta: <<article_requests.volume>>\r\nNumero:
-          <<article_requests.issue>>\r\nPvm: <<article_requests.date>>\r\nSisällysluettelo:
-          [% IF article_request.toc_request %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua:
-          <<article_requests.pages>>\r\nLuvut: <<article_requests.chapters>>\r\nHuomautukset:
-          <<article_requests.patron_notes>>\r\nMuoto: [% IF article_request.format
-          == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format == 'SCAN' %]Skannaus[%
-          END %]"
+        content: |
+          <p>Artikkelipyyntö:</p>
+          <p>Asiakas ID (borrowernumber): <<borrowers.borrowernumber>></p>
+          <p>
+          <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)
+          </p>
+          <p>
+          Otsikko: <<biblio.title>><br>
+          Viivakoodi: <<items.barcode>><br>
+          </p>
+          <h4>Artikkelia pyydetty:</h4>
+          <p>
+          Otsikko: <<article_requests.title>><br>
+          Tekijä: <<article_requests.author>><br>
+          Vuosikerta: <<article_requests.volume>><br>
+          Numero: <<article_requests.issue>><br>
+          Pvm: <<article_requests.date>><br>
+          Sisällysluettelo: [% IF article_request.toc_request %]Kyllä[% ELSE %]Ei[% END %]<br>
+          Sivua: <<article_requests.pages>><br>
+          Luvut: <<article_requests.chapters>><br>
+          Huomautukset: <<article_requests.patron_notes>><br>
+          Muoto: [% IF article_request.format == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format
+          == 'SCAN' %]Skannaus[% END %]
+          </p>
         title: Artikkelipyyntö

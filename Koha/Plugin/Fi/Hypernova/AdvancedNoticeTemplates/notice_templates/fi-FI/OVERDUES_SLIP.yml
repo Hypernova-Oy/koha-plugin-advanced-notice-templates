@@ -6,11 +6,11 @@ template:
     plain:
       anonymous:
         content: "Seuraavat niteet ovat tällä hetkellä myöhässä:\r\n\r\n<item>\"<<biblio.title>>\"
-          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
-          Fine: <<items.fine>></item>\r\n"
+          / <<biblio.author>>, <<items.itemcallnumber>>, Viivakoodi: <<items.barcode>>
+          Sakkomaksut: <<items.fine>></item>\r\n"
         title: Erääntyneiden kuitti
       default:
         content: "Seuraavat niteet ovat tällä hetkellä myöhässä:\r\n\r\n<item>\"<<biblio.title>>\"
-          by <<biblio.author>>, <<items.itemcallnumber>>, Barcode: <<items.barcode>>
-          Fine: <<items.fine>></item>\r\n"
+          / <<biblio.author>>, <<items.itemcallnumber>>, Viivakoodi: <<items.barcode>>
+          Sakkomaksut: <<items.fine>></item>\r\n"
         title: Erääntyneiden kuitti

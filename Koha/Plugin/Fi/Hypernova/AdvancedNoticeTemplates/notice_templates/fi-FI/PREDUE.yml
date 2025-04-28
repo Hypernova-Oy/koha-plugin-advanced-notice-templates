@@ -3,24 +3,25 @@ module: circulation
 name: Ennakkoilmoitus erääntyvästä lainasta
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy pian:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
-          %])"
+        content: |
+          <p>Lainasi on erääntymässä. Tarkista lainasi verkkokirjastosta ja uusi laina tai palauta nide kirjastoon.</p>
         title: Ennakkoilmoitus erääntyvästä lainasta
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy pian:\r\n\r\n[% biblio.title %], [% biblio.author %] ([% item.barcode
-          %])"
+        content: |
+          <p>Seuraava nide erääntyy pian:<br>
+          <br>
+          [% biblio.title %], [% biblio.author %] ([% item.barcode %])
+          </p>
+          <p>Tarkista lainasi verkkokirjastosta ja uusi laina tai palauta nide kirjastoon.</p>
         title: Ennakkoilmoitus erääntyvästä lainasta
   sms:
     plain:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
-          nide erääntyy pian:\r\n\r\n[% biblio.title %]"
+        content: "Lainasi on erääntymässä. Tarkista lainasi verkkokirjastosta ja uusi laina tai palauta nide kirjastoon"
         title: Ennakkoilmoitus erääntyvästä lainasta
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nSeuraava
+        content: "Seuraava
           nide erääntyy pian:\r\n\r\n[% biblio.title %]"
         title: Ennakkoilmoitus erääntyvästä lainasta

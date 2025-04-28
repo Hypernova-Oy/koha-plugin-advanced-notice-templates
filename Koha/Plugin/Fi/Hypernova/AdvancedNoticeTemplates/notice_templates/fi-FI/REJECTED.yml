@@ -3,20 +3,18 @@ module: suggestions
 name: Ehdotus hylätty
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanut ehdotuksesi tänään
-          ja päättänyt olla hankkimatta ehdotuksesi mukaista aineistoa tällä kertaa.\r\n\r\nSyy:
-          [% suggestion.reason %]\r\n\r\nJos sinulla on kysyttävää, ota yhteys kirjastoon:
-          [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen. Kirjasto on tarkistanut ehdotuksesi
+          ja päättänyt tällä kertaaolla hankkimatta ehdotuksesi mukaista aineistoa.</p>
+          <p>Tarkista hylkäämisen syy verkkokirjastosta.</p>
         title: Hankintaehdotus hylätty
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanut ehdotuksesi tänään
-          ja päättänyt olla hankkimatta ehdotuksesi mukaista aineistoa tällä kertaa.\r\n\r\nSyy:
-          [% suggestion.reason %]\r\n\r\nJos sinulla on kysyttävää, ota yhteys kirjastoon:
-          [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen [% suggestion.title %] / [% suggestion.author %]. 
+          Kirjasto on tarkistanut ehdotuksesi
+          ja päättänyt tällä kertaaolla hankkimatta ehdotuksesi mukaista aineistoa.</p>
+          <p>Syy: [% suggestion.reason %]</p>
+          <p>Voit tarkistaa voimassa olevat hankintaehdotuksesi verkkokirjastosta.</p>
         title: Hankintaehdotus hylätty

@@ -1,20 +1,23 @@
 ---
 module: lists
-name: Kutsu jakaa listaa
+name: Kutsu jaettuun listaan
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä asiakas,\r\n\r\nAsiakkaamme <<borrowers.firstname>> <<borrowers.surname>>
-          kutsuu sinut kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nPäästäksesi
-          tälle jaetulle listalla, klikkaa URL:a tai kopio ja liitä se selaimen osoiteriville.\r\n\r\n<<shareurl>>\r\n\r\nJos
-          et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
-          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
-        title: Jaetaan lista <<listname>>
+        content: |
+          <p>Sinut on kutsuttu kirjaston kokoelman jaetulle listalle: <<listname>>.</p>
+          <p>Päästäksesi tälle jaetulle listalla, klikkaa linkkiä tai kopio ja liitä se selaimen osoiteriville.</p>
+          <p><a href="<<shareurl>>"><<shareurl>></a></p>
+          <p>Jos et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
+          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.</p>
+        title: Jaettu lista
       default:
-        content: "Hyvä asiakas,\r\n\r\nAsiakkaamme <<borrowers.firstname>> <<borrowers.surname>>
-          kutsuu sinut kirjaston kokoelman jaetulle listalle: <<listname>>.\r\n\r\nPäästäksesi
-          tälle jaetulle listalla, klikkaa URL:a tai kopio ja liitä se selaimen osoiteriville.\r\n\r\n<<shareurl>>\r\n\r\nJos
-          et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
-          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.\r\n\r\nKiitos.\r\n\r\nKirjastosi."
-        title: Jaetaan lista <<listname>>
+        content: |
+          <p>Sinut on kutsuttu kirjaston kokoelman jaetulle listalle: <<listname>>.</p>
+          <p>Kutsun on lähettänyt <<borrowers.firstname>> <<borrowers.surname>>.</p>
+          <p>Päästäksesi tälle jaetulle listalla, klikkaa linkkiä tai kopio ja liitä se selaimen osoiteriville.</p>
+          <p><a href="<<shareurl>>"><<shareurl>></a></p>
+          <p>Jos et ole kirjastomme asiakas tai et halua hyväksyä tätä kutsua, voit jättää
+          tämän viestin huomioimatta. Kutsu vanhenee kahden viikon sisällä.</p>
+        title: Jaettu lista <<listname>>

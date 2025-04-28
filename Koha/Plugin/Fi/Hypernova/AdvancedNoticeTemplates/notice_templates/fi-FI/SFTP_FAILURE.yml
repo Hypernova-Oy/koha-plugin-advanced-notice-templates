@@ -3,10 +3,10 @@ module: commandline
 name: File SFTP failed
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "SFTP upload failed:\r\n\r\n<<sftp_status>>"
-        title: The SFTP by sftp_file.pl failed
+        content: <p>SFTP-siirto epäonnistui:</p><p><<sftp_status>></p>
+        title: sftp_file.pl:n suorittama SFTP-siirto epäonnistui
       default:
-        content: "SFTP upload failed:\r\n\r\n<<sftp_status>>"
-        title: The SFTP by sftp_file.pl failed
+        content: <p>SFTP-siirto epäonnistui:</p><p><<sftp_status>></p>
+        title: sftp_file.pl:n suorittama SFTP-siirto epäonnistui

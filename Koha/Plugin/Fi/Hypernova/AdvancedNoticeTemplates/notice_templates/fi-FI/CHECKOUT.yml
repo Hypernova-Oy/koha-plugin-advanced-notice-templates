@@ -1,24 +1,39 @@
 ---
 module: circulation
-name: Lainauskuitti (yhteenveto)
+name: Lainausilmoitus (yhteenveto)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          <p>Tämä on vahvistus lainatuista niteistä. Tietosuojasyistä emme näytä lainattuja niteitä tässä viestissä.</p>
+          ----
+          ----
+          <p>Voit tarkistaa aktiiviset lainasi verkkokirjastosta.</p>
         title: Lainat
       default:
-        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          <p>Tämä on vahvistus lainatuista niteistä.</p>il
+          <p>Seuraavat niteet on lainattu:</p>
+          ----
+          <p>[% biblio.title %] (eräpäivä [% checkout.date_due | $KohaDates %])</p>
+          ----
+          <p>Voit tarkistaa lainasi verkkokirjastosta.</p>
         title: Lainat
   sms:
     plain:
       anonymous:
-        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          Lainasit niteitä.
+          ----
+          ----
+          Tarkista lainasi verkkokirjastosta.
         title: Lainat
       default:
-        content: "Seuraavat niteet on lainattu:\r\n----\r\n[% biblio.title %]\r\n----\r\nKiitos
-          kun kävit [% branch.branchname %]."
+        content: |
+          Lainasit seuraavat niteet
+          ----
+          [% biblio.title %]
+          ----
+          Voit tarkistaa lainasi verkkokirjastosta.
         title: Lainat

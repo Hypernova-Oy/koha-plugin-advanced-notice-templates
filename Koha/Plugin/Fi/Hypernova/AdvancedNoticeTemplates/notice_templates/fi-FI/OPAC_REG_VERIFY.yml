@@ -3,16 +3,20 @@ module: members
 name: Verkkokirjaston itserekisteröitymisen vahvistussähköposti
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hei!\r\n\r\nOlet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
-          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nJos
-          et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee
-          pian."
+        content: |
+          <p>Hei!</p>
+          <p>Olet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
+          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:</p>
+          <p><a href="<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>"><<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>></a></p>
+          <p>Jos et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee pian.</p>
         title: Vahvista käyttäjätilisi
       default:
-        content: "Hei!\r\n\r\nOlet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
-          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:\r\n\r\n<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>\r\n\r\nJos
-          et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee
-          pian."
+        content: |
+          <p>Hei!</p>
+          <p>Olet rekisteröitynyt kirjaston asiakkaaksi. Viimeistele
+          rekisteröinti vahvistamalla sähköpostiosoitteesi klikkaamalla tätä linkkiä:</p>
+          <p><a href="<<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>>"><<OPACBaseURL>>/cgi-bin/koha/opac-registration-verify.pl?token=<<borrower_modifications.verification_token>></a></p>
+          <p>Jos et luonut tiliä, voit jättää tämän viestin huomioimatta. Vahvistus vanhenee pian.</p>
         title: Vahvista käyttäjätilisi

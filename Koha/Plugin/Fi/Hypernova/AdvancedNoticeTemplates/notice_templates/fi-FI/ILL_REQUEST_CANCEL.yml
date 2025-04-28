@@ -3,23 +3,23 @@ module: ill
 name: Kaukolainapyyntö peruttu
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
-          on pyytänyt kaukolainan peruutusta. Kaukolainapyynnön tiedot:\r\n\r\n[%
-          ill_full_metadata %]"
+        content: |
+          <p>Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on pyytänyt kaukolainan peruutusta.</p>
         title: Kaukolainapyyntö peruutettu
       default:
-        content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
-          on pyytänyt kaukolainan peruutusta. Kaukolainapyynnön tiedot:\r\n\r\n[%
-          ill_full_metadata %]"
+        content: |
+          <p>Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
+          on pyytänyt kaukolainan peruutusta. Kaukolainapyynnön tiedot:</p>
+          <p>[% ill_full_metadata %]</p>
         title: Kaukolainapyyntö peruutettu
   sms:
     plain:
       anonymous:
         content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas
-          on pyytänyt kaukolainan peruutusta. Kaukolainapyynnön tiedot:\r\n\r\n[%
-          ill_full_metadata %]"
+          on pyytänyt kaukolainan peruutusta."
         title: Kaukolainapyyntö peruutettu
       default:
         content: "Kaukolainapyynnön [% illrequest.illrequest_id %] tehnyt asiakas

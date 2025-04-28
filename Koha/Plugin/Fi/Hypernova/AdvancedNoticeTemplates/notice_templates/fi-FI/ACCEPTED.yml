@@ -1,24 +1,20 @@
 ---
 module: suggestions
-name: Ehdotus hyväksytty
+name: Hankintaehdotus hyväksytty
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanyt ehdotuksesi tänään
-          ja ehdottamasi aineisto tilataan pian. Saat sähköpostia, kun tilaus on tehty
-          ja uudelleen, kun aineisto saapuu kirjastolle.\r\n\r\nJos sinulla on kysyttävää,
-          ota yhteys kirjastoon: [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen. Hankintaehdotus on hyväksytty.</p>
+          <p>Saat sähköpostia, kun tilaus on tehty ja uudelleen, kun aineisto saapuu
+          kirjastolle.</p>
+          <p>Tarkista hankintaehdotuksesi tila verkkokirjastosta.</p>
         title: Hankintaehdotus hyväksytty
       default:
-        content: "Hyvä [% borrower.firstname %] [% borrower.surname %],\r\n\r\nOlet
-          tehnyt kirjastolle hankintaehdotuksen kirjasta [% suggestion.title %] /
-          [% suggestion.author %].\r\n\r\nKirjasto on tarkistanyt ehdotuksesi tänään
-          ja ehdottamasi aineisto tilataan pian. Saat sähköpostia, kun tilaus on tehty
-          ja uudelleen, kun aineisto saapuu kirjastolle.\r\n\r\nJos sinulla on kysyttävää,
-          ota yhteys kirjastoon: [% branch.branchemail %].\r\n\r\nKiitos,\r\n\r\n[%
-          branch.branchname %]"
+        content: |
+          <p>Olet tehnyt kirjastolle hankintaehdotuksen <<suggestions.title>> / <<suggestions.author>>.</p>
+          <p>Kirjasto on tarkistanyt ehdotuksesi tänään ja ehdottamasi aineisto tilataan pian.</p>
+          <p>Saat sähköpostia, kun tilaus on tehty ja uudelleen, kun aineisto saapuu kirjastolle.</p>
+          <p>Tarkista hankintaehdotuksesi tila verkkokirjastosta.</p>
         title: Hankintaehdotus hyväksytty

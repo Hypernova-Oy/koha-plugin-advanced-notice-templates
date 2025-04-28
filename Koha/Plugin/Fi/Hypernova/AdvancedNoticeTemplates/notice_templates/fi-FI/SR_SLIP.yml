@@ -3,24 +3,46 @@ module: circulation
 name: Kiertokokoelmakuitti
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Kiertokokoelmaraportti kohteelle [% branch.name %]:\r\n\r\n[% IF
-          branch.items.size %][% branch.items.size %] tälle kirjastolle käsiteltävät
-          niteet.\r\n[% ELSE %]Tälle kirjastolle ei ole käsiteltäviä niteitä\r\n[%
-          END %][% FOREACH item IN branch.items %][% IF item.reason != 'in-demand'
-          %]Nimeke: [% item.title %]\r\nTekijä: [% item.author %]\r\nLuokka: [% item.callnumber
-          %]\r\nHyllypaikka: [% item.location %]\r\nViivakoodi: [% item.barcode %]\r\nLainassa?:
-          [% item.onloan %]\r\nTila: [% item.reason %]\r\nNykyinen kirjasto: [% item.branch.branchname
-          %] [% item.branch.branchcode %]\r\n\r\n[% END %][% END %]"
+        content: |
+          <p>Kiertokokoelmaraportti kohteelle [% branch.name %]:<br>
+          [% IF branch.items.size %]
+          [% branch.items.size %] kpl tälle kirjastolle käsiteltäviä niteitä.<br>
+          [% ELSE %]Tälle kirjastolle ei ole käsiteltäviä niteitä<br>
+          [% END %]
+          [% FOREACH item IN branch.items %]
+          [% IF item.reason != 'in-demand' %]
+          Nimeke: [% item.title %]<br>
+          Tekijä: [% item.author %]<br>
+          Luokka: [% item.callnumber %]<br>
+          Hyllypaikka: [% item.location %]<br>
+          Viivakoodi: [% item.barcode %]<br>
+          Lainassa?: [% item.onloan %]<br>
+          Tila: [% item.reason %]<br>
+          Nykyinen kirjasto: [% item.branch.branchname %] [% item.branch.branchcode %]<br>
+          [% END %]
+          [% END %]
+          </p>
         title: Kiertokokoelmaraportti
       default:
-        content: "Kiertokokoelmaraportti kohteelle [% branch.name %]:\r\n\r\n[% IF
-          branch.items.size %][% branch.items.size %] tälle kirjastolle käsiteltävät
-          niteet.\r\n[% ELSE %]Tälle kirjastolle ei ole käsiteltäviä niteitä\r\n[%
-          END %][% FOREACH item IN branch.items %][% IF item.reason != 'in-demand'
-          %]Nimeke: [% item.title %]\r\nTekijä: [% item.author %]\r\nLuokka: [% item.callnumber
-          %]\r\nHyllypaikka: [% item.location %]\r\nViivakoodi: [% item.barcode %]\r\nLainassa?:
-          [% item.onloan %]\r\nTila: [% item.reason %]\r\nNykyinen kirjasto: [% item.branch.branchname
-          %] [% item.branch.branchcode %]\r\n\r\n[% END %][% END %]"
+        content: |
+          <p>Kiertokokoelmaraportti kohteelle [% branch.name %]:<br>
+          [% IF branch.items.size %]
+          [% branch.items.size %] kpl tälle kirjastolle käsiteltäviä niteitä.<br>
+          [% ELSE %]Tälle kirjastolle ei ole käsiteltäviä niteitä<br>
+          [% END %]
+          [% FOREACH item IN branch.items %]
+          [% IF item.reason != 'in-demand' %]
+          Nimeke: [% item.title %]<br>
+          Tekijä: [% item.author %]<br>
+          Luokka: [% item.callnumber %]<br>
+          Hyllypaikka: [% item.location %]<br>
+          Viivakoodi: [% item.barcode %]<br>
+          Lainassa?: [% item.onloan %]<br>
+          Tila: [% item.reason %]<br>
+          Nykyinen kirjasto: [% item.branch.branchname %] [% item.branch.branchcode %]<br>
+          [% END %]
+          [% END %]
+          </p>
         title: Kiertokokoelmaraportti

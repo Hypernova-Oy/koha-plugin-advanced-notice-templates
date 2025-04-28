@@ -3,23 +3,22 @@ module: circulation
 name: Palautuspyyntö niteelle
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavaan
-          niteeseen on palautuspyyntö: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>).
-          Eräpäivä on muuttunu. Uusi eräpäivä on: <<issues.date_due>>. Palauta nide
-          muuttuneeseen eräpäivään mennessä.\r\n\r\nKiitos!"
+        content: |
+          <p>Lainaamaasi niteeseen on tullut palautuspyyntö ja eräpäivä on muuttunut.</p>
+          <p>Tarkista uusi eräpäivä verkkokirjastosta.</p>
         title: Palautuspyyntö niteelle
       default:
-        content: "Pvm: <<today>>\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nSeuraavaan
-          niteeseen on palautuspyyntö: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>).
+        content: |
+          <p>Seuraavaan niteeseen on palautuspyyntö: <<biblio.title>> / <<biblio.author>> (<<items.barcode>>).
           Eräpäivä on muuttunu. Uusi eräpäivä on: <<issues.date_due>>. Palauta nide
-          muuttuneeseen eräpäivään mennessä.\r\n\r\nKiitos!"
+          muuttuneeseen eräpäivään mennessä.</p>
         title: Palautuspyyntö niteelle
   sms:
     plain:
       anonymous:
-        content: 'Lainaamasi nide on takaisinkutsuttu: <<biblio.title>> (<<items.barcode>>).
+        content: 'Lainaamasi nide on takaisinkutsuttu.
           Palauta se kirjastoon <<issues.date_due>.'
         title: Palauta takaisinkutsuttu nide
       default:

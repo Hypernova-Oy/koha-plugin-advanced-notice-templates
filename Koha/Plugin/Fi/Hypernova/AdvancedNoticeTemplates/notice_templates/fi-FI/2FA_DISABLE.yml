@@ -1,16 +1,18 @@
 ---
 module: members
-name: Vahvistetaan kaksivaiheisen todennuksen käytöstäpoisto
+name: Kaksivaiheinen tunnistautuminen poistettu käytöstä
 template:
   email:
     html:
       anonymous:
-        content: "<p>Hyvä [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Tililtäsi
-          on poistettu käytöstä kaksivaiheinen tunnistautuminen.</p>\r\n<p>Jos et
-          pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys kirjastoon.</p>\r\n<p>Kirjastosi</p>"
-        title: Vahvistetaan kaksivaiheisen todennuksen käytöstäpoisto
+        content: |
+          <p>Tililtäsi on poistettu käytöstä kaksivaiheinen tunnistautuminen.</p>
+          <p>Jos et pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys
+          kirjastoon.</p>
+        title: Kaksivaiheinen tunnistautuminen poistettu käytöstä
       default:
-        content: "<p>Hyvä [% borrower.firstname %] [% borrower.surname %],</p>\r\n<p>Tililtäsi
-          on poistettu käytöstä kaksivaiheinen tunnistautuminen.</p>\r\n<p>Jos et
-          pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys kirjastoon.</p>\r\n<p>Kirjastosi</p>"
-        title: Vahvistetaan kaksivaiheisen todennuksen käytöstäpoisto
+        content: |
+          <p>Tililtäsi on poistettu käytöstä kaksivaiheinen tunnistautuminen.</p>
+          <p>Jos et pyytänyt tätä muutosta, joku muu saattaa käyttää tiliäsi. Ota yhteys
+          kirjastoon.</p>
+        title: Kaksivaiheinen tunnistautuminen poistettu käytöstä

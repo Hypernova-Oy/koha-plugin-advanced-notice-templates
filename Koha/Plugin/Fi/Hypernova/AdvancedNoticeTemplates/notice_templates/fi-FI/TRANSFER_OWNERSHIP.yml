@@ -1,22 +1,18 @@
 ---
 module: lists
-name: Transfer ownership
+name: Listan omistajan muutos
 template:
   email:
     html:
       anonymous:
-        content: "Hyvä [%- INCLUDE 'patron-title.inc' patron => owner -%],<br>\r\n<br>\r\nA
-          public list, titled <em>[% shelf.shelfname | html %]</em>, has been transferred
-          to you[% IF ( librarian ) %] by [%- INCLUDE 'patron-title.inc' patron =>
-          librarian %][% END %].<br>\r\n<br>\r\n[% IF old_owner %]The list was previously
-          owned by [%- INCLUDE 'patron-title.inc' patron => old_owner -%].<br><br>[%
-          END %]\r\nThank you<br>\r\n<br>"
-        title: A list has been transferred to you
+        content: |
+          <p>Julkinen lista on siirretty sinulle.</p>
+          <p>Tarkista listasi verkkokirjastosta.</p>
+        title: Lista on siirretty sinulle
       default:
-        content: "Hyvä [%- INCLUDE 'patron-title.inc' patron => owner -%],<br>\r\n<br>\r\nA
-          public list, titled <em>[% shelf.shelfname | html %]</em>, has been transferred
-          to you[% IF ( librarian ) %] by [%- INCLUDE 'patron-title.inc' patron =>
-          librarian %][% END %].<br>\r\n<br>\r\n[% IF old_owner %]The list was previously
-          owned by [%- INCLUDE 'patron-title.inc' patron => old_owner -%].<br><br>[%
-          END %]\r\nThank you<br>\r\n<br>"
-        title: A list has been transferred to you
+        content: |
+          <p>Julkinen lista <em>[% shelf.shelfname | html %]</em> on siirretty sinulle [% IF ( librarian ) %] käyttäjältä [%- INCLUDE 'patron-title.inc' patron =>
+          librarian %][% END %].</p>
+          [% IF old_owner %]<p>Listan entinen omistaja oli [%- INCLUDE 'patron-title.inc' patron => old_owner -%].</p>[% END %]
+          <p>Tarkista listasi verkkokirjastosta.</p>
+        title: Lista on siirretty sinulle

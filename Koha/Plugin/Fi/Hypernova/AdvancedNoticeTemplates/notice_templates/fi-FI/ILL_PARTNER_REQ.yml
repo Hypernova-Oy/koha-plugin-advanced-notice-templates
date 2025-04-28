@@ -3,42 +3,58 @@ module: ill
 name: Kaukolainapyyntö yhteistyökumppaneille
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä herra/rouva,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
-          teosta:\r\n\r\n[% ill_full_metadata %]\r\n\r\nIlmoitettahan meille, jos
-          kaukolainapyyntö on saatavissa kauttanne.\r\n\r\nYstävällisin terveisin\r\n\r\n[%
-          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
-          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
-          %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>Hei,</p>
+          <p>Haluaisimme pyytää kaukolainaan seuraavaa teosta:</p>
+          <p>[% ill_full_metadata %]</p>
+          <p>Ilmoitettahan meille, jos kaukolainapyyntö on saatavissa kauttanne.</p>
+          <p>Ystävällisin terveisin,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Kaukolainapyyntö yhteistyökumppaneille
       default:
-        content: "Hyvä herra/rouva,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
-          teosta:\r\n\r\n[% ill_full_metadata %]\r\n\r\nIlmoitettahan meille, jos
-          kaukolainapyyntö on saatavissa kauttanne.\r\n\r\nYstävällisin terveisin\r\n\r\n[%
-          branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
-          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
-          %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>Hei,</p>
+          <p>Haluaisimme pyytää kaukolainaan seuraavaa teosta:</p>
+          <p>[% ill_full_metadata %]</p>
+          <p>Ilmoitettahan meille, jos kaukolainapyyntö on saatavissa kauttanne.</p>
+          <p>Ystävällisin terveisin,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Kaukolainapyyntö yhteistyökumppaneille
   sms:
     plain:
       anonymous:
-        content: "Hyvä herra/rouva,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
+        content: "Hei,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
           teosta:\r\n\r\n[% ill_full_metadata %]\r\n\r\nIlmoitettahan meille, jos
           kaukolainapyyntö on saatavissa kauttanne.\r\n\r\nYstävällisin terveisin\r\n\r\n[%
           branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
-          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchzip %] [% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
           %]\r\n[% branch.branchemail %]"
         title: Kaukolainapyyntö yhteistyökumppaneille
       default:
-        content: "Hyvä herra/rouva,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
+        content: "Hei,\r\n\r\nHaluaisimme pyytää kaukolainaan seuraavaa
           teosta:\r\n\r\n[% ill_full_metadata %]\r\n\r\nIlmoitettahan meille, jos
           kaukolainapyyntö on saatavissa kauttanne.\r\n\r\nYstävällisin terveisin\r\n\r\n[%
           branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity %]\r\n[% branch.branchstate
-          %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
+          %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchzip %] [% branch.branchcity %]\r\n[% branch.branchstate
+          %]\r\n[% branch.branchphone %]\r\n[% branch.branchillemail
           %]\r\n[% branch.branchemail %]"
         title: Kaukolainapyyntö yhteistyökumppaneille

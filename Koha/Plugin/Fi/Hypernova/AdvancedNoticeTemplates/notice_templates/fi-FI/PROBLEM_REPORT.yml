@@ -3,14 +3,18 @@ module: members
 name: Verkkokirjaston vikailmoitukset
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Käyttäjätunnus: <<problem_reports.username>>\r\n\r\nOngelmasivu:
-          <<problem_reports.problempage>>\r\n\r\nOtsikko: <<problem_reports.title>>\r\n\r\nViesti:
-          <<problem_reports.content>>"
+        content: |
+          <p>Asiakkaan ID (borrowernumber): <<problem_reports.borrowernumber>></p>
+          <p>Ongelmasivu: <<problem_reports.problempage>></p>
+          <p>Otsikko: <<problem_reports.title>></p>
+          <p>Viesti: <<problem_reports.content>></p>
         title: Verkkokirjaston vikailmoitukset
       default:
-        content: "Käyttäjätunnus: <<problem_reports.username>>\r\n\r\nOngelmasivu:
-          <<problem_reports.problempage>>\r\n\r\nOtsikko: <<problem_reports.title>>\r\n\r\nViesti:
-          <<problem_reports.content>>"
+        content: |
+          <p>Asiakkaan ID (borrowernumber): <<problem_reports.borrowernumber>></p>
+          <p>Ongelmasivu: <<problem_reports.problempage>></p>
+          <p>Otsikko: <<problem_reports.title>></p>
+          <p>Viesti: <<problem_reports.content>></p>
         title: Verkkokirjaston vikailmoitukset

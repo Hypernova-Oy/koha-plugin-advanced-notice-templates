@@ -5,12 +5,18 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHei,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] lähetti sinulle verkkokirjastostamme
-          korinsa.<br>\r\nHuomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hei,</p>
+          <p>Sinulle on lähetetty verkkokirjastostamme kori.<p>
+          <p>Huomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät
           kirjastot ja useimmat viitteidenhallintaohjelmat kuten EndNote, Referece
-          Manager tai ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[% comment | html
+          Manager tai ProCite.</p>
+          <p>
+          [% IF ( comment ) %]<hr><br>[% comment | html
           | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH biblio IN biblios
           %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle ) %][% FOREACH
           subtitle IN biblio.subtitle.split(' | ') %][% subtitle | html %][% END %][%
@@ -45,15 +51,22 @@ template:
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
           END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
+          END %]</ol>
+          </p>
         title: Korisi
       default:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHei,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] lähetti sinulle verkkokirjastostamme
-          korinsa.<br>\r\nHuomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hei,</p>
+          <p>[% borrower.firstname | html %] [% borrower.surname | html %] lähetti sinulle verkkokirjastostamme korinsa.<p>
+          <p>Huomaa, että liitetiedosto on MARC-formaatissa, jota käyttävät
           kirjastot ja useimmat viitteidenhallintaohjelmat kuten EndNote, Referece
-          Manager tai ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[% comment | html
+          Manager tai ProCite.</p>
+          <p>
+          [% IF ( comment ) %]<hr><br>[% comment | html
           | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH biblio IN biblios
           %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle ) %][% FOREACH
           subtitle IN biblio.subtitle.split(' | ') %][% subtitle | html %][% END %][%
@@ -88,5 +101,6 @@ template:
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
           END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
+          END %]</ol>
+          </p>
         title: Korisi

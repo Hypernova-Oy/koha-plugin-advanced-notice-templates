@@ -5,22 +5,30 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE Koha -%]\r\nHyvä kuvailija,<br>\r\n[%-
-          INCLUDE 'patron-title.inc' patron => ticket.reporter -%] raportoi seuraavan
-          kuvailutietojen virheen <a href='[%- Koha.Preference('staffClientBaseURL')
+        content: |
+          [%- PROCESS 'html_helpers.inc' -%]
+          [%- USE Koha -%]
+          <p>Hyvä kuvailija,</p>
+          <p>Seuraava kuvailutietojen virhe on raportoitu <a href='[%- Koha.Preference('staffClientBaseURL')
           -%]/cgi-bin/koha/catalogue/detail.pl?biblionumber=[% ticket.biblio.biblionumber
-          %]' >[%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%]</a><br>\r\n<br>\r\n[%-
-          ticket.body -%]<br>\r\n<br>\r\nVoit merkitä tämän virheilmoituksen käsitellyksi
-          <a href='[%- Koha.Preference('staffClientBaseURL') -%]/cgi-bin/koha/cataloguing/concerns.pl'>virheilmoitusten
-          käsittelysivulla</a>."
+          %]' >[%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%]</a><br>
+          <br>
+          Voit merkitä tämän virheilmoituksen käsitellyksi <a href='[%- Koha.Preference('staffClientBaseURL') -%]/cgi-bin/koha/cataloguing/concerns.pl'>virheilmoitusten
+          käsittelysivulla</a>.
+          </p>
         title: Kuvailutietojen virhe raportoitu
       default:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\n[%- USE Koha -%]\r\nHyvä kuvailija,<br>\r\n[%-
-          INCLUDE 'patron-title.inc' patron => ticket.reporter -%] raportoi seuraavan
-          kuvailutietojen virheen <a href='[%- Koha.Preference('staffClientBaseURL')
+        content: |
+          [%- PROCESS 'html_helpers.inc' -%]
+          [%- USE Koha -%]
+          <p>Hyvä kuvailija,</p>
+          <p>Seuraava kuvailutietojen virhe on raportoitu <a href='[%- Koha.Preference('staffClientBaseURL')
           -%]/cgi-bin/koha/catalogue/detail.pl?biblionumber=[% ticket.biblio.biblionumber
-          %]' >[%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%]</a><br>\r\n<br>\r\n[%-
-          ticket.body -%]<br>\r\n<br>\r\nVoit merkitä tämän virheilmoituksen käsitellyksi
-          <a href='[%- Koha.Preference('staffClientBaseURL') -%]/cgi-bin/koha/cataloguing/concerns.pl'>virheilmoitusten
-          käsittelysivulla</a>."
+          %]' >[%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0 -%]</a><br>
+          <br>
+          [%- ticket.body -%]<br>
+          <br>
+          Voit merkitä tämän virheilmoituksen käsitellyksi <a href='[%- Koha.Preference('staffClientBaseURL') -%]/cgi-bin/koha/cataloguing/concerns.pl'>virheilmoitusten
+          käsittelysivulla</a>.
+          </p>
         title: Kuvailutietojen virhe raportoitu

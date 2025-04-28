@@ -5,26 +5,51 @@ template:
   email:
     html:
       anonymous:
-        content: "<h5>Pvm: [% today | $KohaDates %]</h5>\r\n<br>\r\n<h3> Kuljetus/Varaus
-          [% branch.branchname %]</h3>\r\n<br>\r\n<h3>[% borrower.surname %], [% borrower.firstname
-          %]</h3>\r\n<br>\r\n<ul>\r\n    <li>[% borrower.cardnumber %]</li>\r\n    <li>[%
-          borrower.phone %]</li>\r\n    <li> [% borrower.address %]<br>\r\n         [%
-          borrower.address2 %]<br>\r\n         [% borrower.city %] [% borrower.zipcode
-          %]\r\n    </li>\r\n    <li>[% borrower.email %]</li>\r\n</ul>\r\n<br>\r\n<h3>VARATTU
-          NIDE</h3>\r\n<h4>[% biblio.title %]</h4>\r\n<h5>[% biblio.author %]</h5>\r\n<ul>\r\n
-          \  <li>[% item.barcode %]</li>\r\n   <li>[% item.itemcallnumber %]</li>\r\n
-          \  <li>[% reserve.waitingdate | $KohaDates %]</li>\r\n</ul>\r\n<p>Huomautukset:\r\n<pre>[%
-          reserve.reservenotes %]</pre>\r\n</p>"
+        content: |
+          <h5>Pvm: [% today | $KohaDates %]</h5>
+          <br>
+          <h3>Kuljetus/Varaus [% branch.branchname %]</h3>
+          <br>
+          <br>
+          <h3>VARATTU NIDE</h3>
+          <h4>[% biblio.title %]</h4>
+          <h5>[% biblio.author %]</h5>
+          <ul>
+          \  <li>[% item.barcode %]</li>
+             <li>[% item.itemcallnumber %]</li>
+          \  <li>[% reserve.waitingdate | $KohaDates %]</li>
+          </ul>
+          <p>Huomautukset:
+          <pre>[% reserve.reservenotes %]</pre>
+          </p>
         title: Varauskuitti
       default:
-        content: "<h5>Pvm: [% today | $KohaDates %]</h5>\r\n<br>\r\n<h3> Kuljetus/Varaus
-          [% branch.branchname %]</h3>\r\n<br>\r\n<h3>[% borrower.surname %], [% borrower.firstname
-          %]</h3>\r\n<br>\r\n<ul>\r\n    <li>[% borrower.cardnumber %]</li>\r\n    <li>[%
-          borrower.phone %]</li>\r\n    <li> [% borrower.address %]<br>\r\n         [%
-          borrower.address2 %]<br>\r\n         [% borrower.city %] [% borrower.zipcode
-          %]\r\n    </li>\r\n    <li>[% borrower.email %]</li>\r\n</ul>\r\n<br>\r\n<h3>VARATTU
-          NIDE</h3>\r\n<h4>[% biblio.title %]</h4>\r\n<h5>[% biblio.author %]</h5>\r\n<ul>\r\n
-          \  <li>[% item.barcode %]</li>\r\n   <li>[% item.itemcallnumber %]</li>\r\n
-          \  <li>[% reserve.waitingdate | $KohaDates %]</li>\r\n</ul>\r\n<p>Huomautukset:\r\n<pre>[%
-          reserve.reservenotes %]</pre>\r\n</p>"
+        content: |
+          <h5>Pvm: [% today | $KohaDates %]</h5>
+          <br>
+          <h3>Kuljetus/Varaus [% branch.branchname %]</h3>
+          <br>
+          <h3>[% borrower.surname %], [% borrower.firstname %]</h3>
+          <br>
+          <ul>
+            <li>[% borrower.cardnumber %]</li>
+            <li>[% borrower.phone %]</li>
+            <li>[% borrower.address %]<br>
+              [% borrower.address2 %]<br>
+              [% borrower.city %] [% borrower.zipcode %]
+            </li>
+            <li>[% borrower.email %]</li>
+          </ul>
+          <br>
+          <h3>VARATTU NIDE</h3>
+          <h4>[% biblio.title %]</h4>
+          <h5>[% biblio.author %]</h5>
+          <ul>
+          \  <li>[% item.barcode %]</li>
+             <li>[% item.itemcallnumber %]</li>
+          \  <li>[% reserve.waitingdate | $KohaDates %]</li>
+          </ul>
+          <p>Huomautukset:
+          <pre>[% reserve.reservenotes %]</pre>
+          </p>
         title: Varauskuitti

@@ -1,20 +1,24 @@
 ---
 module: circulation
-name: Käyttäjätilin poistaminen
+name: Maksu hyvitetty
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[%- USE Price -%]\r\nMaksuistasi on poistettu summa [% credit.amount
-          * -1 | $Price %].\r\n\r\nPoisto vaikuttaa seuraaviin maksuihin:\r\n[%- FOREACH
-          o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu määrä:
-          [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
-          | $Price %]\r\n[% END %]"
-        title: Käyttäjätilin poistaminen
+        content: |
+          [%- USE Price -%]
+          <p>Maksujasi on hyvitetty.</p>
+          <p>Tarkista maksusi verkkokirjastosta.</p>
+        title: Maksu hyvitetty
       default:
-        content: "[%- USE Price -%]\r\nMaksuistasi on poistettu summa [% credit.amount
-          * -1 | $Price %].\r\n\r\nPoisto vaikuttaa seuraaviin maksuihin:\r\n[%- FOREACH
-          o IN offsets %]\r\nKuvaus: [% o.debit.description %]\r\nMaksettu määrä:
-          [% o.amount * -1 | $Price %]\r\nJäljelle jäänyt määrä: [% o.debit.amountoutstanding
-          | $Price %]\r\n[% END %]"
-        title: Käyttäjätilin poistaminen
+        content: |
+          [%- USE Price -%]
+          <p>Maksuihisi on tehty [% credit.amount * -1 | $Price %] hyvitys.
+          Hyvitysvaikuttaa seuraaviin maksuihin:</p>
+          [%- FOREACH o IN offsets %]
+            <br>
+            Kuvaus: [% o.debit.description %]<br>
+            Maksettu määrä: [% o.amount * -1 | $Price %]<br>
+            Jäljelle jäänyt määrä: [% o.debit.amountoutstanding| $Price %]<br>
+          [% END %]"
+        title: Maksu hyvitetty

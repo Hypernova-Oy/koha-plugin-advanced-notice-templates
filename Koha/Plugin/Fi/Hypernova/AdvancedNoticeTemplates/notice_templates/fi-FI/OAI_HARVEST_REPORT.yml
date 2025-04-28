@@ -1,20 +1,40 @@
 ---
 module: catalogue
-name: OAI harvest report
+name: OAI haravointiraportti
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "OAI harvest report for [% servername %]:\r\n\r\nEndpoint: [% endpoint
-          %]\r\nSet: [% set %]\r\nData format: [% dataformat %]\r\nRecord type: [%
-          recordtype %]\r\n\r\n[% added %] records added\r\n[% updated %] records
-          updated\r\n[% deleted %] records deleted\r\n[% skipped %] records skipped\r\n[%
-          in_error %] records in error\r\n[% total %] total"
-        title: OAI harvest report for [% servername %]
+        content: |
+          <p>OAI haravointiraportti [% servername %]:
+          <p>
+          Endpoint: [% endpoint %]<br>
+          Set: [% set %]<br>
+          Data format: [% dataformat %]<br>
+          Record type: [% recordtype %]
+          <br>
+          [% added %] records added<br>
+          [% updated %] records updated<br>
+          [% deleted %] records deleted<br>
+          [% skipped %] records skipped<br>
+          [% in_error %] records in error<br>
+          [% total %] total
+          </p>
+        title: OAI haravointiraportti [% servername %]
       default:
-        content: "OAI harvest report for [% servername %]:\r\n\r\nEndpoint: [% endpoint
-          %]\r\nSet: [% set %]\r\nData format: [% dataformat %]\r\nRecord type: [%
-          recordtype %]\r\n\r\n[% added %] records added\r\n[% updated %] records
-          updated\r\n[% deleted %] records deleted\r\n[% skipped %] records skipped\r\n[%
-          in_error %] records in error\r\n[% total %] total"
-        title: OAI harvest report for [% servername %]
+        content: |
+          <p>OAI haravointiraportti [% servername %]:
+          <p>
+          Endpoint: [% endpoint %]<br>
+          Set: [% set %]<br>
+          Data format: [% dataformat %]<br>
+          Record type: [% recordtype %]
+          <br>
+          [% added %] records added<br>
+          [% updated %] records updated<br>
+          [% deleted %] records deleted<br>
+          [% skipped %] records skipped<br>
+          [% in_error %] records in error<br>
+          [% total %] total
+          </p>
+        title: OAI haravointiraportti [% servername %]

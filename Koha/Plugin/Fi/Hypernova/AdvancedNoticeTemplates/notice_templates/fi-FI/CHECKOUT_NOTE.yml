@@ -3,14 +3,16 @@ module: circulation
 name: Asiakkaan tekemä huomautus niteelle
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
-          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
-          checkout.note %]"
+        content: |
+          <p>Niteelle [% biblio.title %] / [% biblio.author %] ([% item.barcode %]) 
+          on lisätty uusi lainahuomautus.</p>
+          <p>Tarkista lainahuomautus niteen tiedoista.</p>
         title: Lainahuomautus
       default:
-        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
-          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
-          checkout.note %]"
+        content: |
+          <p>[% borrower.firstname %] [% borrower.surname %] on lisännyt
+          niteelle [% biblio.title %] by [% biblio.author %] ([% item.barcode %]) lainahuomautuksen.</p>
+          <p>Lainahuomautus: <strong>[% checkout.note %]</strong></p>
         title: Lainahuomautus

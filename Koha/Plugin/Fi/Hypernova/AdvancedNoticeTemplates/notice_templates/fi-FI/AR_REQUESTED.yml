@@ -3,26 +3,28 @@ module: circulation
 name: Artikkelipyyntö - uusi
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nOlemme
-          vastaanottaneet pyyntösi artikkelista <<biblio.title>> (<<items.barcode>>).\r\n\r\nArtikkelia
-          pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä: <<article_requests.author>>\r\nVuosikerta:
-          <<article_requests.volume>>\r\nNumero: <<article_requests.issue>>\r\nPvm:
-          <<article_requests.date>>\r\nSisällysluettelo: [% IF article_request.toc_request
-          %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua: <<article_requests.pages>>\r\nLuvut:
-          <<article_requests.chapters>>\r\nHuomautukset: <<article_requests.patron_notes>>\r\nMuoto:
-          [% IF article_request.format == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format
-          == 'SCAN' %]Skannaus[% END %]\r\n\r\nKiitos!"
+        content: |
+          <p>Artikkelipyyntösi on vastaanotettu ja otetaan pian käsiteltäväksi.</p>
+          <p>Tarkista artikkelipyyntösi tila verkkokirjastosta.</p>
         title: Artikkelipyyntö saapunut
       default:
-        content: "Hyvä <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)\r\n\r\nOlemme
-          vastaanottaneet pyyntösi artikkelista <<biblio.title>> (<<items.barcode>>).\r\n\r\nArtikkelia
-          pyydetty:\r\nOtsikko: <<article_requests.title>>\r\nTekijä: <<article_requests.author>>\r\nVuosikerta:
-          <<article_requests.volume>>\r\nNumero: <<article_requests.issue>>\r\nPvm:
-          <<article_requests.date>>\r\nSisällysluettelo: [% IF article_request.toc_request
-          %]Kyllä[% ELSE %]Ei[% END %]\r\nSivua: <<article_requests.pages>>\r\nLuvut:
-          <<article_requests.chapters>>\r\nHuomautukset: <<article_requests.patron_notes>>\r\nMuoto:
-          [% IF article_request.format == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format
-          == 'SCAN' %]Skannaus[% END %]\r\n\r\nKiitos!"
+        content: |
+          <p>Artikkelipyyntösi <<biblio.title>> (<<items.barcode>>) on vastaanotettu
+          ja otetaan pian käsiteltäväksi.</p>
+          <h4>Pyydetty artikkeli</h4>
+          <p>
+          Otsikko: <<article_requests.title>><br>
+          Tekijä: <<article_requests.author>><br>
+          Vuosikerta: <<article_requests.volume>><br>
+          Numero: <<article_requests.issue>><br>
+          Pvm: <<article_requests.date>><br>
+          Sisällysluettelo: [% IF article_request.toc_request %]Kyllä[% ELSE %]Ei[% END %]<br>
+          Sivua: <<article_requests.pages>><br>
+          Luvut: <<article_requests.chapters>><br>
+          Huomautukset: <<article_requests.patron_notes>><br>
+          Muoto: [% IF article_request.format == 'PHOTOCOPY' %]Valokopio[% ELSIF article_request.format
+          == 'SCAN' %]Skannaus[% END %]
+          </p>
         title: Artikkelipyyntö saapunut
