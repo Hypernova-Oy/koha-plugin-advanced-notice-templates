@@ -3,14 +3,14 @@ module: suggestions
 name: Notify fund owner
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nA new
-          suggestion is ready to be processed: [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>A new suggestion is ready to be processed: [% suggestion.title %] by [% suggestion.author
+          %].</p>
         title: A suggestion is ready to be processed
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nA new
-          suggestion is ready to be processed: [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>A new suggestion is ready to be processed: [% suggestion.title %] by [% suggestion.author
+          %].</p>
         title: A suggestion is ready to be processed

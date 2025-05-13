@@ -3,14 +3,15 @@ module: lists
 name: Notification about an accepted share
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear patron,\r\n\r\nWe want to inform you that <<borrowers.firstname>>
-          <<borrowers.surname>> accepted your invitation to share your list <<listname>>
-          in our library catalog.\r\n\r\nThank you.\r\n\r\nYour library."
+        content: |
+          <p>We want to inform you that your invitation to share your list <<listname>>
+          in our library catalog has been accepted.</p>
         title: Share on list <<listname>> accepted
       default:
-        content: "Dear patron,\r\n\r\nWe want to inform you that <<borrowers.firstname>>
-          <<borrowers.surname>> accepted your invitation to share your list <<listname>>
-          in our library catalog.\r\n\r\nThank you.\r\n\r\nYour library."
+        content: |
+          <p>We want to inform you that <<borrowers.firstname>> <<borrowers.surname>>
+          accepted your invitation to share your list <<listname>>
+          in our library catalog.</p>
         title: Share on list <<listname>> accepted

@@ -3,41 +3,47 @@ module: ill
 name: ILL request update
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          Interlibrary loans request number [% illrequest.illrequest_id %] you placed
-          for\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author %]\r\n\r\nhas been
-          updated.\r\n\r\nDetails of the update are below:\r\n\r\n[% additional_text
-          %]\r\n\r\nKind regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
-          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
-          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>The Interlibrary loans request number [% illrequest.illrequest_id %] has been updated.</p>
+          <p>Details of the update can be found from our online library.</p>
+          <p>Kind regards,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Interlibrary loan request update
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          Interlibrary loans request number [% illrequest.illrequest_id %] you placed
-          for\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author %]\r\n\r\nhas been
-          updated.\r\n\r\nDetails of the update are below:\r\n\r\n[% additional_text
-          %]\r\n\r\nKind regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
-          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
-          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>The Interlibrary loans request number [% illrequest.illrequest_id %] you placed for on [% ill_bib_title %] - [% ill_bib_author %] has been updated.</p>
+          <p>Details of the update are below:</p>
+          <p>[% additional_text %]</p>
+          <p>Kind regards,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Interlibrary loan request update
   sms:
     plain:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          Interlibrary loans request number [% illrequest.illrequest_id %] you placed
-          for\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author %]\r\n\r\nhas been
-          updated.\r\n\r\nDetails of the update are below:\r\n\r\n[% additional_text
-          %]\r\n\r\nKind regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1
-          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
-          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        content: |
+          The Interlibrary loans request number [% illrequest.illrequest_id %] you placed
+          for has been updated. Details of the update can be found from our online library.
         title: Interlibrary loan request update
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
+        content: "The
           Interlibrary loans request number [% illrequest.illrequest_id %] you placed
           for\r\n\r\n- [% ill_bib_title %] - [% ill_bib_author %]\r\n\r\nhas been
           updated.\r\n\r\nDetails of the update are below:\r\n\r\n[% additional_text

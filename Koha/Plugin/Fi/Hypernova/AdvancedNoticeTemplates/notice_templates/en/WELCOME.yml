@@ -5,24 +5,28 @@ template:
   email:
     html:
       anonymous:
-        content: "[% USE Koha %]\r\nHello [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %].<br>\r\n<br>\r\nThank you for joining [% IF Koha.Preference('LibraryName')
-          %][% Koha.Preference('LibraryName') %][% ELSE %]the library[% END %]<br>\r\n<br>\r\nYou
-          can search for all our materials in our <a href='[% Koha.Preference('OPACBaseURL')
-          %]'>catalog</a>.<br>\r\n<br>\r\nYour library card number is [% borrower.cardnumber
-          %]<br>\r\n<br>\r\nIf you have any problems or questions regarding your account,
-          please contact the library."
+        content: |
+          [% USE Koha %]
+          <p>Thank you for joining [% IF Koha.Preference('LibraryName')
+          %][% Koha.Preference('LibraryName') %][% ELSE %]the library[% END %]</p>
+          <p>You can search for all our materials in our <a href='[% Koha.Preference('OPACBaseURL')
+          %]'>catalog</a>.</p>
+          [% IF borrower.cardnumber %]<p>Your library card number can be seen from our online library after logging in.</p>[% END %]
+          <p>If you have any problems or questions regarding your account,
+          please contact the library.</p>
         title: '[% USE Koha %][% IF Koha.Preference(''LibraryName'') %]Welcome to
           [% Koha.Preference(''LibraryName'') %][% ELSE %]Welcome to the library[%
           END %]'
       default:
-        content: "[% USE Koha %]\r\nHello [% borrower.title %] [% borrower.firstname
-          %] [% borrower.surname %].<br>\r\n<br>\r\nThank you for joining [% IF Koha.Preference('LibraryName')
-          %][% Koha.Preference('LibraryName') %][% ELSE %]the library[% END %]<br>\r\n<br>\r\nYou
-          can search for all our materials in our <a href='[% Koha.Preference('OPACBaseURL')
-          %]'>catalog</a>.<br>\r\n<br>\r\nYour library card number is [% borrower.cardnumber
-          %]<br>\r\n<br>\r\nIf you have any problems or questions regarding your account,
-          please contact the library."
+        content: |
+          [% USE Koha %]
+          <p>Thank you for joining [% IF Koha.Preference('LibraryName')
+          %][% Koha.Preference('LibraryName') %][% ELSE %]the library[% END %]</p>
+          <p>You can search for all our materials in our <a href='[% Koha.Preference('OPACBaseURL')
+          %]'>catalog</a>.</p>
+          [% IF borrower.cardnumber %]<p>Your library card number is [% borrower.cardnumber %]</p>[% END %]
+          <p>If you have any problems or questions regarding your account,
+          please contact the library.</p>
         title: '[% USE Koha %][% IF Koha.Preference(''LibraryName'') %]Welcome to
           [% Koha.Preference(''LibraryName'') %][% ELSE %]Welcome to the library[%
           END %]'

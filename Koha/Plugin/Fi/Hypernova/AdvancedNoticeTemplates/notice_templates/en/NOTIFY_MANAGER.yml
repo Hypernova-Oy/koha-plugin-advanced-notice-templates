@@ -3,14 +3,12 @@ module: suggestions
 name: Notify manager of a suggestion
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nA new
-          suggestion has been assigned to you: [% suggestion.title %].\r\n\r\nThank
-          you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>A new suggestion has been assigned to you: [% suggestion.title %].</p>
         title: A suggestion has been assigned to you
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nA new
-          suggestion has been assigned to you: [% suggestion.title %].\r\n\r\nThank
-          you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>A new suggestion has been assigned to you: [% suggestion.title %].</p>
         title: A suggestion has been assigned to you

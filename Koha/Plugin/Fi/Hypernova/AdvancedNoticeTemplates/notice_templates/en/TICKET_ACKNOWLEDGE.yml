@@ -5,16 +5,12 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
-          patron => ticket.reporter -%],<br>\r\n<br>\r\nThank you for your report
-          concerning [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0
-          -%].<br>\r\n<br>\r\nYou reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nThank
-          you"
+        content: |
+          <p>Thank you for your catalog concern report.</p>
+          <p>Your report has been acknowledged and a librarian will process it as soon as possible.</p>
         title: Catalog concern acknowledgment
       default:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
-          patron => ticket.reporter -%],<br>\r\n<br>\r\nThank you for your report
-          concerning [%- INCLUDE 'biblio-title.inc' biblio=ticket.biblio link = 0
-          -%].<br>\r\n<br>\r\nYou reported: <br>\r\n[%- ticket.body -%]<br>\r\n<br>\r\nThank
-          you"
+        content: |
+          <p>Thank you for your catalog concern report.</p>
+          <p>Your report has been acknowledged and a librarian will process it as soon as possible.</p>
         title: Catalog concern acknowledgment

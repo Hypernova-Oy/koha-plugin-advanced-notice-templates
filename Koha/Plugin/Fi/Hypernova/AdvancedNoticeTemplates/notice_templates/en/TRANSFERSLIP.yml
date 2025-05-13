@@ -5,10 +5,30 @@ template:
   email:
     html:
       anonymous:
-        content: "<h5>Date: <<today>></h5>\r\n<br>\r\n<h3>Transfer to <<branches.branchname>></h3>\r\n<br>\r\n<h3>ITEM</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
-          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n</ul>"
+        content: |
+          <h5>Date: <<today>></h5>
+          <br>
+          <h3>Transfer to <<branches.branchname>></h3>
+          <br>
+          <h3>ITEM</h3>
+          <h4><<biblio.title>></h4>
+          <h5><<biblio.author>></h5>
+          <ul>
+          \  <li><<items.barcode>></li>
+             <li><<items.itemcallnumber>></li>
+          </ul>
         title: Transfer slip
       default:
-        content: "<h5>Date: <<today>></h5>\r\n<br>\r\n<h3>Transfer to <<branches.branchname>></h3>\r\n<br>\r\n<h3>ITEM</h3>\r\n<h4><<biblio.title>></h4>\r\n<h5><<biblio.author>></h5>\r\n<ul>\r\n
-          \  <li><<items.barcode>></li>\r\n   <li><<items.itemcallnumber>></li>\r\n</ul>"
+        content: |
+          <h5>Date: <<today>></h5>
+          <br>
+          <h3>Transfer to <<branches.branchname>></h3>
+          <br>
+          <h3>ITEM</h3>
+          <h4><<biblio.title>></h4>
+          <h5><<biblio.author>></h5>
+          <ul>
+          \  <li><<items.barcode>></li>
+             <li><<items.itemcallnumber>></li>
+          </ul>
         title: Transfer slip

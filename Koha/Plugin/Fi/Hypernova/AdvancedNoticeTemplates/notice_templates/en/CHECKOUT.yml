@@ -3,22 +3,37 @@ module: circulation
 name: Item check-out (digest)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          <p>This is a confirmation of checked out items. For privacy reasons we will not display the checked out items in this notification.</p>
+          ----
+          ----
+          <p>Please check your checkouts and checkout history from our online library.</p>
         title: Checkouts
       default:
-        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          <p>This is a confirmation of checked out items.</p>
+          <p>The following items have been checked out:</p>
+          ----
+          <p>[% biblio.title %]</p>
+          ----
+          <p>Please check your checkouts and checkout history from our online library.</p>
         title: Checkouts
   sms:
     plain:
       anonymous:
-        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          You checked out items.
+          ----
+          ----
+          Please check your checkouts from our online library.
         title: Checkouts
       default:
-        content: "The following items have been checked out:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          The following items have been checked out:
+          ----
+          [% biblio.title %]
+          ----
+          Please check your checkouts from our online library.
         title: Checkouts

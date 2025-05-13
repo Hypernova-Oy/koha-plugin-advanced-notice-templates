@@ -3,10 +3,10 @@ module: commandline
 name: File SFTP success
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: SFTP upload succeeded
+        content: <p>SFTP upload succeeded</p>
         title: The SFTP by sftp_file.pl was successful
       default:
-        content: SFTP upload succeeded
+        content: <p>SFTP upload succeeded</p>
         title: The SFTP by sftp_file.pl was successful

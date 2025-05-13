@@ -3,14 +3,14 @@ module: serial
 name: New serial issue
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nThe following
-          issue is now available:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nPlease
-          pick it up at your convenience."
+        content: |
+          <p>New serial issue is now available.</p>
+          <p>Please pick it up at your convenience.</p>
         title: New serial issue is now available
       default:
-        content: "<<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nThe following
-          issue is now available:\r\n\r\n<<biblio.title>>, <<biblio.author>> (<<items.barcode>>)\r\n\r\nPlease
-          pick it up at your convenience."
+        content: |
+          <p>The following issue is now available: <<biblio.title>>, <<biblio.author>> (<<items.barcode>>)</p>
+          <p>Please pick it up at your convenience.</p>
         title: New serial issue is now available

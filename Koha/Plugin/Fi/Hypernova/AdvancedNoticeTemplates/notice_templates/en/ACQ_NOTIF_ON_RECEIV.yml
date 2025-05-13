@@ -3,14 +3,12 @@ module: acquisition
 name: Notification on receiving
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n The
-          order <<aqorders.ordernumber>> (<<biblio.title>>) has been received.\r\n\r\nYour
-          library."
+        content: |
+          The order <<aqorders.ordernumber>> has been received.
         title: Order received
       default:
-        content: "Dear <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\n The
-          order <<aqorders.ordernumber>> (<<biblio.title>>) has been received.\r\n\r\nYour
-          library."
+        content: |
+          The order <<aqorders.ordernumber>> (<<biblio.title>>) has been received.
         title: Order received

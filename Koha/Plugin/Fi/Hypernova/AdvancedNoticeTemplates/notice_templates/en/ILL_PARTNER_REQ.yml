@@ -3,24 +3,40 @@ module: ill
 name: ILL request to partners
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear Sir/Madam,\r\n\r\nWe would like to request an interlibrary
-          loan for a title matching the following description:\r\n\r\n[% ill_full_metadata
-          %]\r\n\r\nPlease let us know if you are able to supply this to us.\r\n\r\nKind
-          regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
-          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
-          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>Hello,</p>
+          <p>We would like to request an interlibrary loan for a title matching the following description:</p>
+          <p>[% ill_full_metadata %]</p>
+          <p>Please let us know if you are able to supply this to us.</p>
+          <p>Kind regards,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Interlibrary loan request to partners
       default:
-        content: "Dear Sir/Madam,\r\n\r\nWe would like to request an interlibrary
-          loan for a title matching the following description:\r\n\r\n[% ill_full_metadata
-          %]\r\n\r\nPlease let us know if you are able to supply this to us.\r\n\r\nKind
-          regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
-          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
-          %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
+        content: |
+          <p>Hello,</p>
+          <p>We would like to request an interlibrary loan for a title matching the following description:</p>
+          <p>[% ill_full_metadata %]</p>
+          <p>Please let us know if you are able to supply this to us.</p>
+          <p>Kind regards,<br>
+          [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          [% branch.branchstate %]<br>
+          [% branch.branchphone %]<br>
+          [% branch.branchillemail %]<br>
+          [% branch.branchemail %]</p>
         title: Interlibrary loan request to partners
   sms:
     plain:
@@ -29,8 +45,8 @@ template:
           loan for a title matching the following description:\r\n\r\n[% ill_full_metadata
           %]\r\n\r\nPlease let us know if you are able to supply this to us.\r\n\r\nKind
           regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
-          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchzip %] [% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchphone
           %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
         title: Interlibrary loan request to partners
       default:
@@ -38,7 +54,7 @@ template:
           loan for a title matching the following description:\r\n\r\n[% ill_full_metadata
           %]\r\n\r\nPlease let us know if you are able to supply this to us.\r\n\r\nKind
           regards\r\n\r\n[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[%
-          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %]\r\n[% branch.branchstate %]\r\n[% branch.branchzip %]\r\n[% branch.branchphone
+          branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchzip %] [% branch.branchcity
+          %]\r\n[% branch.branchstate %]\r\n[% branch.branchphone
           %]\r\n[% branch.branchillemail %]\r\n[% branch.branchemail %]"
         title: Interlibrary loan request to partners

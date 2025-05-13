@@ -5,12 +5,18 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHi,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] sent you a cart from our online
-          catalog.<br>\r\nPlease note that the attached file is a MARC bibliographic
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hi,</p>
+          <p>A cart has been sent to you from our online catalog.</p>
+          <p>Please note that the attached file is a MARC bibliographic
           records file which can be imported into personal bibliographic software
-          like EndNote, Reference Manager or ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[%
+          like EndNote, Reference Manager or ProCite.</p>
+          <p>
+          [% IF ( comment ) %]<hr><br>[%
           comment | html | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH
           biblio IN biblios %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle
           ) %][% FOREACH subtitle IN biblio.subtitle.split(' | ') %][% subtitle |
@@ -36,7 +42,7 @@ template:
           END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn | html %]<br>[%
           END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
           ) %]In: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE 'biblio-title.inc'
-          \ biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
+          biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
           %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
           IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n<a
           href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
@@ -46,15 +52,22 @@ template:
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
           END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
+          END %]</ol>
+          </p>
         title: Your cart
       default:
-        content: "[%- USE Branches -%]\r\n[%- USE AuthorisedValues -%]\r\n[%- USE
-          Koha -%]\r\n[%- PROCESS 'html_helpers.inc' -%]\r\nHi,<br><br>\r\n[% borrower.firstname
-          | html %] [% borrower.surname | html %] sent you a cart from our online
-          catalog.<br>\r\nPlease note that the attached file is a MARC bibliographic
+        content: |
+          [%- USE Branches -%]
+          [%- USE AuthorisedValues -%]
+          [%- USE Koha -%]
+          [%- PROCESS 'html_helpers.inc' -%]
+          <p>Hi,</p>
+          <p>A[% borrower.firstname | html %] [% borrower.surname | html %] sent you a cart  from our online catalog.</p>
+          <p>Please note that the attached file is a MARC bibliographic
           records file which can be imported into personal bibliographic software
-          like EndNote, Reference Manager or ProCite.<br>\r\n[% IF ( comment ) %]<hr><br>[%
+          like EndNote, Reference Manager or ProCite.</p>
+          <p>
+          [% IF ( comment ) %]<hr><br>[%
           comment | html | html_line_break %]<br><br>[% END %]<hr>\r\n<ol>[% FOREACH
           biblio IN biblios %]<li>\r\n[% biblio.title | html %]\r\n[% IF ( biblio.subtitle
           ) %][% FOREACH subtitle IN biblio.subtitle.split(' | ') %][% subtitle |
@@ -80,7 +93,7 @@ template:
           END %]\r\n[% IF ( biblioitem.lccn ) %]LCCN: [% biblioitem.lccn | html %]<br>[%
           END %]\r\n[% IF ( biblio.get_marc_host_only || biblio.get_marc_hostinfo_only
           ) %]In: [% IF biblio.get_marc_host_only.biblionumber %][% INCLUDE 'biblio-title.inc'
-          \ biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
+          biblio=biblio.get_marc_host_only %] [% biblio.get_marc_relatedparts_only
           %][% ELSE %][% biblio.get_marc_hostinfo_only %][% END %]<br>[% END %]\r\n[%
           IF ( biblioitem.url ) %]URL: [% biblioitem.url | html %]<br>[% END %]\r\n<a
           href='[% Koha.Preference('OpacBaseUrl') %]/cgi-bin/koha/opac-detail.pl?biblionumber=[%
@@ -90,5 +103,6 @@ template:
           kohafield => 'items.location', authorised_value => item.location ) | html
           %][% END %][% IF item.itemcallnumber %]([% item.itemcallnumber | html %])[%
           END %][% item.barcode | html %]</li>[% END %]</ul>[% END %]\r\n<hr></li>[%
-          END %]</ol>"
+          END %]</ol>
+          </p>
         title: Your cart

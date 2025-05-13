@@ -3,18 +3,38 @@ module: catalogue
 name: OAI harvest report
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "OAI harvest report for [% servername %]:\r\n\r\nEndpoint: [% endpoint
-          %]\r\nSet: [% set %]\r\nData format: [% dataformat %]\r\nRecord type: [%
-          recordtype %]\r\n\r\n[% added %] records added\r\n[% updated %] records
-          updated\r\n[% deleted %] records deleted\r\n[% skipped %] records skipped\r\n[%
-          in_error %] records in error\r\n[% total %] total"
+        content: |
+          <p>OAI harvest report for [% servername %]:</p>
+          <p>
+          Endpoint: [% endpoint %]<br>
+          Set: [% set %]<br>
+          Data format: [% dataformat %]<br>
+          Record type: [% recordtype %]<br>
+          <br>
+          [% added %] records added<br>
+          [% updated %] records updated<br>
+          [% deleted %] records deleted<br>
+          [% skipped %] records skipped<br>
+          [% in_error %] records in error<br>
+          [% total %] total
+          </p>
         title: OAI harvest report for [% servername %]
       default:
-        content: "OAI harvest report for [% servername %]:\r\n\r\nEndpoint: [% endpoint
-          %]\r\nSet: [% set %]\r\nData format: [% dataformat %]\r\nRecord type: [%
-          recordtype %]\r\n\r\n[% added %] records added\r\n[% updated %] records
-          updated\r\n[% deleted %] records deleted\r\n[% skipped %] records skipped\r\n[%
-          in_error %] records in error\r\n[% total %] total"
+        content: |
+          <p>OAI harvest report for [% servername %]:</p>
+          <p>
+          Endpoint: [% endpoint %]<br>
+          Set: [% set %]<br>
+          Data format: [% dataformat %]<br>
+          Record type: [% recordtype %]<br>
+          <br>
+          [% added %] records added<br>
+          [% updated %] records updated<br>
+          [% deleted %] records deleted<br>
+          [% skipped %] records skipped<br>
+          [% in_error %] records in error<br>
+          [% total %] total
+          </p>
         title: OAI harvest report for [% servername %]

@@ -3,22 +3,34 @@ module: circulation
 name: Item check-in (digest)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you."
+        content: |
+          <p>This is a confirmation of checked in items. For privacy reasons we will not display the returned items in this notification.</p>
+          ----
+          ----
+          <p>Please check your checkouts and checkout history from our online library.</p>
         title: Check-ins
       default:
-        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you."
+        content: |
+          <p>The following items have been checked in:</p>
+          ----
+          <p>[% biblio.title %]</p>
+          ----
         title: Check-ins
   sms:
     plain:
       anonymous:
-        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you."
+        content: |
+          You returned items.
+          ----
+          ----
+          Please check your checkouts from our online library.
         title: Check-ins
       default:
-        content: "The following items have been checked in:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you."
+        content: |
+          The following items have been checked in:
+          ----
+          [% biblio.title %]
+          ----
         title: Check-ins

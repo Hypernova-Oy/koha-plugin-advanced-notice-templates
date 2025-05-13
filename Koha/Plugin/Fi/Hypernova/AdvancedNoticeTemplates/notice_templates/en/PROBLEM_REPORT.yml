@@ -3,12 +3,18 @@ module: members
 name: OPAC problem report
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Username: <<problem_reports.username>>\r\n\r\nProblem page: <<problem_reports.problempage>>\r\n\r\nTitle:
-          <<problem_reports.title>>\r\n\r\nMessage: <<problem_reports.content>>"
+        content: |
+          <p>User ID (borrowernumber): <<problem_reports.borrowernumber>></p>
+          <p>Problem page: <<problem_reports.problempage>></p>
+          <p>Title: <<problem_reports.title>></p>
+          <p>Message: <<problem_reports.content>></p>
         title: OPAC problem report
       default:
-        content: "Username: <<problem_reports.username>>\r\n\r\nProblem page: <<problem_reports.problempage>>\r\n\r\nTitle:
-          <<problem_reports.title>>\r\n\r\nMessage: <<problem_reports.content>>"
+        content: |
+          <p>User ID (borrowernumber): <<problem_reports.borrowernumber>></p>
+          <p>Problem page: <<problem_reports.problempage>></p>
+          <p>Title: <<problem_reports.title>></p>
+          <p>Message: <<problem_reports.content>></p>
         title: OPAC problem report

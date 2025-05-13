@@ -3,18 +3,20 @@ module: reserves
 name: Hold has been cancelled
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nWe
-          regret to inform you, that the following item can not be provided due to
-          it being missing. Your hold was cancelled.\r\n\r\nTitle: [% biblio.title
-          %]\r\nAuthor: [% biblio.author %]\r\nCopy: [% item.copynumber %]\r\nLocation:
-          [% branch.branchname %]"
+        content: |
+          <p>We regret to inform you, that the following item can not be provided due to it being missing. Your hold was cancelled.</p>
+          <p>Please check your holds from our online library.</p>
         title: Hold has been cancelled
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nWe
-          regret to inform you, that the following item can not be provided due to
-          it being missing. Your hold was cancelled.\r\n\r\nTitle: [% biblio.title
-          %]\r\nAuthor: [% biblio.author %]\r\nCopy: [% item.copynumber %]\r\nLocation:
-          [% branch.branchname %]"
+        content: |
+          <p>We regret to inform you, that the following item can not be provided due to
+          it being missing. Your hold was cancelled.</p>
+          <p>
+          Title: [% biblio.title %]<br>
+          Author: [% biblio.author %]<br>
+          Copy: [% item.copynumber %]<br>
+          Location: [% branch.branchname %]
+          </p>
         title: Hold has been cancelled

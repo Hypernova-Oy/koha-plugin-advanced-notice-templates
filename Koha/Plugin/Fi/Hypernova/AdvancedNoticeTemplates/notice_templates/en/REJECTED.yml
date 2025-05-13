@@ -3,22 +3,19 @@ module: suggestions
 name: Suggestion rejected
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThe library has reviewed your request today, and has decided
-          not to accept the suggestion at this time.\r\n\r\nThe reason given is: [%
-          suggestion.reason %]\r\n\r\nIf you have any questions, please email us at
-          [% branch.branchemail %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname
-          %]"
+        content: |
+          <p>You have made a purchase suggestion to our library.</p>
+          <p>The library has reviewed your request today, and has decided
+          not to accept the suggestion at this time.</p>
+          <p>Please check the reason for rejection from our online library.</p>
         title: Purchase suggestion declined
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThe library has reviewed your request today, and has decided
-          not to accept the suggestion at this time.\r\n\r\nThe reason given is: [%
-          suggestion.reason %]\r\n\r\nIf you have any questions, please email us at
-          [% branch.branchemail %].\r\n\r\nThank you,\r\n\r\n[% branch.branchname
-          %]"
+        content: |
+          <p>You have suggested that the library acquire [% suggestion.title %] by [% suggestion.author %].</p>
+          <p>The library has reviewed your request today, and has decided
+          not to accept the suggestion at this time.</p>
+          <p>The reason given is: [% suggestion.reason %]</p>
+          <p>Please check your purchase suggestions from our online library.</p>
         title: Purchase suggestion declined

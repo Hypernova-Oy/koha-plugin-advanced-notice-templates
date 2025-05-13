@@ -3,26 +3,28 @@ module: circulation
 name: Advance notice of item due (digest)
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          following item(s) will be due soon:\r\n[% FOREACH checkout IN checkouts
-          %]\r\n[% checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
-          END %]\r\nThank you."
+        content: |
+          <p>Item(s) that you checked out will be due soon.</p>
+          <p>Please check your checkouts from our online library and renew or return the item to our library.</p>
         title: Advance notice of item due
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          following item(s) will be due soon:\r\n[% FOREACH checkout IN checkouts
-          %]\r\n[% checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
-          END %]\r\nThank you."
+        content: |
+          <p>The following item(s) will be due soon:</p>
+          <p>
+          [% FOREACH checkout IN checkouts %]
+          [% checkout.title %], [% checkout.author %] ([% checkout.barcode %])<br>
+          [% END %]
+          </p>
         title: Advance notice of item due
   sms:
     plain:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have [% checkouts.size %] item(s) that will be due soon.\r\n\r\nThank you."
+        content: |
+          You have [% checkouts.size %] item(s) that will be due soon.
         title: Advance notice of item due
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have [% checkouts.size %] item(s) that will be due soon.\r\n\r\nThank you."
+        content: |
+          You have [% checkouts.size %] item(s) that will be due soon.
         title: Advance notice of item due

@@ -3,52 +3,56 @@ module: reserves
 name: Hold available for pickup
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have a hold available for pickup as of [% hold.waitingdate | $KohaDates
-          %]:\r\n\r\nTitle: [% biblio.title %]\r\nAuthor: [% biblio.author %]\r\nCopy:
-          [% item.copynumber %]\r\nLocation: [% branch.branchname %]\r\n[% branch.branchaddress1
-          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %] [% branch.branchzip %]"
+        content: |
+          <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]</p>
+          <p>Location: [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]</p>
+          <p>Please check your holds from our online library.</p>
         title: Hold available for pickup at <<branches.branchname>>
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have a hold available for pickup as of [% hold.waitingdate | $KohaDates
-          %]:\r\n\r\nTitle: [% biblio.title %]\r\nAuthor: [% biblio.author %]\r\nCopy:
-          [% item.copynumber %]\r\nLocation: [% branch.branchname %]\r\n[% branch.branchaddress1
-          %]\r\n[% branch.branchaddress2 %]\r\n[% branch.branchaddress3 %]\r\n[% branch.branchcity
-          %] [% branch.branchzip %]"
+        content: |
+          <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]:<br>
+          Title: [% biblio.title %]<br>
+          Author: [% biblio.author %]<br>
+          Copy: [% item.copynumber %]<br>
+          Location: [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]</p>
         title: Hold available for pickup at <<branches.branchname>>
   print:
-    plain:
+    html:
       anonymous:
-        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n\r\n\r\nChange service requested\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
-          borrower.firstname %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[%
-          borrower.city %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
-          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nYou
-          have a hold available for pickup as of [% hold.waitingdate | $KohaDates
-          %]:\r\n\r\nTitle: [% biblio.title %]\r\nAuthor: [% biblio.author %]\r\nCopy:
-          [% item.copynumber %]\r\n"
+        content: |
+          <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]</p>
+          <p>Please check your holds from our online library.</p>
         title: Hold available for pickup (print notice)
       default:
-        content: "[% branch.branchname %]\r\n[% branch.branchaddress1 %]\r\n[% branch.branchaddress2
-          %]\r\n\r\n\r\nChange service requested\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
-          borrower.firstname %] [% borrower.surname %]\r\n[% borrower.address %]\r\n[%
-          borrower.city %] [% borrower.zipcode %]\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n[%
-          borrower.firstname %] [% borrower.surname %] [% borrower.cardnumber %]\r\n\r\nYou
-          have a hold available for pickup as of [% hold.waitingdate | $KohaDates
-          %]:\r\n\r\nTitle: [% biblio.title %]\r\nAuthor: [% biblio.author %]\r\nCopy:
-          [% item.copynumber %]\r\n"
+        content: |
+          <h2>Change service requested</h2>
+          <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]:<br>
+          Title: [% biblio.title %]<br>
+          Author: [% biblio.author %]<br>
+          Copy: [% item.copynumber %]<br>
+          Location: [% branch.branchname %]<br>
+          [% branch.branchaddress1 %]<br>
+          [% branch.branchaddress2 %]<br>
+          [% branch.branchaddress3 %]<br>
+          [% branch.branchzip %] [% branch.branchcity %]</p>
         title: Hold available for pickup (print notice)
   sms:
     plain:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYour
-          hold for [% biblio.title %] is available for pickup."
+        content: |
+          Your hold is available for pickup at [% branch.branchname %]."
         title: Hold available for pickup at [% branch.branchname %]
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYour
-          hold for [% biblio.title %] is available for pickup."
+        content: |
+          Your hold for [% biblio.title %] is available for pickup at [% branch.branchname %]."
         title: Hold available for pickup at [% branch.branchname %]

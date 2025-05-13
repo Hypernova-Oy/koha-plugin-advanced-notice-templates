@@ -5,18 +5,31 @@ template:
   print:
     html:
       anonymous:
-        content: "<h3>[% branch.branchname %]</h3>\r\nChecked in items for [% borrower.title
-          %] [% borrower.firstname %] [% borrower.initials %] [% borrower.surname
-          %] <br>\r\n([% borrower.cardnumber %]) <br>\r\n<br>\r\n[% today | $KohaDates
-          %]<br>\r\n<br>\r\n<h4>Checked in today</h4>\r\n[% FOREACH checkin IN old_checkouts
-          %]\r\n[% SET item = checkin.item %]\r\n<p>\r\n[% item.biblio.title %] <br>\r\nBarcode:
-          [% item.barcode %] <br>\r\n</p>\r\n[% END %]"
+        content: |
+          <h3>[% branch.branchname %]</h3>
+          <p>Checked in items</p>
+          <p>[% today | $KohaDates %]</p>
+          <h4>Checked in today</h4>
+          <p>[% FOREACH checkin IN old_checkouts %]
+          [% SET item = checkin.item %]
+          <p>
+          [% item.biblio.title %]<br>
+          Barcode: [% item.barcode %] <br>
+          </p>
+          [% END %]
         title: Checkin slip
       default:
-        content: "<h3>[% branch.branchname %]</h3>\r\nChecked in items for [% borrower.title
-          %] [% borrower.firstname %] [% borrower.initials %] [% borrower.surname
-          %] <br>\r\n([% borrower.cardnumber %]) <br>\r\n<br>\r\n[% today | $KohaDates
-          %]<br>\r\n<br>\r\n<h4>Checked in today</h4>\r\n[% FOREACH checkin IN old_checkouts
-          %]\r\n[% SET item = checkin.item %]\r\n<p>\r\n[% item.biblio.title %] <br>\r\nBarcode:
-          [% item.barcode %] <br>\r\n</p>\r\n[% END %]"
+        content: |
+          <h3>[% branch.branchname %]</h3>
+          <p>Checked in items for [% borrower.title %] [% borrower.firstname %] [% borrower.initials %] [% borrower.surname %] <br>
+          ([% borrower.cardnumber %])</p>
+          <p>[% today | $KohaDates %]</p>
+          <h4>Checked in today</h4>
+          <p>[% FOREACH checkin IN old_checkouts %]
+          [% SET item = checkin.item %]
+          <p>
+          [% item.biblio.title %]<br>
+          Barcode: [% item.barcode %] <br>
+          </p>
+          [% END %]
         title: Checkin slip

@@ -3,18 +3,23 @@ module: circulation
 name: Account writeoff
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[%- USE Price -%]\r\nAn account writeoff of [% credit.amount * -1
-          | $Price %] has been applied to your account.\r\n\r\nThis writeoff affected
-          the following fees:\r\n[%- FOREACH o IN offsets %]\r\nDescription: [% o.debit.description
-          %]\r\nAmount paid: [% o.amount * -1 | $Price %]\r\nAmount remaining: [%
-          o.debit.amountoutstanding | $Price %]\r\n[% END %]"
+        content: |
+          <p>An account writeoff has been applied to your account.</p>
+          <p>Please check your account from our online library.</p>
         title: Account writeoff
       default:
-        content: "[%- USE Price -%]\r\nAn account writeoff of [% credit.amount * -1
-          | $Price %] has been applied to your account.\r\n\r\nThis writeoff affected
-          the following fees:\r\n[%- FOREACH o IN offsets %]\r\nDescription: [% o.debit.description
-          %]\r\nAmount paid: [% o.amount * -1 | $Price %]\r\nAmount remaining: [%
-          o.debit.amountoutstanding | $Price %]\r\n[% END %]"
+        content: |
+          [%- USE Price -%]
+          <p>An account writeoff of [% credit.amount * -1 | $Price %] has been applied to your account.</p>
+          <p>This writeoff affected the following fees:</p>
+          </p>
+          [%- FOREACH o IN offsets %]
+          <br>
+          Description: [% o.debit.description %]<br>
+          Amount paid: [% o.amount * -1 | $Price %]<br>
+          Amount remaining: [% o.debit.amountoutstanding | $Price %]<br>
+          [% END %]
+          </p>
         title: Account writeoff

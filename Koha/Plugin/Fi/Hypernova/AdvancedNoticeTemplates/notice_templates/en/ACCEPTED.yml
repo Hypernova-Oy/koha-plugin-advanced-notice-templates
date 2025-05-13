@@ -3,22 +3,16 @@ module: suggestions
 name: Suggestion accepted
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThe library has reviewed your suggestion today. The item will
-          be ordered as soon as possible. You will be notified by mail when the order
-          is completed, and again when the item arrives at the library.\r\n\r\nIf
-          you have any questions, please email us at [% branch.branchemail %].\r\n\r\nThank
-          you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>You have made a purchase suggestion to our library.</p>
+          <p>The library has reviewed your suggestion today. The item will be ordered as soon as possible.</p>
+          <p>You will be notified by mail when the order is completed, and again when the item arrives at the library.</p>
         title: Purchase suggestion accepted
       default:
-        content: "Dear [% borrower.firstname %] [% borrower.surname %],\r\n\r\nYou
-          have suggested that the library acquire [% suggestion.title %] by [% suggestion.author
-          %].\r\n\r\nThe library has reviewed your suggestion today. The item will
-          be ordered as soon as possible. You will be notified by mail when the order
-          is completed, and again when the item arrives at the library.\r\n\r\nIf
-          you have any questions, please email us at [% branch.branchemail %].\r\n\r\nThank
-          you,\r\n\r\n[% branch.branchname %]"
+        content: |
+          <p>You have suggested that the library acquire [% suggestion.title %] by [% suggestion.author %]</p>
+          <p>The library has reviewed your suggestion today. The item will be ordered as soon as possible.</p>
+          <p>You will be notified by mail when the order is completed, and again when the item arrives at the library.</p>
         title: Purchase suggestion accepted

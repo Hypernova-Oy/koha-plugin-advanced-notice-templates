@@ -3,16 +3,36 @@ module: orderacquisition
 name: Acquisition order
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nPlease
-          order for the library:\r\n\r\n<order>Ordernumber <<aqorders.ordernumber>>
-          (<<biblio.title>>) (quantity: <<aqorders.quantity>>) ($<<aqorders.listprice>>
-          each).</order>\r\n\r\nThank you,\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>Please order for the library:</p>
+          <p>
+          <order>Ordernumber <<aqorders.ordernumber>> (<<biblio.title>>) 
+          (quantity: <<aqorders.quantity>>) ($<<aqorders.listprice>> each).</order>
+          </p>
         title: Order
       default:
-        content: "<<aqbooksellers.name>>\r\n<<aqbooksellers.address1>>\r\n<<aqbooksellers.address2>>\r\n<<aqbooksellers.address3>>\r\n<<aqbooksellers.address4>>\r\n<<aqbooksellers.phone>>\r\n\r\nPlease
-          order for the library:\r\n\r\n<order>Ordernumber <<aqorders.ordernumber>>
-          (<<biblio.title>>) (quantity: <<aqorders.quantity>>) ($<<aqorders.listprice>>
-          each).</order>\r\n\r\nThank you,\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>
+          <<aqbooksellers.name>><br>
+          <<aqbooksellers.address1>><br>
+          <<aqbooksellers.address2>><br>
+          <<aqbooksellers.address3>><br>
+          <<aqbooksellers.address4>><br>
+          <<aqbooksellers.phone>><br>
+          </p>
+          <p>Please order for the library:</p>
+          <p>
+          <order>Ordernumber <<aqorders.ordernumber>> (<<biblio.title>>) 
+          (quantity: <<aqorders.quantity>>) ($<<aqorders.listprice>> each).</order>
+          </p>
         title: Order

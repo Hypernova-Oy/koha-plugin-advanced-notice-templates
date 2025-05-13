@@ -3,26 +3,48 @@ module: circulation
 name: Article request - print slip
 template:
   print:
-    plain:
+    html:
       anonymous:
-        content: "Article request:\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (<<borrowers.cardnumber>>),\r\n\r\nTitle: <<biblio.title>>\r\nBarcode: <<items.barcode>>\r\n\r\nArticle
-          requested:\r\nTitle: <<article_requests.title>>\r\nAuthor: <<article_requests.author>>\r\nVolume:
-          <<article_requests.volume>>\r\nIssue: <<article_requests.issue>>\r\nDate:
-          <<article_requests.date>>\r\nTOC: [% IF article_request.toc_request %]Yes[%
-          ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nChapters: <<article_requests.chapters>>\r\nNotes:
-          <<article_requests.patron_notes>>\r\nFormat: [% IF article_request.format
-          == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[%
-          END %]"
+        content: |
+          <p>Article request</p>
+          <p>Patron ID (borrowernumber): <<borrowers.borrowernumber>></p>
+          <p>
+          Title: <<biblio.title>><br>
+          Barcode: <<items.barcode>><br>
+          </p>
+          <h4>Article requested:</h4>
+          <p>
+          Title: <<article_requests.title>><br>
+          Author: <<article_requests.author>><br>
+          Volume: <<article_requests.volume>><br>
+          Issue: <<article_requests.issue>><br>
+          Date: <<article_requests.date>><br>
+          TOC: [% IF article_request.toc_request %]Yes[% ELSE %]No[% END %]<br>
+          Pages: <<article_requests.pages>><br>
+          Chapters: <<article_requests.chapters>><br>
+          Notes: <<article_requests.patron_notes>><br>
+          Format: [% IF article_request.format == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[% END %]
+          </p>
         title: Article request
       default:
-        content: "Article request:\r\n\r\n<<borrowers.firstname>> <<borrowers.surname>>
-          (<<borrowers.cardnumber>>),\r\n\r\nTitle: <<biblio.title>>\r\nBarcode: <<items.barcode>>\r\n\r\nArticle
-          requested:\r\nTitle: <<article_requests.title>>\r\nAuthor: <<article_requests.author>>\r\nVolume:
-          <<article_requests.volume>>\r\nIssue: <<article_requests.issue>>\r\nDate:
-          <<article_requests.date>>\r\nTOC: [% IF article_request.toc_request %]Yes[%
-          ELSE %]No[% END %]\r\nPages: <<article_requests.pages>>\r\nChapters: <<article_requests.chapters>>\r\nNotes:
-          <<article_requests.patron_notes>>\r\nFormat: [% IF article_request.format
-          == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[%
-          END %]"
+        content: |
+          <p>Article request</p>
+          <p>Patron: <<borrowers.firstname>> <<borrowers.surname>> (<<borrowers.cardnumber>>)</p>
+          <p>
+          Title: <<biblio.title>><br>
+          Barcode: <<items.barcode>><br>
+          </p>
+          <h4>Article requested:</h4>
+          <p>
+          Title: <<article_requests.title>><br>
+          Author: <<article_requests.author>><br>
+          Volume: <<article_requests.volume>><br>
+          Issue: <<article_requests.issue>><br>
+          Date: <<article_requests.date>><br>
+          TOC: [% IF article_request.toc_request %]Yes[% ELSE %]No[% END %]<br>
+          Pages: <<article_requests.pages>><br>
+          Chapters: <<article_requests.chapters>><br>
+          Notes: <<article_requests.patron_notes>><br>
+          Format: [% IF article_request.format == 'PHOTOCOPY' %]Copy[% ELSIF article_request.format == 'SCAN' %]Scan[% END %]
+          </p>
         title: Article request

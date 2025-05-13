@@ -3,12 +3,19 @@ module: circulation
 name: Item renewals
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "The following items have been renewed:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          <p>This is a confirmation for renewed items. For privacy reasons we do not display the renewed items in this email.</p>
+          ----
+          ----
+          <p>Please check your active checkouts and renewals from our online library.</p>
         title: Item renewals
       default:
-        content: "The following items have been renewed:\r\n----\r\n[% biblio.title
-          %]\r\n----\r\nThank you for visiting [% branch.branchname %]."
+        content: |
+          <p>The following items have been renewed:</p>
+          ----
+          <p>[% biblio.title %]</p>
+          ----
+          <p>Please check your active checkouts and renewals from our online library.</p>
         title: Item renewals

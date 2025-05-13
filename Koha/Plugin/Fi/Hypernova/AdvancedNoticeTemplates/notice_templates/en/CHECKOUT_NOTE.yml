@@ -3,14 +3,15 @@ module: circulation
 name: Checkout note on item set by patron
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
-          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
-          checkout.note %]"
+        content: |
+          <p>A note has been added to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]).</p>
+          <p>Check out the note from the item information.</p>
         title: Checkout note
       default:
-        content: "[% borrower.firstname %] [% borrower.surname %] has added a note
-          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):\r\n[%
-          checkout.note %]"
+        content: |
+          <p>[% borrower.firstname %] [% borrower.surname %] has added a note
+          to the item [% biblio.title %] by [% biblio.author %] ([% item.barcode %]):</p>
+          <p>Note: <strong>[% checkout.note %]</strong></p>
         title: Checkout note

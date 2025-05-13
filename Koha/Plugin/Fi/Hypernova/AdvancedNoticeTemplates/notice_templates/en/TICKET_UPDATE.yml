@@ -5,18 +5,15 @@ template:
   email:
     html:
       anonymous:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
-          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nThe library
-          has added an update to the concern you reported against [%- INCLUDE 'biblio-title.inc'
-          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nThe following
-          comment was left: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nThank
-          you"
+        content: |
+          <p>The library has added an update to the catalog you reported.</p>
+          <p>The following comment was left:</p>
+          <p>[%- ticket_update.message -%]</p>
         title: Catalog concern updated
       default:
-        content: "[%- PROCESS 'html_helpers.inc' -%]\r\nDear [%- INCLUDE 'patron-title.inc'
-          patron => ticket_update.ticket.reporter -%],<br>\r\n<br>\r\nThe library
-          has added an update to the concern you reported against [%- INCLUDE 'biblio-title.inc'
-          biblio=ticket_update.ticket.biblio link = 0 -%].<br>\r\n<br>\r\nThe following
-          comment was left: <br>\r\n[%- ticket_update.message -%]<br>\r\n<br>\r\nThank
-          you"
+        content: |
+          <p>The library has added an update to the catalog you reported against [%- INCLUDE 'biblio-title.inc' biblio=ticket_update.ticket.biblio
+          link = 0 -%].</p>
+          <p>The following comment was left:</p>
+          <p>[%- ticket_update.message -%]</p>
         title: Catalog concern updated

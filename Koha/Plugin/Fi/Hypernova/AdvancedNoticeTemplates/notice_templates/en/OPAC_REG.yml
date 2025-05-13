@@ -5,30 +5,30 @@ template:
   email:
     html:
       anonymous:
-        content: "<h3>New OPAC self-registration</h3>\r\n<p><h4>Self-registration
-          made:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
-          %]</li>\r\n[% IF borrower.cardnumber %]<li>Cardnumber: [% borrower.cardnumber
-          %]</li>[% END %]\r\n[% IF borrower.email %]<li>Email: [% borrower.email
-          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Phone: [% borrower.phone
-          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobile: [% borrower.mobile
-          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
-          END %]\r\n[% IF borrower.emailpro %]<li>Secondary email: [% borrower.emailpro
-          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Secondary phone: [% borrower.phonepro
-          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Home library: [% borrower.branchcode
-          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporary patron category:
-          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        content: |
+          <h3>New OPAC self-registration</h3>
+          [% IF borrower.cardnumber %]<p>Cardnumber: [% borrower.cardnumber %]</p>[% END %]
+          <p>Please check self-registered patrons from Koha.</p>
+          <p>If you accept this self-registration, please move the patron to appropriate patron category.</p>
         title: New OPAC self-registration
       default:
-        content: "<h3>New OPAC self-registration</h3>\r\n<p><h4>Self-registration
-          made:</h4>\r\n<ul>\r\n<li> [% borrower.firstname %] [% borrower.surname
-          %]</li>\r\n[% IF borrower.cardnumber %]<li>Cardnumber: [% borrower.cardnumber
-          %]</li>[% END %]\r\n[% IF borrower.email %]<li>Email: [% borrower.email
-          %]</li>[% END %]\r\n[% IF borrower.phone %]<li>Phone: [% borrower.phone
-          %]</li>[% END %]\r\n[% IF borrower.mobile %]<li>Mobile: [% borrower.mobile
-          %]</li>[% END %]\r\n[% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[%
-          END %]\r\n[% IF borrower.emailpro %]<li>Secondary email: [% borrower.emailpro
-          %]</li>[% END %]\r\n[% IF borrower.phonepro %]<li>Secondary phone: [% borrower.phonepro
-          %]</li>[% END %]\r\n[% IF borrower.branchcode %]<li>Home library: [% borrower.branchcode
-          %]</li>[% END %]\r\n[% IF borrower.categorycode %]<li>Temporary patron category:
-          [% borrower.categorycode %]</li>[% END %]\r\n</ul>\r\n</p>"
+        content: |
+          <h3>New OPAC self-registration</h3>
+          <p>
+          <h4>Self-registration made:</h4>
+          <ul>
+          <li> [% borrower.firstname %] [% borrower.surname %]</li>
+          [% IF borrower.cardnumber %]<li>Cardnumber: [% borrower.cardnumber %]</li>[% END %]
+          [% IF borrower.email %]<li>Email: [% borrower.email %]</li>[% END %]
+          [% IF borrower.phone %]<li>Phone: [% borrower.phone %]</li>[% END %]
+          [% IF borrower.mobile %]<li>Mobile: [% borrower.mobile %]</li>[% END %]
+          [% IF borrower.fax %]<li>Fax: [% borrower.fax %]</li>[% END %]
+          [% IF borrower.emailpro %]<li>Secondary email: [% borrower.emailpro %]</li>[% END %]
+          [% IF borrower.phonepro %]<li>Secondary phone: [% borrower.phonepro %]</li>[% END %]
+          [% IF borrower.branchcode %]<li>Home library: [% borrower.branchcode %]</li>[% END %]
+          [% IF borrower.categorycode %]<li>Temporary patron category: [% borrower.categorycode %]</li>[% END %]
+          </ul>
+          </p>
+          <p>Please check self-registered patrons from Koha.</p>
+          <p>If you accept this self-registration, please move the patron to appropriate patron category.</p>
         title: New OPAC self-registration

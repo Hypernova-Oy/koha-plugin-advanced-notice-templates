@@ -3,24 +3,18 @@ module: reserves
 name: Waiting hold reminder
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: |-
-          Dear [% borrower.firstname %] [% borrower.surname %],
-
-          The following holds are waiting at [% branch.branchname %]:
-
-          [% FOREACH hold IN holds %]
-              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
-          [% END %]
-        title: You have waiting holds.
+        content: |
+          <p>Your are waiting at [% branch.branchname %]</p>
+          <p>Please check your holds from our online library.</p>
+        title: You have waiting holds
       default:
-        content: |-
-          Dear [% borrower.firstname %] [% borrower.surname %],
-
-          The following holds are waiting at [% branch.branchname %]:
-
+        content: |
+          <p>The following holds are waiting at [% branch.branchname %]:</p>
+          <p>
           [% FOREACH hold IN holds %]
-              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]
+              [% hold.biblio.title %] : waiting since [% hold.waitingdate | $KohaDates %]<br>
           [% END %]
-        title: You have waiting holds.
+          </p>
+        title: You have waiting holds

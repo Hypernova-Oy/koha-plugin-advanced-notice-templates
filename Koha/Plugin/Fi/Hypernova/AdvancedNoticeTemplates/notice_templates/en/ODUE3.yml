@@ -1,6 +1,6 @@
 ---
 module: circulation
-name: Overdue notice
+name: Overdue notice (final)
 template:
   email:
     html:

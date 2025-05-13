@@ -5,16 +5,41 @@ template:
   email:
     html:
       anonymous:
-        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nChecked
-          out to <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>
-          <<borrowers.surname>> <br>\r\n(<<borrowers.cardnumber>>) <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Checked
-          out today</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>> <br>\r\nBarcode:
-          <<items.barcode>><br>\r\nDate due: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        content: |
+          [%~ USE KohaDates ~%]
+          <h3><<branches.branchname>></h3>
+          <p>Checkouts</p>
+          <br>
+          <br>
+          <<today>><br>
+          <br>
+          <h4>Checked out today</h4>
+          <checkedout>
+          <p>
+          <<biblio.title>>
+          <br>
+          Barcode: <<items.barcode>><br>
+          Date due: <<issues.date_due>><br>
+          </p>
+          </checkedout>
         title: Issue quick slip
       default:
-        content: "[%~ USE KohaDates ~%]\r\n<h3><<branches.branchname>></h3>\r\nChecked
-          out to <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>
-          <<borrowers.surname>> <br>\r\n(<<borrowers.cardnumber>>) <br>\r\n<br>\r\n<<today>><br>\r\n<br>\r\n<h4>Checked
-          out today</h4>\r\n<checkedout>\r\n<p>\r\n<<biblio.title>> <br>\r\nBarcode:
-          <<items.barcode>><br>\r\nDate due: <<issues.date_due>><br>\r\n</p>\r\n</checkedout>"
+        content: |
+          [%~ USE KohaDates ~%]
+          <h3><<branches.branchname>></h3>
+          <p>Checked out to <<borrowers.title>> <<borrowers.firstname>> <<borrowers.initials>>(<<borrowers.surname>>)<br>
+          (<<borrowers.cardnumber>>)</p>
+          <br>
+          <br>
+          <<today>><br>
+          <br>
+          <h4>Checked out today</h4>
+          <checkedout>
+          <p>
+          <<biblio.title>>
+          <br>
+          Barcode: <<items.barcode>><br>
+          Date due: <<issues.date_due>><br>
+          </p>
+          </checkedout>
         title: Issue quick slip

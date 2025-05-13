@@ -3,14 +3,14 @@ module: members
 name: Account expiration
 template:
   email:
-    plain:
+    html:
       anonymous:
-        content: "Dear <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYour
-          library card will expire soon, on:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nThank
-          you,\r\n\r\nLibrarian\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>Your library card will expire soon, on: <<borrowers.dateexpiry>></p>
+          <p>Please contact our library <<branches.branchname>>.</p>
         title: Account expiration
       default:
-        content: "Dear <<borrowers.title>> <<borrowers.firstname>> <<borrowers.surname>>,\r\n\r\nYour
-          library card will expire soon, on:\r\n\r\n<<borrowers.dateexpiry>>\r\n\r\nThank
-          you,\r\n\r\nLibrarian\r\n\r\n<<branches.branchname>>"
+        content: |
+          <p>Your library card will expire soon, on: <<borrowers.dateexpiry>></p>
+          <p>Please contact our library <<branches.branchname>>.</p>
         title: Account expiration
