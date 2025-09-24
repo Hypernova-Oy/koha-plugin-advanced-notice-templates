@@ -358,20 +358,20 @@ sub get_modifiable_templates {
                 my $retrieve_data = sub {
                     my ($retrieve_key) = @_;
                     my $retrieve_key_exception = "${retrieve_key}_exception";
-                    my $retrieve_data;
+                    my $data;
                     if ( exists $retrieved_data->{$retrieve_key} ) {
-                        $retrieve_data = $retrieved_data->{$retrieve_key} ? 1 : 0;
+                        $data = $retrieved_data->{$retrieve_key} ? 1 : 0;
                     } else {
-                        $retrieve_data = $retrieved_data->{$retrieve_key} = $self->retrieve_data($retrieve_key) ? 1 : 0;
+                        $data = $retrieved_data->{$retrieve_key} = $self->retrieve_data($retrieve_key) ? 1 : 0;
                     }
                     unless ( exists $retrieved_data->{$retrieve_key_exception} ) {
                         $retrieved_data->{$retrieve_key_exception} =
                             $self->retrieve_data($retrieve_key_exception) ? 1 : 0;
                     }
-                    return !$retrieve_data
+                    return !$data
                         if $retrieved_data->{$retrieve_key_exception} && grep { $_ eq $letter_code }
                         split( /,/, $retrieved_data->{$retrieve_key_exception} );
-                    return $retrieve_data;
+                    return $data;
                 };
 
                 my $is_html      = &$retrieve_data("use_html_$mtt");
@@ -450,7 +450,7 @@ sub get_modifiable_templates {
                                         message_transport_type => $mtt
                                     }
                                 ),
-                                is_html      => $is_html,
+                                is_html      => $is_html ? 1 : 0,
                                 new_template => $plugin_templates->{$lang}->{$letter_code}->{'template'}->{$mtt}
                                     ->{$content_type_key}->{$anonymous_template_key},
                                 old_template => {
