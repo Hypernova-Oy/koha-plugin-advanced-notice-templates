@@ -1,0 +1,16 @@
+---
+module: reserves
+name: Your hold has been cancelled
+template:
+  email:
+    html:
+      anonymous:
+        content: |
+          <p>A hold that you had placed on <<items.barcode>> has been cancelled.</p>
+          <p>Please check your holds from our online library. If you have any questions, please contact the library.</p>
+        title: Your hold has been cancelled
+      default:
+        content: |
+          <p>A hold that you had placed on <<biblio.title>> (<<items.barcode>>) has been cancelled.</p>
+          <p>Please check your holds from our online library. If you have any questions, please contact the library.</p>
+        title: Your hold has been cancelled

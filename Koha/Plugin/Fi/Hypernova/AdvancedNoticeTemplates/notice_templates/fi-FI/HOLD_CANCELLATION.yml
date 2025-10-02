@@ -1,0 +1,16 @@
+---
+module: reserves
+name: Varauksesi on peruutettu
+template:
+  email:
+    html:
+      anonymous:
+        content: |
+          <p>Varaus niteelle <<items.barcode>> on peruutettu.</p>
+          <p>Tarkista varauksen tiedot verkkokirjastosta tai ota yhteyttä kirjastoon.</p>
+        title: Varauksesi on peruutettu
+      default:
+        content: |
+          <p>Varaus teokselle <<biblio.title>> (<<items.barcode>>) on peruutettu.</p>
+          <p>Tarkista varauksen tiedot verkkokirjastosta tai ota yhteyttä kirjastoon.</p>
+        title: Varauksesi on peruutettu

@@ -1,0 +1,16 @@
+---
+module: reserves
+name: Din reservation har avbrutits
+template:
+  email:
+    html:
+      anonymous:
+        content: |
+          <p>En reservation som du hade lagt på <<items.barcode>> har avbrutits.</p>
+          <p>Kontrollera dina reservationer i vårt onlinebibliotek. Om du har några frågor, vänligen kontakta biblioteket.</p>
+        title: Din reservation har avbrutits
+      default:
+        content: |
+          <p>En reservation som du hade lagt på <<biblio.title>> (<<items.barcode>>) har avbrutits.</p>
+          <p>Kontrollera dina reservationer i vårt onlinebibliotek. Om du har några frågor, vänligen kontakta biblioteket.</p>
+        title: Din reservation har avbrutits
