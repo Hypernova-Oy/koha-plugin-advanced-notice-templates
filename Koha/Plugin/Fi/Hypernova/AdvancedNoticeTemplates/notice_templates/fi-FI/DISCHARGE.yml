@@ -14,6 +14,6 @@ template:
         content: |
           <h1>Velattomuusilmoituksen vahvistus</h1>
           <p><<branches.branchname>> vahvistaa, että asiakas <<borrowers.firstname>> <<borrowers.surname>>
-          (kirjastokortin numero: <<borrowers.cardnumber>>) on palauttanut kaikki niteet.</p>
+          (kirjastokortin tai asiakastilin numero: <<borrowers.cardnumber>>) on palauttanut kaikki niteet.</p>
           <p><<today>></p>
         title: Velattomuusilmoitus asiakkaalle <<borrowers.firstname>> <<borrowers.surname>>

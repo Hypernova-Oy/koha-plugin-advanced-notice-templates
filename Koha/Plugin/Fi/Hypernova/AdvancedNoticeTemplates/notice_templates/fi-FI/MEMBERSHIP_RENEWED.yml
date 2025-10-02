@@ -7,7 +7,7 @@ template:
       anonymous:
         content: |
           [%- USE Price -%]
-          <p>Kirjastokorttisi voimassaoloaikaa on jatkettu.</p>
+          <p>Asiakastilisi voimassaoloaikaa on jatkettu.</p>
           <p>Uusi vanhentumispäivä on: [% borrower.dateexpiry %].</p>
           [% IF borrower.category.enrolmentfee > 0 %]
           <p>Ilmoittautumismaksu on lisätty tilillesi.</p>
@@ -16,7 +16,7 @@ template:
       default:
         content: |
           [%- USE Price -%]
-          <p>Kirjastokorttisi voimassaoloaikaa on jatkettu.</p>
+          <p>Asiakastilisi voimassaoloaikaa on jatkettu.</p>
           <p>Uusi vanhentumispäivä on: [% borrower.dateexpiry %].</p>
           [% IF borrower.category.enrolmentfee > 0 %]
           <p>Ilmoittautumismaksu [% borrower.category.enrolmentfee | $Price

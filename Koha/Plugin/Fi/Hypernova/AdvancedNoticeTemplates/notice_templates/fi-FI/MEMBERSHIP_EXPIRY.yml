@@ -6,11 +6,11 @@ template:
     html:
       anonymous:
         content: |
-          <p>Kirjastokorttisi vanhenee <<borrowers.dateexpiry>></p>
+          <p>Asiakastilisi vanhenee <<borrowers.dateexpiry>></p>
           <p>Ole hyvä ja ota yhteyttä kirjastoon.</p>
         title: Käyttäjätilin vanhentuminen
       default:
         content: |
-          <p>Kirjastokorttisi vanhenee <<borrowers.dateexpiry>></p>
+          <p>Asiakastilisi vanhenee <<borrowers.dateexpiry>></p>
           <p>Ole hyvä ja ota yhteyttä kirjastoon.</p>
         title: Käyttäjätilin vanhentuminen
