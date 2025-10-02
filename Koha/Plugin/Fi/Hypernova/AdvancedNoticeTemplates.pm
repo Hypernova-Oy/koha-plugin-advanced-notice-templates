@@ -28,7 +28,7 @@ use Try::Tiny;
 
 use C4::Languages;
 
-our $VERSION = "24.11.01.2";
+our $VERSION = "24.11.01.3";
 
 our $metadata = {
     name            => 'Advanced Notice Templates',
