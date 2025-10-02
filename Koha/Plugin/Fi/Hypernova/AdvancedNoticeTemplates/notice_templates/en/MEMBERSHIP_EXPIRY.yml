@@ -6,11 +6,11 @@ template:
     html:
       anonymous:
         content: |
-          <p>Your library card will expire soon, on: <<borrowers.dateexpiry>></p>
+          <p>Your library account will expire soon, on: <<borrowers.dateexpiry>></p>
           <p>Please contact our library <<branches.branchname>>.</p>
         title: Account expiration
       default:
         content: |
-          <p>Your library card will expire soon, on: <<borrowers.dateexpiry>></p>
+          <p>Your library account will expire soon, on: <<borrowers.dateexpiry>></p>
           <p>Please contact our library <<branches.branchname>>.</p>
         title: Account expiration
