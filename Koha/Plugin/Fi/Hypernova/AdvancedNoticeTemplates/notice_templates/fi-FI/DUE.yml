@@ -6,21 +6,21 @@ template:
     html:
       anonymous:
         content: |
-          <p>Lainaamasi nide erääntyy. Tarkista lainasi verkkokirjastosta.</p>
-        title: Eräpäivämuistutus
+          <p>Lainaamasi nide erääntyy tänään. Tarkista lainasi verkkokirjastosta.</p>
+        title: Lainasi erääntyy tänään
       default:
         content: |
-          <p>Seuraava nide erääntyy:</p>
+          <p>Seuraava nide erääntyy tänään:</p>
           <p>[% biblio.title %], [% biblio.author %] ([% item.barcode %])</p>
           <p>Tarkista lainasi verkkokirjastosta.</p>
-        title: Eräpäivämuistutus
+        title: Lainasi erääntyy tänään
   sms:
     plain:
       anonymous:
         content: |
-          Lainaamasi nide erääntyy. Tarkista lainasi verkkokirjastosta.
-        title: Eräpäivämuistutus
+          Lainaamasi nide erääntyytänään . Tarkista lainasi verkkokirjastosta.
+        title: Lainasi erääntyy tänään
       default:
         content: "Seuraava
           nide erääntyy:\r\n\r\n[% biblio.title %]"
-        title: Eräpäivämuistutus
+        title: Lainasi erääntyy tänään
