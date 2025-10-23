@@ -14,7 +14,7 @@ template:
           <p>Lainasi ovat pian erääntymässä.</p>
           <p>Seuraavat niteet erääntyvät pian:<br>
           [% FOREACH checkout IN checkouts %]
-          [% checkout.title %] / [% checkout.author %] ([% checkout.barcode %])<br>
+          [% checkout.date_due | $KohaDates as_due_date=1 %] [% checkout.title %] / [% checkout.author %] ([% checkout.barcode %])<br>
           [% END %]</p>
           <p>Tarkista lainasi verkkokirjastosta ja uusi lainasi tai palauta niteet kirjastoon.</p>
         title: Ennakkoilmoitus erääntyvästä lainasta

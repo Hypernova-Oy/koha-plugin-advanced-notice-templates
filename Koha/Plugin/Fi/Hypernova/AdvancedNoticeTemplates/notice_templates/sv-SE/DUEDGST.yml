@@ -6,13 +6,13 @@ template:
     plain:
       anonymous:
         content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[%
+          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.date_due | $KohaDates as_due_date=1 %] [%
           checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
           END %]\r\nTack."
         title: Påminnelse om förfallodatum
       default:
         content: "Kära [% borrower.firstname %] [% borrower.surname %],\r\n\r\nThe
-          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[%
+          following item(s) are now due:\r\n[% FOREACH checkout IN checkouts %]\r\n[% checkout.date_due | $KohaDates as_due_date=1 %] [%
           checkout.title %], [% checkout.author %] ([% checkout.barcode %])\r\n[%
           END %]\r\nTack."
         title: Påminnelse om förfallodatum

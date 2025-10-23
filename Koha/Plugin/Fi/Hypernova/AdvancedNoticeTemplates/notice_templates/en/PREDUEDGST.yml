@@ -14,7 +14,7 @@ template:
           <p>The following item(s) will be due soon:</p>
           <p>
           [% FOREACH checkout IN checkouts %]
-          [% checkout.title %], [% checkout.author %] ([% checkout.barcode %])<br>
+          [% checkout.date_due | $KohaDates as_due_date=1 %] [% checkout.title %], [% checkout.author %] ([% checkout.barcode %])<br>
           [% END %]
           </p>
         title: Advance notice of item due
