@@ -7,14 +7,14 @@ template:
       anonymous:
         content: |
           <p>Olet tehnyt kirjastolle hankintaehdotuksen. Kirjasto on tarkistanut ehdotuksesi
-          ja päättänyt tällä kertaaolla hankkimatta ehdotuksesi mukaista aineistoa.</p>
+          ja päättänyt tällä kertaa olla hankkimatta ehdotuksesi mukaista aineistoa.</p>
           <p>Tarkista hylkäämisen syy verkkokirjastosta.</p>
         title: Hankintaehdotus hylätty
       default:
         content: |
           <p>Olet tehnyt kirjastolle hankintaehdotuksen [% suggestion.title %] / [% suggestion.author %]. 
           Kirjasto on tarkistanut ehdotuksesi
-          ja päättänyt tällä kertaaolla hankkimatta ehdotuksesi mukaista aineistoa.</p>
+          ja päättänyt tällä kertaa olla hankkimatta ehdotuksesi mukaista aineistoa.</p>
           <p>Syy: [% suggestion.reason %]</p>
           <p>Voit tarkistaa voimassa olevat hankintaehdotuksesi verkkokirjastosta.</p>
         title: Hankintaehdotus hylätty
