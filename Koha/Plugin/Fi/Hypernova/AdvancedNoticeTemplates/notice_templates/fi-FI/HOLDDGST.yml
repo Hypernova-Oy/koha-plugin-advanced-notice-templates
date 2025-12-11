@@ -10,15 +10,16 @@ template:
           ----
           <p>
           Varaus<br>
-          Alkaen: [% hold.waitingdate %]<br>
           Noudettavissa kirjastossa: [% hold.branch.branchname %]<br>
           [% hold.branch.branchaddress1 %]<br>
           [% hold.branch.branchaddress2 %]<br>
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          <br>
+          Nouda viimeistään: [% hold.expirationdate %]
           </p>
           ----
-          <p>Tarkista varauksesi verkkokirjastosta.</p>
+          <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa
       default:
         content: |
@@ -26,16 +27,16 @@ template:
           ----
           <p>Otsikko: [% hold.biblio.title %]<br>
           Tekijä: [% hold.biblio.author %]<br>
-          Kopion numero: [% hold.item.copynumber %]<br>
-          Alkaen: [% hold.waitingdate %]<br>
           Noudettavissa kirjastosta: [% hold.branch.branchname %]<br>
           [% hold.branch.branchaddress1 %]<br>
           [% hold.branch.branchaddress2 %]<br>
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          <br>
+          Nouda viimeistään: [% hold.expirationdate %]
           </p>
           ----
-          <p>Tarkista varauksesi verkkokirjastosta.</p>
+          <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa
   sms:
     plain:

@@ -10,15 +10,16 @@ template:
           ----
           <p>
           Hold available for pickup<br>
-          Waiting since: [% hold.waitingdate %]<br>
           Waiting at: [% hold.branch.branchname %]<br>
           [% hold.branch.branchaddress1 %]<br>
           [% hold.branch.branchaddress2 %]<br>
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          <br>
+          Please pick up before: [% hold.expirationdate %]
           </p>
           ----
-          <p>Please check your holds from our online library.</p>
+          <p>If the hold is no longer required, please contact the library.</p>
         title: Hold(s) available for pickup
       default:
         content: |
@@ -28,16 +29,16 @@ template:
           Hold available for pickup<br>
           Title: [% hold.biblio.title %]<br>
           Author: [% hold.biblio.author %]<br>
-          Copy: [% hold.item.copynumber %]<br>
-          Waiting since: [% hold.waitingdate %]<br>
           Waiting at: [% hold.branch.branchname %]<br>
           [% hold.branch.branchaddress1 %]<br>
           [% hold.branch.branchaddress2 %]<br>
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
+          <br>
+          Please pick up before: [% hold.expirationdate %]
           </p>
           ----
-          <p>Please check your holds from our online library.</p>
+          <p>If the hold is no longer required, please contact the library.</p>
         title: Hold(s) available for pickup
   sms:
     plain:

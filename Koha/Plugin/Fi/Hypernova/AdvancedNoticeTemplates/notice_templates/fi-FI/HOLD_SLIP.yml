@@ -17,7 +17,8 @@ template:
           <ul>
           \  <li>[% item.barcode %]</li>
              <li>[% item.itemcallnumber %]</li>
-          \  <li>[% reserve.waitingdate | $KohaDates %]</li>
+          \  <li>alkaen [% reserve.waitingdate | $KohaDates %]</li>
+             <li>Viimeinen noutopäivä [% reserve.expirationdate | $KohaDates %]</li>
           </ul>
           <p>Huomautukset:
           <pre>[% reserve.reservenotes %]</pre>
@@ -47,7 +48,8 @@ template:
           <ul>
           \  <li>[% item.barcode %]</li>
              <li>[% item.itemcallnumber %]</li>
-          \  <li>[% reserve.waitingdate | $KohaDates %]</li>
+          \  <li>alkaen [% reserve.waitingdate | $KohaDates %]</li>
+             <li>Viimeinen noutopäivä [% reserve.expirationdate | $KohaDates %]</li>
           </ul>
           <p>Huomautukset:
           <pre>[% reserve.reservenotes %]</pre>

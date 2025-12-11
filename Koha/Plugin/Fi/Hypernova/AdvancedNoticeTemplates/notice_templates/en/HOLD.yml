@@ -11,20 +11,26 @@ template:
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
-          <p>Please check your holds from our online library.</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Please pick up before: [% hold.expirationdate %]</p>
+
+          <p>If the hold is no longer required, please contact the library.</p>
         title: Hold available for pickup at <<branches.branchname>>
       default:
         content: |
           <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]:<br>
           Title: [% biblio.title %]<br>
           Author: [% biblio.author %]<br>
-          Copy: [% item.copynumber %]<br>
           Location: [% branch.branchname %]<br>
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Please pick up before: [% hold.expirationdate %]</p>
+
+          <p>If the hold is no longer required, please contact the library.</p>
         title: Hold available for pickup at <<branches.branchname>>
   print:
     html:
@@ -39,12 +45,15 @@ template:
           <p>You have a hold available for pickup as of [% hold.waitingdate | $KohaDates %]:<br>
           Title: [% biblio.title %]<br>
           Author: [% biblio.author %]<br>
-          Copy: [% item.copynumber %]<br>
           Location: [% branch.branchname %]<br>
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Please pick up before: [% hold.expirationdate %]</p>
+
+          <p>If the hold is no longer required, please contact the library.</p>
         title: Hold available for pickup (print notice)
   sms:
     plain:

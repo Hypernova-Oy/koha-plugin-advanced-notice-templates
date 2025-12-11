@@ -11,20 +11,26 @@ template:
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
-          <p>Ole hyvä ja katso varauksesi verkkokirjastostamme.</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Nouda viimeistään: [% hold.expirationdate %]</p>
+
+          <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa kirjastosta <<branches.branchname>>
       default:
         content: |
           <p>Varauksesi on noudettavissa alkaen [% hold.waitingdate | $KohaDates %]:<br>
           Otsikko: [% biblio.title %]<br>
           Tekijä: [% biblio.author %]<br>
-          Kopion numero: [% item.copynumber %]<br>
           Kirjasto: [% branch.branchname %]<br>
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Nouda viimeistään: [% hold.expirationdate %]</p>
+
+          <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa kirjastosta <<branches.branchname>>
   print:
     html:
@@ -39,12 +45,14 @@ template:
           <p>Varaus on noudettavissa alkaen [% hold.waitingdate | $KohaDates %]:<br>
           Otsikko: [% biblio.title %]<br>
           Tekijä: [% biblio.author %]<br>
-          Kopion numero: [% item.copynumber %]<br>
           Kirjasto: [% branch.branchname %]<br>
           [% branch.branchaddress1 %]<br>
           [% branch.branchaddress2 %]<br>
           [% branch.branchaddress3 %]<br>
-          [% branch.branchzip %] [% branch.branchcity %]</p>
+          [% branch.branchzip %] [% branch.branchcity %]<br>
+          <br>
+          Nouda viimeistään: [% hold.expirationdate %]
+          </p>
         title: Varaus noudettavissa (tuloste)
   sms:
     plain:
