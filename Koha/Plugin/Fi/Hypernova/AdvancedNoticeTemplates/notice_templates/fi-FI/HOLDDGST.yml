@@ -16,7 +16,7 @@ template:
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
           <br>
-          Nouda viimeistään: [% hold.expirationdate %]
+          Nouda viimeistään: [% hold.expirationdate | $KohaDates %]
           </p>
           ----
           <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
@@ -33,7 +33,7 @@ template:
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
           <br>
-          Nouda viimeistään: [% hold.expirationdate %]
+          Nouda viimeistään: [% hold.expirationdate | $KohaDates %]
           </p>
           ----
           <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>

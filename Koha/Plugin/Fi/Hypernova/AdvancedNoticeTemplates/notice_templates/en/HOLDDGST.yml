@@ -16,7 +16,7 @@ template:
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
           <br>
-          Please pick up before: [% hold.expirationdate %]
+          Please pick up before: [% hold.expirationdate | $KohaDates %]
           </p>
           ----
           <p>If the hold is no longer required, please contact the library.</p>
@@ -35,7 +35,7 @@ template:
           [% hold.branch.branchaddress3 %]<br>
           [% hold.branch.branchzip %] [% hold.branch.branchcity %]<br>
           <br>
-          Please pick up before: [% hold.expirationdate %]
+          Please pick up before: [% hold.expirationdate | $KohaDates %]
           </p>
           ----
           <p>If the hold is no longer required, please contact the library.</p>

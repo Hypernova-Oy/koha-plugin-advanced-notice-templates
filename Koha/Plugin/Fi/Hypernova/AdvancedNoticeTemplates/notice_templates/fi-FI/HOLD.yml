@@ -13,7 +13,7 @@ template:
           [% branch.branchaddress3 %]<br>
           [% branch.branchzip %] [% branch.branchcity %]<br>
           <br>
-          Nouda viimeistään: [% hold.expirationdate %]</p>
+          Nouda viimeistään: [% hold.expirationdate | $KohaDates %]</p>
 
           <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa kirjastosta <<branches.branchname>>
@@ -28,7 +28,7 @@ template:
           [% branch.branchaddress3 %]<br>
           [% branch.branchzip %] [% branch.branchcity %]<br>
           <br>
-          Nouda viimeistään: [% hold.expirationdate %]</p>
+          Nouda viimeistään: [% hold.expirationdate | $KohaDates %]</p>
 
           <p>Ole hyvä ja ilmoita kirjastoon jos et enää tarvitse varattua aineistoa.</p>
         title: Varaus noudettavissa kirjastosta <<branches.branchname>>
@@ -51,7 +51,7 @@ template:
           [% branch.branchaddress3 %]<br>
           [% branch.branchzip %] [% branch.branchcity %]<br>
           <br>
-          Nouda viimeistään: [% hold.expirationdate %]
+          Nouda viimeistään: [% hold.expirationdate | $KohaDates %]
           </p>
         title: Varaus noudettavissa (tuloste)
   sms:
