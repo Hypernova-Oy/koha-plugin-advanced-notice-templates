@@ -28,13 +28,13 @@ use Try::Tiny;
 
 use C4::Languages;
 
-our $VERSION = "24.11.01.4";
+our $VERSION = "24.11.01.5";
 
 our $metadata = {
     name            => 'Advanced Notice Templates',
     author          => 'Lari Taskula',
     date_authored   => '2025-04-17',
-    date_updated    => "2025-04-17",
+    date_updated    => "2025-12-18",
     minimum_version => '24.11.01.000',
     maximum_version => undef,
     version         => $VERSION,
